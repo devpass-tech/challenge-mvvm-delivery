@@ -1,0 +1,69 @@
+{
+	"name": "Benjamin A Padaria",
+	"category": "Padaria",
+	"delivery_time": {
+		"min": 23,
+		"max": 33
+	},
+	"reviews": {
+		"score": 4.8,
+		"count": 351
+	},
+	"menu": [
+		{
+			"category": "Café da manhã",
+			"name": "Copo Pão de Queijo + Suco de Laranja",
+			"price": 20
+		},
+		{
+			"category": "Café da manhã",
+			"name": "Iogurte granola e mel",
+			"price": 12
+		},
+		{
+			"category": "Café da manhã",
+			"name": "Pão francês com manteiga na chapa",
+			"price": 5
+		},
+		{
+			"category": "Café da manhã",
+			"name": "Pão na chapa com requeijão",
+			"price": 8
+		},
+		{
+			"category": "Café da manhã",
+			"name": "Café com leite",
+			"price": 9
+		},
+		{
+			"category": "Almoço",
+			"name": "Wrap de Cogumelo",
+			"price": 24
+		},
+		{
+			"category": "Almoço",
+			"name": "Torta de Palmito",
+			"price": 15
+		},
+		{
+			"category": "Almoço",
+			"name": "Torta de Frango",
+			"price": 15
+		},
+		{
+			"category": "Almoço",
+			"name": "Quiche de tomate fresco",
+			"price": 15
+		},
+		{
+			"category": "Jantar",
+			"name": "Combo 3 Sopas + Pão Filão",
+			"price": 87
+		},
+		{
+			"category": "Jantar",
+			"name": "Sanduíche de pernil",
+			"price": 22
+		}
+	]
+}

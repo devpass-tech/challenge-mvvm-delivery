@@ -9,11 +9,6 @@ import UIKit
 
 class MenuItemViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
     override func loadView() {
         self.view = MenuItemView()
     }

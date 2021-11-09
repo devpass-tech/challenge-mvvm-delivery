@@ -35,6 +35,8 @@
 		98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB52732BFDA002412EA /* MenuCellView.swift */; };
 		98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB72732C1EF002412EA /* MenuItemView.swift */; };
 		BC13DCD3273AA2AD005F3162 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCD2273AA2AD005F3162 /* APIError.swift */; };
+		BC13DCD5273AA60B005F3162 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCD4273AA60B005F3162 /* APIManager.swift */; };
+		BC13DCDA273ABC53005F3162 /* RestaurantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCD9273ABC53005F3162 /* RestaurantDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		98FC5AB52732BFDA002412EA /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		98FC5AB72732C1EF002412EA /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		BC13DCD2273AA2AD005F3162 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		BC13DCD4273AA60B005F3162 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		BC13DCD9273ABC53005F3162 /* RestaurantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 			children = (
 				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
 				BC13DCD2273AA2AD005F3162 /* APIError.swift */,
+				BC13DCD4273AA60B005F3162 /* APIManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 		983271F0272753000010C63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC13DCD9273ABC53005F3162 /* RestaurantDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
+				BC13DCDA273ABC53005F3162 /* RestaurantDetails.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
 				98612707272F56AB0049403C /* SettingsView.swift in Sources */,
 				98F1297D272F51DE00B88A87 /* MenuItemViewController.swift in Sources */,
@@ -435,6 +442,7 @@
 				98F1297D272F51DE00B88A87 /* MenuItemViewController.swift in Sources */,
 				BC13DCD3273AA2AD005F3162 /* APIError.swift in Sources */,
 				98F12975272F48E400B88A87 /* AddressCellView.swift in Sources */,
+				BC13DCD5273AA60B005F3162 /* APIManager.swift in Sources */,
 				98F12970272F41AE00B88A87 /* RestaurantCellView.swift in Sources */,
 				98F12977272F48F000B88A87 /* AddressListView.swift in Sources */,
 				98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */,
@@ -623,6 +631,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVER_URL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -651,6 +660,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.devpass.DeliveryAppChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SERVER_URL = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

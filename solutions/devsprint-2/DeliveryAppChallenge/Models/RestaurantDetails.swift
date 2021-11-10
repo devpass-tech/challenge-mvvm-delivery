@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct RestaurantDetails: Decodable {
 	let name: String
 	let category: String

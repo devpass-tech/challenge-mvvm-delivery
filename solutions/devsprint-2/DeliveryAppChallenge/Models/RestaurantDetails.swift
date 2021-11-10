@@ -15,6 +15,11 @@ struct RestaurantDetails: Decodable {
 	let deliveryTime: DeliveryTime
 	let reviews: Reviews
 	let menu: [MenuItem]
+	
+	enum CodingKeys: String, CodingKey {
+		case name, category, reviews, menu
+		case deliveryTime = "delivery_time"
+	}
 }
 
 struct DeliveryTime: Decodable {

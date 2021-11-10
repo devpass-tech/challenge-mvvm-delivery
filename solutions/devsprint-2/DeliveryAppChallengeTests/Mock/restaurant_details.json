@@ -1,0 +1,24 @@
+{
+	"name": "Benjamin A Padaria",
+	"category": "Padaria",
+	"delivery_time": {
+		"min": 23,
+		"max": 33
+	},
+	"reviews": {
+		"score": 4.8,
+		"count": 351
+	},
+	"menu": [
+		{
+			"category": "Café da manhã",
+			"name": "Copo Pão de Queijo + Suco de Laranja",
+			"price": 20
+		},
+		{
+			"category": "Café da manhã",
+			"name": "Iogurte granola e mel",
+			"price": 12
+		}
+	]
+}

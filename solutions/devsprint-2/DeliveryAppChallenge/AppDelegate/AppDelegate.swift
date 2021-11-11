@@ -12,10 +12,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-		 NameUserDefaults.add(with: "John Appleseed")
-		 EmailUserDefaults.add(with: "john@apple.com")
-		 AddressUserDefaults.add(with: "Rua Bela Cintra, 495 - Consolação")
-		 PaymentUserDefaults.add(with: "Cartão de Crédito")
+//		 NameUserDefaults.add(with: "John Appleseed")
+//		 EmailUserDefaults.add(with: "john@apple.com")
+//		 AddressUserDefaults.add(with: "Rua Bela Cintra, 495 - Consolação")
+//		 PaymentUserDefaults.add(with: "Cartão de Crédito")
 		 
         return true
     }

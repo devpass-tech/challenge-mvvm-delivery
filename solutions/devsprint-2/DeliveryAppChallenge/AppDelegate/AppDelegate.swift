@@ -12,13 +12,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let userDefaults = UserDefaults.standard
-        userDefaults.setValue("John Appleseed", forKey: "user-name")
-        userDefaults.setValue("john@apple.com", forKey: "user-email")
-        userDefaults.setValue("Rua Bela Cintra, 495 - Consolação", forKey: "address")
-        userDefaults.setValue("Cartão de Crédito", forKey: "payment-method")
-        userDefaults.synchronize()
-
+		 NameUserDefaults.add(with: "John Appleseed")
+		 EmailUserDefaults.add(with: "john@apple.com")
+		 AddressUserDefaults.add(with: "Rua Bela Cintra, 495 - Consolação")
+		 PaymentUserDefaults.add(with: "Cartão de Crédito")
+		 
         return true
     }
 

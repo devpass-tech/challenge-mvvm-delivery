@@ -11,11 +11,6 @@ enum HTTPMethod: String {
 	 case get = "GET"
 }
 
-protocol APIManagerProtocol {
-	func performRequest<T: Decodable>(pathURL: String, method: HTTPMethod, completion: @escaping(Result<T, APIError>) -> Void)
-}
-
-
 class APIManager: APIManagerProtocol {
 	
 	func performRequest<T: Decodable>(

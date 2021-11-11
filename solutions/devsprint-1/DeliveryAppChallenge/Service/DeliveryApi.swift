@@ -17,6 +17,13 @@ enum DeliveryApiError: Error {
     case responseError
 }
 
+// MARK: - URLString
+
+enum URLString: String {
+    case restaurant = "home_restaurant_list"
+    case restaurantDetails = "restaurant_details"
+}
+
 // MARK: - DeliveryApiProtocol
 
 protocol DeliveryApiProtocol {
@@ -39,7 +46,7 @@ struct DeliveryApi {
     }
 }
 
-// MARK: - DeliveryApi
+// MARK: DeliveryApiProtocol
 
 extension DeliveryApi: DeliveryApiProtocol {
     func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void) {
@@ -74,6 +81,46 @@ extension DeliveryApi: DeliveryApiProtocol {
 
             DispatchQueue.main.async {
                 completion(.success(restaurants))
+            }
+        }
+        task.resume()
+    }
+
+    func fetchRequest<T: Codable>(
+        _ urlString: URLString,
+        _ completion: @escaping (Result<T, DeliveryApiError>) -> Void)
+    {
+        guard let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/\(urlString.rawValue).json") else {
+            return completion(.failure(.invalidURL))
+        }
+        let request = URLRequest(url: url)
+
+        let sessionConfig = URLSessionConfiguration.default
+        let session = URLSession(configuration: sessionConfig)
+
+        let task = session.dataTask(with: request) { data, response, error in
+            if let _ = error {
+                return completion(.failure(.serverError))
+            }
+
+            guard let response = response as? HTTPURLResponse else {
+                return completion(.failure(.responseError))
+            }
+
+            guard (200...299).contains(response.statusCode) else {
+                return completion(.failure(.networkError(response.statusCode)))
+            }
+
+            guard let data = data else {
+                return completion(.failure(.decodificationError))
+            }
+
+            guard let result: T = data.jSONDecode(using: .convertFromSnakeCase) else {
+                return completion(.failure(.decodificationError))
+            }
+
+            DispatchQueue.main.async {
+                completion(.success(result))
             }
         }
         task.resume()

@@ -26,11 +26,11 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Internal
+
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-    // MARK: Internal
 
     override func loadView() {
         self.view = HomeView()

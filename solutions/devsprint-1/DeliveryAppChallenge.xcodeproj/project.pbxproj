@@ -32,6 +32,7 @@
 		B176DBA3273A640C0066F51D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B176DBA1273A63C50066F51D /* SceneDelegate.swift */; };
 		B17EC8D9273A64760015ED07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BC272752AF0010C63A /* AppDelegate.swift */; };
 		B17EC8DA273A65530015ED07 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98612706272F56AB0049403C /* SettingsView.swift */; };
+		B1CF855B273B4EDA004F0797 /* RestaurantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF855A273B4EDA004F0797 /* RestaurantsViewModel.swift */; };
 		B1F02B72273B275A00AC70CF /* DeliveryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0565272A0A0F007B0228 /* DeliveryApi.swift */; };
 		B1F02B73273B276800AC70CF /* MenuItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1297C272F51DE00B88A87 /* MenuItemViewController.swift */; };
 		B1F02B74273B277200AC70CF /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
@@ -80,6 +81,7 @@
 		B176DB9C273A5E680066F51D /* Data+jSONDecode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+jSONDecode.swift"; sourceTree = "<group>"; };
 		B176DB9E273A635A0066F51D /* AddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		B176DBA1273A63C50066F51D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B1CF855A273B4EDA004F0797 /* RestaurantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewModel.swift; sourceTree = "<group>"; };
 		B1F02B78273B29D300AC70CF /* DeliveryAppChallengeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryAppChallengeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				983271ED272752D20010C63A /* AppDelegate */,
 				983271EE272752EE0010C63A /* Screens */,
 				983271EF272752F60010C63A /* Service */,
+				B1CF8559273B4ED1004F0797 /* ViewModels */,
 				B176DB98273A5E160066F51D /* Models */,
 				B176DB99273A5E1B0066F51D /* Extensions */,
 			);
@@ -323,6 +326,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B1CF8559273B4ED1004F0797 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF855A273B4EDA004F0797 /* RestaurantsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -440,6 +451,7 @@
 				98F12977272F48F000B88A87 /* AddressListView.swift in Sources */,
 				98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */,
 				98F1297B272F51AE00B88A87 /* SettingsViewController.swift in Sources */,
+				B1CF855B273B4EDA004F0797 /* RestaurantsViewModel.swift in Sources */,
 				98F1296C272F328200B88A87 /* CategoryListView.swift in Sources */,
 				B1F02B74273B277200AC70CF /* AddressSearchViewController.swift in Sources */,
 				98F1296E272F363200B88A87 /* HomeView.swift in Sources */,

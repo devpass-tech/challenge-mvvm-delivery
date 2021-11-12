@@ -6,7 +6,12 @@
 //
 
 import UIKit
+
+// MARK: - HomeViewController
+
 class HomeViewController: UIViewController {
+    // MARK: Lifecycle
+
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -24,6 +29,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+
+    // MARK: Internal
 
     override func loadView() {
         self.view = HomeView()

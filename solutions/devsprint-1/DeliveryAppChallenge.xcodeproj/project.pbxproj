@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052E3B6E273B5EF50061FDA5 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052E3B6D273B5EF50061FDA5 /* Address.swift */; };
 		983271C1272752AF0010C63A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271C0272752AF0010C63A /* HomeViewController.swift */; };
 		983271C6272752B50010C63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983271C5272752B50010C63A /* Assets.xcassets */; };
 		983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983271C7272752B50010C63A /* LaunchScreen.storyboard */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052E3B6D273B5EF50061FDA5 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271C0272752AF0010C63A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				B176DB9A273A5E5E0066F51D /* Restaurant.swift */,
+				052E3B6D273B5EF50061FDA5 /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				B1CF855B273B4EDA004F0797 /* RestaurantsViewModel.swift in Sources */,
 				98F1296C272F328200B88A87 /* CategoryListView.swift in Sources */,
 				B1F02B74273B277200AC70CF /* AddressSearchViewController.swift in Sources */,
+				052E3B6E273B5EF50061FDA5 /* Address.swift in Sources */,
 				98F1296E272F363200B88A87 /* HomeView.swift in Sources */,
 				B176DB9B273A5E5E0066F51D /* Restaurant.swift in Sources */,
 				98F1296A272F327100B88A87 /* CategoryCellView.swift in Sources */,

@@ -10,10 +10,12 @@ import UIKit
 // MARK: - HomeViewController
 
 class HomeViewController: UIViewController {
+    
     // MARK: Lifecycle
 
     init() {
         super.init(nibName: nil, bundle: nil)
+       
 
         navigationItem.title = "Delivery App"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
@@ -28,11 +30,23 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
 
     // MARK: Internal
 
     override func loadView() {
-        self.view = HomeView()
+        let home = HomeView()
+        home.setupCellViewDelegate(delegate: self)
+        self.view = home
+        
+    }
+}
+
+extension HomeViewController: CategoryCellViewProtocolDelegate {
+    func imageTapped() {
+        let vc = RestaurantListViewController()
+        navigationController?.pushViewController(vc, animated: true)
+        print("Image Pressed")
     }
 }

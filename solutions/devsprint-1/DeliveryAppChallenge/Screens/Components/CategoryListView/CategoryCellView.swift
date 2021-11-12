@@ -7,8 +7,18 @@
 
 import UIKit
 
-class CategoryCellView: UIView {
+protocol CategoryCellViewProtocolDelegate: AnyObject {
+    func imageTapped()
+}
 
+class CategoryCellView: UIView {
+ 
+    private weak var delegate: CategoryCellViewProtocolDelegate?
+    
+    func configDelegate(delegate: CategoryCellViewProtocolDelegate?) {
+        self.delegate = delegate
+    }
+    
     let stackView: UIStackView = {
 
         let stackView = UIStackView()
@@ -19,7 +29,7 @@ class CategoryCellView: UIView {
     }()
 
     let imageView: UIImageView = {
-
+        
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "pizza")
@@ -40,13 +50,23 @@ class CategoryCellView: UIView {
 
     init() {
         super.init(frame: .zero)
-
         addSubviews()
         configureConstraints()
+        configImageView()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configImageView() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped(_:)))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
+    }
+    
+    @objc func imageTapped(_ sender: UITapGestureRecognizer) {
+        self.delegate?.imageTapped()
     }
 
     override var intrinsicContentSize: CGSize {
@@ -77,3 +97,5 @@ extension CategoryCellView {
         ])
     }
 }
+
+

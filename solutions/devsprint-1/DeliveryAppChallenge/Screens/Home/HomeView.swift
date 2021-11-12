@@ -35,7 +35,6 @@ class HomeView: UIView {
     }()
 
     let categoryListView: CategoryListView = {
-
         let categoryListView = CategoryListView()
         categoryListView.translatesAutoresizingMaskIntoConstraints = false
         return categoryListView
@@ -55,6 +54,10 @@ class HomeView: UIView {
 
         addSubviews()
         configureConstraints()
+    }
+    
+    func setupCellViewDelegate(delegate: CategoryCellViewProtocolDelegate) {
+        categoryListView.configCellViewDelegate(delegate: delegate)
     }
 
     required init?(coder: NSCoder) {
@@ -97,3 +100,5 @@ extension HomeView {
     }
 }
 
+
+ 

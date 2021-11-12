@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 class CategoryListView: UIView {
+
 
     let scrollView: UIScrollView = {
 
@@ -43,6 +45,14 @@ class CategoryListView: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 122)
     }
+    
+    func configCellViewDelegate(delegate: CategoryCellViewProtocolDelegate) {
+        stackView.subviews.forEach { view in
+            if let cell = view as? CategoryCellView {
+                cell.configDelegate(delegate: delegate)
+            }
+        }
+    }
 }
 
 extension CategoryListView {
@@ -53,8 +63,8 @@ extension CategoryListView {
         scrollView.addSubview(stackView)
 
         for _ in 0..<10 {
-
-            stackView.addArrangedSubview(CategoryCellView())
+            let cell = CategoryCellView()
+            stackView.addArrangedSubview(cell)
         }
     }
 

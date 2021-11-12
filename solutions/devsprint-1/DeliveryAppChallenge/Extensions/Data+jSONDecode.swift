@@ -8,13 +8,14 @@
 import Foundation
 
 extension Data {
-    func jSONDecode<T: Codable>(using strategy: JSONDecoder.KeyDecodingStrategy) -> T? {
+    func jSONDecode<T: Codable>(using strategy: JSONDecoder.KeyDecodingStrategy) -> Result<T, DeliveryApiError> {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = strategy
         do {
-            return try decoder.decode(T.self, from: self)
+            let decodedData = try decoder.decode(T.self, from: self)
+            return .success(decodedData)
         } catch {
-            return nil
+            return .failure(DeliveryApiError.decodificationError(error.localizedDescription))
         }
     }
 }

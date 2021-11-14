@@ -189,8 +189,8 @@
 		983271F2272753100010C63A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				983271C0272752AF0010C63A /* HomeViewController.swift */,
 				98F1296D272F363200B88A87 /* HomeView.swift */,
+				983271C0272752AF0010C63A /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

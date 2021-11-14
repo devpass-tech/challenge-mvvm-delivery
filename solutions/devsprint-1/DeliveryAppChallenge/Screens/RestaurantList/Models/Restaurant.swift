@@ -15,13 +15,6 @@ struct Restaurant: Codable {
     let deliveryTime: DeliveryTime
 }
 
-// MARK: - DeliveryTime
-
-struct DeliveryTime: Codable {
-    var min: Int
-    let max: Int
-}
-
 // MARK: - Restaurant + CustomStringConvertible
 
 extension Restaurant: CustomStringConvertible {

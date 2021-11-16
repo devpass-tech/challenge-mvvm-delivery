@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
         let home = HomeView()
         home.setupCellViewDelegate(delegate: self)
         self.view = home
-        
     }
 }
 
@@ -47,6 +46,5 @@ extension HomeViewController: CategoryCellViewProtocolDelegate {
     func imageTapped() {
         let vc = RestaurantListViewController()
         navigationController?.pushViewController(vc, animated: true)
-        print("Image Pressed")
     }
 }

@@ -40,6 +40,8 @@
 		BC13DCDC273AC025005F3162 /* APIManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCDB273AC025005F3162 /* APIManagerTestCase.swift */; };
 		BC13DCDF273B3A83005F3162 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCDE273B3A83005F3162 /* APIManagerMock.swift */; };
 		BC13DCE3273B4077005F3162 /* restaurant_details.json in Resources */ = {isa = PBXBuildFile; fileRef = BC13DCE0273B3C43005F3162 /* restaurant_details.json */; };
+		EB1DD3E527404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1DD3E427404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift */; };
+		EB1DD3E727404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1DD3E627404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift */; };
 		EBAF13D7273D8BCB00008598 /* RestaurantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF13D6273D8BCB00008598 /* RestaurantDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		BC13DCDB273AC025005F3162 /* APIManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTestCase.swift; sourceTree = "<group>"; };
 		BC13DCDE273B3A83005F3162 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
 		BC13DCE0273B3C43005F3162 /* restaurant_details.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurant_details.json; sourceTree = "<group>"; };
+		EB1DD3E427404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantDetailsPresentable.swift; sourceTree = "<group>"; };
+		EB1DD3E627404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		EBAF13D6273D8BCB00008598 /* RestaurantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +152,7 @@
 				BC13DCDD273B3A67005F3162 /* Mock */,
 				983271D3272752B50010C63A /* DeliveryAppChallengeTests.swift */,
 				BC13DCDB273AC025005F3162 /* APIManagerTestCase.swift */,
+				EB1DD3E627404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift */,
 			);
 			path = DeliveryAppChallengeTests;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 			children = (
 				BC13DCDE273B3A83005F3162 /* APIManagerMock.swift */,
 				BC13DCE0273B3C43005F3162 /* restaurant_details.json */,
+				EB1DD3E427404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -491,7 +497,9 @@
 			files = (
 				BC13DCDF273B3A83005F3162 /* APIManagerMock.swift in Sources */,
 				BC13DCDC273AC025005F3162 /* APIManagerTestCase.swift in Sources */,
+				EB1DD3E727404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift in Sources */,
 				983271D4272752B50010C63A /* DeliveryAppChallengeTests.swift in Sources */,
+				EB1DD3E527404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

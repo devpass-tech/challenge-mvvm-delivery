@@ -7,15 +7,19 @@
 
 import Foundation
 
-protocol RestaurantDetailsViewModelDelegate: AnyObject {
+protocol RestaurantDetailsPresentable: AnyObject {
     func displayRestaurantDetails(with restaurantDetails: RestaurantDetails)
     func displayErros(error: Error)
 }
 
 class RestaurantDetailsViewModel {
-    private let service = APIManager()
-        
-    weak var delegate: RestaurantDetailsViewModelDelegate?
+    let service: APIManagerProtocol
+    
+    weak var presenter: RestaurantDetailsPresentable?
+    
+    init(with service: APIManagerProtocol = APIManager()) {
+        self.service = service
+    }
     
     func loadRestaurantDetails() {
         
@@ -24,10 +28,10 @@ class RestaurantDetailsViewModel {
         service.performRequest(pathURL: apiURl, method: .get) { (result: Result<RestaurantDetails, APIError>) in
             switch result {
             case .success(let restaurantDetails):
-                self.delegate?.displayRestaurantDetails(with: restaurantDetails)
+                self.presenter?.displayRestaurantDetails(with: restaurantDetails)
                 
             case .failure(let error):
-                self.delegate?.displayErros(error: error)
+                self.presenter?.displayErros(error: error)
             }
         }
     }

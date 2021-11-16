@@ -11,11 +11,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-//		 NameUserDefaults.add(with: "John Appleseed")
-//		 EmailUserDefaults.add(with: "john@apple.com")
-//		 AddressUserDefaults.add(with: "Rua Bela Cintra, 495 - Consolação")
-//		 PaymentUserDefaults.add(with: "Cartão de Crédito")
+		 
+		 DataSourceUserDefaults.addValue(with: "John Appleseed", forKey: .name)
+		 DataSourceUserDefaults.addValue(with: "john@apple.com", forKey: .email)
+		 DataSourceUserDefaults.addValue(with: "Rua Bela Cintra, 495 - Consolação", forKey: .address)
+		 DataSourceUserDefaults.addValue(with: "Cartão de Crédito", forKey: .payment)
 		 
         return true
     }

@@ -15,6 +15,7 @@ class CategoryCellView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 4
+        stackView.distribution = .fill
         return stackView
     }()
 

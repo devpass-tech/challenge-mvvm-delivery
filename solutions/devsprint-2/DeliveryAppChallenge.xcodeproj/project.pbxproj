@@ -43,6 +43,9 @@
 		BCEF0EB427446C1300F2BB17 /* DataSourceUserDefaultsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEF0EB327446C1300F2BB17 /* DataSourceUserDefaultsTestCase.swift */; };
 		BCEF0EB627446C3400F2BB17 /* DataSourceUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEF0EB527446C3400F2BB17 /* DataSourceUserDefaults.swift */; };
 		BCEF0EB927446C3F00F2BB17 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEF0EB827446C3F00F2BB17 /* APIManagerProtocol.swift */; };
+		E415F7772745AB5200E0E1F1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E415F7762745AB5200E0E1F1 /* Coordinator.swift */; };
+		E415F7792745ABE900E0E1F1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E415F7782745ABE900E0E1F1 /* HomeCoordinator.swift */; };
+		E415F77D2745AC6E00E0E1F1 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E415F77C2745AC6E00E0E1F1 /* SettingCoordinator.swift */; };
 		EB1DD3E527404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1DD3E427404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift */; };
 		EB1DD3E727404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1DD3E627404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift */; };
 		EBAF13D7273D8BCB00008598 /* RestaurantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF13D6273D8BCB00008598 /* RestaurantDetailsViewModel.swift */; };
@@ -98,6 +101,9 @@
 		BCEF0EB327446C1300F2BB17 /* DataSourceUserDefaultsTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceUserDefaultsTestCase.swift; sourceTree = "<group>"; };
 		BCEF0EB527446C3400F2BB17 /* DataSourceUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceUserDefaults.swift; sourceTree = "<group>"; };
 		BCEF0EB827446C3F00F2BB17 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
+		E415F7762745AB5200E0E1F1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E415F7782745ABE900E0E1F1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		E415F77C2745AC6E00E0E1F1 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		EB1DD3E427404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantDetailsPresentable.swift; sourceTree = "<group>"; };
 		EB1DD3E627404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		EBAF13D6273D8BCB00008598 /* RestaurantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 				983271ED272752D20010C63A /* AppDelegate */,
 				983271EE272752EE0010C63A /* Screens */,
 				983271EF272752F60010C63A /* Service */,
+				E415F7752745AB3B00E0E1F1 /* Shared */,
 				983271F0272753000010C63A /* Models */,
 				983271F1272753060010C63A /* Extensions */,
 			);
@@ -227,6 +234,7 @@
 		983271F2272753100010C63A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E415F77A2745AC0100E0E1F1 /* Coordinator */,
 				983271C0272752AF0010C63A /* HomeViewController.swift */,
 				98F1296D272F363200B88A87 /* HomeView.swift */,
 			);
@@ -320,6 +328,7 @@
 		98F12979272F512900B88A87 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E415F77B2745AC4C00E0E1F1 /* Coordinator */,
 				98F1297A272F51AE00B88A87 /* SettingsViewController.swift */,
 				98612706272F56AB0049403C /* SettingsView.swift */,
 			);
@@ -367,6 +376,30 @@
 				BCEF0EB827446C3F00F2BB17 /* APIManagerProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		E415F7752745AB3B00E0E1F1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E415F7762745AB5200E0E1F1 /* Coordinator.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		E415F77A2745AC0100E0E1F1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E415F7782745ABE900E0E1F1 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E415F77B2745AC4C00E0E1F1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E415F77C2745AC6E00E0E1F1 /* SettingCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,7 +509,9 @@
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
 				BC13DCDA273ABC53005F3162 /* RestaurantDetails.swift in Sources */,
+				E415F7772745AB5200E0E1F1 /* Coordinator.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
+				E415F7792745ABE900E0E1F1 /* HomeCoordinator.swift in Sources */,
 				98612707272F56AB0049403C /* SettingsView.swift in Sources */,
 				98F1297D272F51DE00B88A87 /* MenuItemViewController.swift in Sources */,
 				98FC5AB12732BB7D002412EA /* RatingView.swift in Sources */,
@@ -505,6 +540,7 @@
 				98F12968272F30E500B88A87 /* AddressView.swift in Sources */,
 				983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */,
 				BCEF0EB627446C3400F2BB17 /* DataSourceUserDefaults.swift in Sources */,
+				E415F77D2745AC6E00E0E1F1 /* SettingCoordinator.swift in Sources */,
 				98EA0561272A0963007B0228 /* RestaurantDetailsViewController.swift in Sources */,
 				98F12972272F41BE00B88A87 /* RestaurantListView.swift in Sources */,
 			);
@@ -676,6 +712,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -705,6 +742,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

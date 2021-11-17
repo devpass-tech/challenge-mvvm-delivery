@@ -4,7 +4,7 @@
 //
 //  Created by Rodrigo Borges on 25/10/21.
 //
-
+import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
@@ -15,8 +15,8 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Delivery App"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
-                                                            target: nil,
-                                                            action: nil)
+                                                            target: self,
+                                                            action: #selector(presentNewScreen))
     }
     
     required init?(coder: NSCoder) {
@@ -29,5 +29,12 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = HomeView()
+        
+    }
+    
+    @objc func presentNewScreen() {
+        let settingsCoordinator =
+        SettingCoordinator(navigationController: navigationController)
+        settingsCoordinator.start()
     }
 }

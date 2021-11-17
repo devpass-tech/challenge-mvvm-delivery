@@ -11,8 +11,8 @@ struct RestaurantDetails: Decodable {
 	let name: String
 	let category: String
 	let deliveryTime: DeliveryTime
-	let reviews: Reviews
-	let menu: [MenuItem]
+	let reviews: Reviews?
+	let menu: [MenuItem]?
 	
 	enum CodingKeys: String, CodingKey {
 		case name, category, reviews, menu

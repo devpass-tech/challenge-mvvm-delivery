@@ -43,18 +43,18 @@ class RestaurantsViewModel {
         repository.fetchRequest(urlString: .homeRestaurantList) { (result: Result<[Restaurant], DeliveryApiError>) in
             switch result {
                 case .success(let success):
-                    print("==139===:  success", success)
+                    print(success)
                 case .failure(let failure):
-                    print("==222===:  failure", failure)
+                    print(failure)
             }
         }
 
         repository.fetchRequest(urlString: .restaurantDetails) { (result: Result<RestaurantDetail, DeliveryApiError>) in
             switch result {
                 case .success(let success):
-                    print("==119===:  success", success)
+                    print(success)
                 case .failure(let failure):
-                    print("==262===:  failure", failure)
+                    print(failure)
             }
         }
     }

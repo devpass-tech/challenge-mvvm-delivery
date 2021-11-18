@@ -13,7 +13,7 @@ class MockRestaurantDetailsPresentable: RestaurantDetailsPresentable {
     var displayedDetails = false
     var displayedErros = false
     
-    func displayRestaurantDetails(with restaurantDetails: RestaurantDetails) {
+    func displayRestaurantDetails(with restaurantDetails: Restaurant) {
         displayedDetails = true
     }
     

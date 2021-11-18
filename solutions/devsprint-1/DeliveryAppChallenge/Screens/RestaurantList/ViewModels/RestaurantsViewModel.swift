@@ -40,12 +40,21 @@ class RestaurantsViewModel {
     // MARK: Private
 
     private func fetchData() {
-        repository.fetchRestaurants { result in
+        repository.fetchRequest(urlString: .homeRestaurantList) { (result: Result<[Restaurant], DeliveryApiError>) in
             switch result {
-                case let .success(restaurants):
-                    self.restaurants = restaurants
-                case let .failure(error):
-                    print(error)
+                case .success(let success):
+                    print(success)
+                case .failure(let failure):
+                    print(failure)
+            }
+        }
+
+        repository.fetchRequest(urlString: .restaurantDetails) { (result: Result<RestaurantDetail, DeliveryApiError>) in
+            switch result {
+                case .success(let success):
+                    print(success)
+                case .failure(let failure):
+                    print(failure)
             }
         }
     }

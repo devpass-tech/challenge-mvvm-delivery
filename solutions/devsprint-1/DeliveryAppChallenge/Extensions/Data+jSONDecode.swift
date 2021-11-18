@@ -13,7 +13,7 @@ extension Data {
         decoder.keyDecodingStrategy = strategy
         do {
             return try decoder.decode(T.self, from: self)
-        } catch {
+        } catch let error {
             return nil
         }
     }

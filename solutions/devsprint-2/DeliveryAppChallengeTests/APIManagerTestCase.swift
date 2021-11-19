@@ -24,11 +24,11 @@ class APIManagerTestCase: XCTestCase {
 
 	func testAPICallWithErrorNetwork() {
 		sut.errorAPI = .errorNetwork
-		var resultExpected: RestaurantDetails?
+		var resultExpected: Restaurant?
 		var errorExpected: APIError?
 		let expectation = self.expectation(description: "waiting")
 		
-		sut.performRequest(pathURL: "", method: .get) { (result: Result<RestaurantDetails, APIError>) in
+		sut.performRequest(pathURL: "", method: .get) { (result: Result<Restaurant, APIError>) in
 			switch result {
 				case .success(let detail):
 					resultExpected = detail
@@ -47,11 +47,11 @@ class APIManagerTestCase: XCTestCase {
 	
 	func testAPICallWithNoData() {
 		sut.errorAPI = .noData
-		var resultExpected: RestaurantDetails?
+		var resultExpected: Restaurant?
 		var errorExpected: APIError?
 		let expectation = self.expectation(description: "waiting")
 		
-		sut.performRequest(pathURL: "", method: .get) { (result: Result<RestaurantDetails, APIError>) in
+		sut.performRequest(pathURL: "", method: .get) { (result: Result<Restaurant, APIError>) in
 			switch result {
 				case .success(let detail):
 					resultExpected = detail
@@ -70,11 +70,11 @@ class APIManagerTestCase: XCTestCase {
 	
 	func testAPICallWithParseError() {
 		sut.errorAPI = .parseError
-		var resultExpected: RestaurantDetails?
+		var resultExpected: Restaurant?
 		var errorExpected: APIError?
 		let expectation = self.expectation(description: "waiting")
 		
-		sut.performRequest(pathURL: "", method: .get) { (result: Result<RestaurantDetails, APIError>) in
+		sut.performRequest(pathURL: "", method: .get) { (result: Result<Restaurant, APIError>) in
 			switch result {
 				case .success(let detail):
 					resultExpected = detail
@@ -93,11 +93,11 @@ class APIManagerTestCase: XCTestCase {
 	
 	func testAPICallWithInvalidURL() {
 		sut.errorAPI = .invalidURL
-		var resultExpected: RestaurantDetails?
+		var resultExpected: Restaurant?
 		var errorExpected: APIError?
 		let expectation = self.expectation(description: "waiting")
 		
-		sut.performRequest(pathURL: "", method: .get) { (result: Result<RestaurantDetails, APIError>) in
+		sut.performRequest(pathURL: "", method: .get) { (result: Result<Restaurant, APIError>) in
 			switch result {
 				case .success(let detail):
 					resultExpected = detail
@@ -116,11 +116,11 @@ class APIManagerTestCase: XCTestCase {
 	
 	func testAPICallWithSuccess() {
 		sut.errorAPI = nil
-		var resultExpected: RestaurantDetails?
+		var resultExpected: Restaurant?
 		var errorExpected: APIError?
 		let expectation = self.expectation(description: "waiting")
 
-		sut.performRequest(pathURL: "", method: .get) { (result: Result<RestaurantDetails, APIError>) in
+		sut.performRequest(pathURL: "", method: .get) { (result: Result<Restaurant, APIError>) in
 			switch result {
 				case .success(let detail):
 					resultExpected = detail

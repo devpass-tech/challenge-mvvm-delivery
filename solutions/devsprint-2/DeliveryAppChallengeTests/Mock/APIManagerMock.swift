@@ -36,14 +36,14 @@ class APIManagerMock: APIManagerProtocol {
 		}
 	}
 	
-	private func parseJSONMock() -> RestaurantDetails? {
+	private func parseJSONMock() -> Restaurant? {
 		
 		guard let path = Bundle.main.path(forResource: "restaurant_details", ofType: "json")
 		else { return nil }
 
 		do {
 			let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-			let result = try JSONDecoder().decode(RestaurantDetails.self, from: data)
+			let result = try JSONDecoder().decode(Restaurant.self, from: data)
 			return result
 		} catch  {
 			return nil

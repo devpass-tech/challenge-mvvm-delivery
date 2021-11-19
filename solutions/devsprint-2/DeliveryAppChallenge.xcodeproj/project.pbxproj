@@ -36,7 +36,7 @@
 		98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB72732C1EF002412EA /* MenuItemView.swift */; };
 		BC13DCD3273AA2AD005F3162 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCD2273AA2AD005F3162 /* APIError.swift */; };
 		BC13DCD5273AA60B005F3162 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCD4273AA60B005F3162 /* APIManager.swift */; };
-		BC13DCDA273ABC53005F3162 /* RestaurantDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCD9273ABC53005F3162 /* RestaurantDetails.swift */; };
+		BC13DCDA273ABC53005F3162 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCD9273ABC53005F3162 /* Restaurant.swift */; };
 		BC13DCDC273AC025005F3162 /* APIManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCDB273AC025005F3162 /* APIManagerTestCase.swift */; };
 		BC13DCDF273B3A83005F3162 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC13DCDE273B3A83005F3162 /* APIManagerMock.swift */; };
 		BC13DCE3273B4077005F3162 /* restaurant_details.json in Resources */ = {isa = PBXBuildFile; fileRef = BC13DCE0273B3C43005F3162 /* restaurant_details.json */; };
@@ -91,7 +91,7 @@
 		98FC5AB72732C1EF002412EA /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		BC13DCD2273AA2AD005F3162 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		BC13DCD4273AA60B005F3162 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		BC13DCD9273ABC53005F3162 /* RestaurantDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetails.swift; sourceTree = "<group>"; };
+		BC13DCD9273ABC53005F3162 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		BC13DCDB273AC025005F3162 /* APIManagerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTestCase.swift; sourceTree = "<group>"; };
 		BC13DCDE273B3A83005F3162 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
 		BC13DCE0273B3C43005F3162 /* restaurant_details.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = restaurant_details.json; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		983271F0272753000010C63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BC13DCD9273ABC53005F3162 /* RestaurantDetails.swift */,
+				BC13DCD9273ABC53005F3162 /* Restaurant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -475,7 +475,7 @@
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
-				BC13DCDA273ABC53005F3162 /* RestaurantDetails.swift in Sources */,
+				BC13DCDA273ABC53005F3162 /* Restaurant.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
 				98612707272F56AB0049403C /* SettingsView.swift in Sources */,
 				98F1297D272F51DE00B88A87 /* MenuItemViewController.swift in Sources */,

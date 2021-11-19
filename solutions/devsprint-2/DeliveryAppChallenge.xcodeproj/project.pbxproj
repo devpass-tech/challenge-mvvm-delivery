@@ -46,6 +46,7 @@
 		EB1DD3E527404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1DD3E427404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift */; };
 		EB1DD3E727404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1DD3E627404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift */; };
 		EBAF13D7273D8BCB00008598 /* RestaurantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF13D6273D8BCB00008598 /* RestaurantDetailsViewModel.swift */; };
+		EBAF2EC62747D0BB000AED15 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF2EC52747D0BB000AED15 /* Address.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		EB1DD3E427404A4F008CFD68 /* MockRestaurantDetailsPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRestaurantDetailsPresentable.swift; sourceTree = "<group>"; };
 		EB1DD3E627404BF6008CFD68 /* RestaurantDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		EBAF13D6273D8BCB00008598 /* RestaurantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModel.swift; sourceTree = "<group>"; };
+		EBAF2EC52747D0BB000AED15 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				BC13DCD9273ABC53005F3162 /* RestaurantDetails.swift */,
+				EBAF2EC52747D0BB000AED15 /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */,
 				98F1297B272F51AE00B88A87 /* SettingsViewController.swift in Sources */,
 				98F1296C272F328200B88A87 /* CategoryListView.swift in Sources */,
+				EBAF2EC62747D0BB000AED15 /* Address.swift in Sources */,
 				98F1296E272F363200B88A87 /* HomeView.swift in Sources */,
 				98F1296A272F327100B88A87 /* CategoryCellView.swift in Sources */,
 				98FC5AAB2732B938002412EA /* RestaurantDetailsView.swift in Sources */,

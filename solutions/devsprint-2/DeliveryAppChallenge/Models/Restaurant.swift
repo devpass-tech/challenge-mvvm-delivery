@@ -1,5 +1,5 @@
 //
-//  RestaurantDetails.swift
+//  Restaurant.swift
 //  DeliveryAppChallenge
 //
 //  Created by Alexandre Cardoso on 09/11/21.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct RestaurantDetails: Decodable {
+struct Restaurant: Decodable {
 	let name: String
 	let category: String
 	let deliveryTime: DeliveryTime
-	let reviews: Reviews
-	let menu: [MenuItem]
+	let reviews: Reviews?
+	let menu: [MenuItem]?
 	
 	enum CodingKeys: String, CodingKey {
 		case name, category, reviews, menu

@@ -16,7 +16,6 @@ class DetailCoordinator: Coordinator {
     }
     
     func start() {
-//        let vm = DetailViewModel(data: data)
         let vc = RestaurantDetailsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }

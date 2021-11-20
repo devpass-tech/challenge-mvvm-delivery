@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol RestaurantLisDelegate {
+    func didTapCell()
+}
+
 class RestaurantListView: UIView {
 
     static let cellSize = CGFloat(82)
+    
+     var delegate: RestaurantLisDelegate?
 
     private let cellIdentifier = "RestaurantCellIdentifier"
-
+    
     lazy var tableView: UITableView = {
 
         let tableView = UITableView(frame: .zero)
@@ -25,11 +31,9 @@ class RestaurantListView: UIView {
 
     init() {
         super.init(frame: .zero)
-
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-
         tableView.reloadData()
     }
 
@@ -79,6 +83,9 @@ extension RestaurantListView: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        delegate?.didTapCell()
     }
 }
+
+
+    

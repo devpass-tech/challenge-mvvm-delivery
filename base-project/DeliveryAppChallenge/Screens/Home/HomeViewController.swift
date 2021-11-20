@@ -9,6 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -28,6 +29,17 @@ class HomeViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = HomeView()
+       
+        let view = HomeView()
+        self.view = view
+        view.delegate = self
     }
+}
+extension HomeViewController: RestauranteTapBle {
+    func root() {
+        let coordinator = DetailCoordinator(navigationController: navigationController)
+        coordinator.start()
+    }
+    
+    
 }

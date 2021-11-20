@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol RestauranteTapBle {
+    func root()
+}
 class HomeView: UIView {
+    
+    var delegate: RestauranteTapBle?
 
     let scrollView: UIScrollView = {
 
@@ -52,7 +57,7 @@ class HomeView: UIView {
         super.init(frame: .zero)
 
         backgroundColor = .white
-
+        restaurantListView.delegate = self
         addSubviews()
         configureConstraints()
     }
@@ -97,3 +102,8 @@ extension HomeView {
     }
 }
 
+extension HomeView: RestaurantLisDelegate {
+    func didTapCell() {
+        delegate?.root()
+    }
+}

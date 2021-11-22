@@ -16,12 +16,7 @@ class HomeCoordinator: Coordinator {
     init(window: UIWindow, scene: UIScene) {
         self.window = window
         navigationController = .init()
-        
-       
         self.scene = scene
-
-//        navigationController.navigationBar.backgroundColor = .systemBlue
-//        navigationController.navigationBar.tintColor = .white
     }
     
     func start() {

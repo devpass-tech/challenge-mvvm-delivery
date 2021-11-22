@@ -9,14 +9,14 @@ import UIKit
 
 class SettingCoordinator: Coordinator {
     
-    let navigationController: UINavigationController?
+    let viewController: UIViewController?
 
-    init(navigationController: UINavigationController?) {
-        self.navigationController = navigationController
+    init(viewController: UIViewController?) {
+        self.viewController = viewController
     }
     
     func start() {
         let vc = SettingsViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        viewController?.present(vc, animated: true, completion: nil)
     }
 }

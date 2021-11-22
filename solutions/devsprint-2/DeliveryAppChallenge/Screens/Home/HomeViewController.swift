@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     
     @objc func presentNewScreen() {
         let settingsCoordinator =
-        SettingCoordinator(navigationController: navigationController)
+            SettingCoordinator(viewController: self)
         settingsCoordinator.start()
     }
 }

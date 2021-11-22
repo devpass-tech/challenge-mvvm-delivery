@@ -29,7 +29,6 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = HomeView()
-        
     }
     
     @objc func presentNewScreen() {

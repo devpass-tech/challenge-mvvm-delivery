@@ -9,6 +9,9 @@ Desenvolveremos ViewModels e seus testes, camadas de integração com APIs, nave
 <img src="screenshots/screenshot-1.jpeg" alt="drawing" width="200"/>
 <img src="screenshots/screenshot-2.jpeg" alt="drawing" width="200"/>
 <img src="screenshots/screenshot-3.jpeg" alt="drawing" width="200"/>
+<img src="screenshots/screenshot-4.png" alt="drawing" width="200"/>
+<img src="screenshots/screenshot-5.png" alt="drawing" width="200"/>
+<img src="screenshots/screenshot-6.png" alt="drawing" width="200"/>
 </p>
 
 # Iniciando os trabalhos

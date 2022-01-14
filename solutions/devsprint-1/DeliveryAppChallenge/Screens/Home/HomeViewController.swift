@@ -7,8 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+// MARK: - HomeViewController
 
+class HomeViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -18,15 +19,16 @@ class HomeViewController: UIViewController {
                                                             target: nil,
                                                             action: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        RestaurantsViewModel()
     }
-    
+
     override func loadView() {
         self.view = HomeView()
     }

@@ -14,6 +14,7 @@ class RestaurantCellView: UITableViewCell {
        stack.translatesAutoresizingMaskIntoConstraints = false
        stack.spacing = 16
        stack.alignment = .center
+       stack.accessibilityIdentifier = "main-StackView"
        return stack
     }()
 
@@ -22,6 +23,7 @@ class RestaurantCellView: UITableViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 8
+        stack.accessibilityIdentifier = "labels-StackView"
         return stack
     }()
 
@@ -31,6 +33,7 @@ class RestaurantCellView: UITableViewCell {
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = true
         imageView.image = UIImage(named: "restaurant-logo")
+        imageView.accessibilityIdentifier = "logo-ImageView"
         return imageView
     }()
 
@@ -39,6 +42,7 @@ class RestaurantCellView: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.text = "Benjamin a Padaria"
+        label.accessibilityIdentifier = "restaurant-Name-Label"
         return label
     }()
 
@@ -48,6 +52,7 @@ class RestaurantCellView: UITableViewCell {
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 14)
         label.text = "Padaria • 23-33 min"
+        label.accessibilityIdentifier = "restaurant-Info-Label"
         return label
     }()
 
@@ -59,6 +64,11 @@ class RestaurantCellView: UITableViewCell {
         configureConstraints()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16))
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -67,8 +77,8 @@ class RestaurantCellView: UITableViewCell {
 extension RestaurantCellView {
 
     func addSubviews() {
+        contentView.addSubview(mainStackView)
 
-        addSubview(mainStackView)
         mainStackView.addArrangedSubview(logoImageView)
         mainStackView.addArrangedSubview(labelsStackView)
 
@@ -79,12 +89,11 @@ extension RestaurantCellView {
     func configureConstraints() {
 
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            self.logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             self.logoImageView.widthAnchor.constraint(equalToConstant: 50),
             self.logoImageView.heightAnchor.constraint(equalToConstant: 50),
 

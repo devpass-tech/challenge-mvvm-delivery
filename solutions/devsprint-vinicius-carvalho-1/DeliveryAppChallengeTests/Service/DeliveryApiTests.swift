@@ -31,7 +31,6 @@ final class DeliveryApiTests: XCTestCase {
             XCTAssertTrue(items.count > 0)
             expectation.fulfill()
         }
-
         wait(for: [expectation], timeout: 1.0)
     }
 

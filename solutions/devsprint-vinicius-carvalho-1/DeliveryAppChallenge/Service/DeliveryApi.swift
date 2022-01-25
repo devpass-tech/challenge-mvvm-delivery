@@ -19,7 +19,7 @@ struct DeliveryApi {
 
         completion(["Address 1", "Address 2", "Address 3"])
     }
-
+    
     func fetchRestaurantDetails(_ completion: (String) -> Void) {
         completion("Restaurant Details")
     }

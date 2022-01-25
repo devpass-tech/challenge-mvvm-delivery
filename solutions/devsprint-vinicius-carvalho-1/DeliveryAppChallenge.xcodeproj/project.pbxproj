@@ -182,6 +182,7 @@
 			children = (
 				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
 				9277504C27A081C8005FBCF8 /* DefaultsManager.swift */,
+				9277504E27A081F6005FBCF8 /* DefaultsKey.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -189,7 +190,6 @@
 		983271F0272753000010C63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9277504E27A081F6005FBCF8 /* DefaultsKey.swift */,
 				9277505227A0826B005FBCF8 /* User.swift */,
 			);
 			path = Models;

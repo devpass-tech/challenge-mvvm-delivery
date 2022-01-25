@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1550842927A02676009388C6 /* restaurant-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 1550842827A02676009388C6 /* restaurant-details.json */; };
+		1550842D27A026F5009388C6 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550842C27A026F5009388C6 /* Restaurant.swift */; };
+		1550842F27A02F9C009388C6 /* Data+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550842E27A02F9C009388C6 /* Data+Resource.swift */; };
+		1550843227A030C4009388C6 /* DeliveryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550843127A030C4009388C6 /* DeliveryApiTests.swift */; };
 		983271BD272752AF0010C63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BC272752AF0010C63A /* AppDelegate.swift */; };
 		983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BE272752AF0010C63A /* SceneDelegate.swift */; };
 		983271C1272752AF0010C63A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271C0272752AF0010C63A /* HomeViewController.swift */; };
@@ -47,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1550842827A02676009388C6 /* restaurant-details.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "restaurant-details.json"; sourceTree = "<group>"; };
+		1550842C27A026F5009388C6 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		1550842E27A02F9C009388C6 /* Data+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Resource.swift"; sourceTree = "<group>"; };
+		1550843127A030C4009388C6 /* DeliveryApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApiTests.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +105,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1550842A27A026A6009388C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1550842C27A026F5009388C6 /* Restaurant.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1550842B27A026B6009388C6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1550842E27A02F9C009388C6 /* Data+Resource.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1550843027A030A4009388C6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1550843127A030C4009388C6 /* DeliveryApiTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		983271B0272752AF0010C63A = {
 			isa = PBXGroup;
 			children = (
@@ -118,12 +150,12 @@
 		983271BB272752AF0010C63A /* DeliveryAppChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				983271EC272752C50010C63A /* Resources */,
 				983271ED272752D20010C63A /* AppDelegate */,
+				983271EC272752C50010C63A /* Resources */,
 				983271EE272752EE0010C63A /* Screens */,
 				983271EF272752F60010C63A /* Service */,
-				983271F0272753000010C63A /* Models */,
-				983271F1272753060010C63A /* Extensions */,
+				1550842A27A026A6009388C6 /* Models */,
+				1550842B27A026B6009388C6 /* Extension */,
 			);
 			path = DeliveryAppChallenge;
 			sourceTree = "<group>";
@@ -131,6 +163,7 @@
 		983271D2272752B50010C63A /* DeliveryAppChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				1550843027A030A4009388C6 /* Service */,
 				983271D3272752B50010C63A /* DeliveryAppChallengeTests.swift */,
 			);
 			path = DeliveryAppChallengeTests;
@@ -142,6 +175,7 @@
 				983271C5272752B50010C63A /* Assets.xcassets */,
 				983271C7272752B50010C63A /* LaunchScreen.storyboard */,
 				983271CA272752B50010C63A /* Info.plist */,
+				1550842827A02676009388C6 /* restaurant-details.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -175,20 +209,6 @@
 				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		983271F0272753000010C63A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		983271F1272753060010C63A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		983271F2272753100010C63A /* Home */ = {
@@ -400,6 +420,7 @@
 			files = (
 				983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */,
 				983271C6272752B50010C63A /* Assets.xcassets in Resources */,
+				1550842927A02676009388C6 /* restaurant-details.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +458,7 @@
 				98F1297B272F51AE00B88A87 /* SettingsViewController.swift in Sources */,
 				98F1296C272F328200B88A87 /* CategoryListView.swift in Sources */,
 				98F1296E272F363200B88A87 /* HomeView.swift in Sources */,
+				1550842D27A026F5009388C6 /* Restaurant.swift in Sources */,
 				98F1296A272F327100B88A87 /* CategoryCellView.swift in Sources */,
 				98FC5AAB2732B938002412EA /* RestaurantDetailsView.swift in Sources */,
 				983271BD272752AF0010C63A /* AppDelegate.swift in Sources */,
@@ -446,6 +468,7 @@
 				983271BD272752AF0010C63A /* AppDelegate.swift in Sources */,
 				98F12968272F30E500B88A87 /* AddressView.swift in Sources */,
 				983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */,
+				1550842F27A02F9C009388C6 /* Data+Resource.swift in Sources */,
 				98EA0561272A0963007B0228 /* RestaurantDetailsViewController.swift in Sources */,
 				98F12972272F41BE00B88A87 /* RestaurantListView.swift in Sources */,
 			);
@@ -455,6 +478,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1550843227A030C4009388C6 /* DeliveryApiTests.swift in Sources */,
 				983271D4272752B50010C63A /* DeliveryAppChallengeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

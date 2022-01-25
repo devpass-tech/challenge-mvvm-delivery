@@ -7,7 +7,7 @@
 
 import Foundation
 
-// TODO: Use Service abstraction
+// TODO: Change to service abstraction
 struct DeliveryApi {
 
     func fetchRestaurants(_ completion: ([String]) -> Void) {

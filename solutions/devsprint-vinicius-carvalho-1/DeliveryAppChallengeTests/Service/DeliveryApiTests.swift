@@ -11,7 +11,7 @@ import XCTest
 @testable import DeliveryAppChallenge
 
 final class DeliveryApiTests: XCTestCase {
-    // TODO: Create mock spy for Delivery api abstraction
+    // TODO: Create Spy for delivery api abstraction
     private var sut: DeliveryApi!
 
     override func setUp() {

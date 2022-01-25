@@ -7,7 +7,7 @@
 
 import Foundation
 
-// TODO: Change to service abstraction
+// TODO: Use service abstraction
 struct DeliveryApi {
 
     func fetchRestaurants(_ completion: ([String]) -> Void) {
@@ -20,17 +20,16 @@ struct DeliveryApi {
         completion(["Address 1", "Address 2", "Address 3"])
     }
 
-    func fetchRestaurantDetails(_ completion: (Restaurant?) -> Void) {
-
-        guard let dataFromJson = Data.readData(from: "restaurant-details"),
-              let restaurantDetails = try? JSONDecoder().decode(Restaurant.self, from: dataFromJson) else {
-                  completion(nil)
-                  return
-              }
-        completion(restaurantDetails)
+    func fetchRestaurantDetails(_ completion: (String) -> Void) {
+        completion("Restaurant Details")
     }
 
-    func fetchMenuItem(_ completion: (String) -> Void) {
-        completion("Menu Item")
+    func fetchMenuItem(_ completion: ([RestaurantItem]) -> Void) {
+        guard let dataFromJson = Data.readData(from: "restaurant-details"),
+              let restaurantDetails = try? JSONDecoder().decode(Restaurant.self, from: dataFromJson) else {
+                  completion([])
+                  return
+              }
+        completion(restaurantDetails.menu)
     }
 }

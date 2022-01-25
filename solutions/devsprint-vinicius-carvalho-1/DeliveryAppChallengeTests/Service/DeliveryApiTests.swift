@@ -24,18 +24,18 @@ final class DeliveryApiTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_fetchRestaurantDetails_shouldReturnValidDetails() {
+    func test_fetchMenuItems_shouldReturnValidMenuItems() {
         let expectation = expectation(description: "waiting api return")
 
-        sut.fetchRestaurantDetails { restaurant in
-            XCTAssertNotNil(restaurant)
+        sut.fetchMenuItem { items in
+            XCTAssertTrue(items.count > 0)
             expectation.fulfill()
         }
 
         wait(for: [expectation], timeout: 1.0)
     }
 
-    func test_fetchRestaurantDetails_shouldReturnNil() {
+    func test_fetchMenuItems_shouldReturnNil() {
         XCTFail("Test not implemented yet =P")
     }
 }

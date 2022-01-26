@@ -25,7 +25,7 @@ class ServiceManagerTests: XCTestCase {
 		URLProtocolMock.urlRequests.removeAll()
 	}
 
-	func test_getRestaurants_shouldReturnsSuccess() {
+	func test_get_whenFetchRestaurants_shouldReturnSuccess() {
 		// Given
 		let endpoint = Router.fetchRestaurants
 		let dataMock = dataMock()
@@ -106,7 +106,7 @@ class ServiceManagerTests: XCTestCase {
 		wait(for: [expectation], timeout: 1)
 	}
 
-	func test_get_error_failure() {
+	func test_whenErrorFetch_shouldReturnFailure() {
 		// Given
 		let endpoint = Router.fetchRestaurants
 		let expectedError = NSError(domain: NSURLErrorDomain, code: NSURLErrorTimedOut, userInfo: nil)

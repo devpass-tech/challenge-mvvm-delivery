@@ -25,7 +25,7 @@ class ServiceManagerTests: XCTestCase {
 		URLProtocolMock.urlRequests.removeAll()
 	}
 
-	func test_get_restaurants_success() {
+	func test_getRestaurants_shouldReturnsSuccess() {
 		// Given
 		let endpoint = Router.fetchRestaurants
 		let dataMock = dataMock()
@@ -68,10 +68,10 @@ class ServiceManagerTests: XCTestCase {
 			}
 		)
 
-		wait(for: [expectation], timeout: 2)
+		wait(for: [expectation], timeout: 1)
 	}
 
-	func test_get_emptyData_failure() {
+	func test_get_whenEmptyData_shouldReturnFailure() {
 		// Given
 		let endpoint = Router.fetchRestaurants
 		let successCompletion: URLProtocolMock.RequestCompletion = (
@@ -103,7 +103,7 @@ class ServiceManagerTests: XCTestCase {
 			}
 		)
 
-		wait(for: [expectation], timeout: 2)
+		wait(for: [expectation], timeout: 1)
 	}
 
 	func test_get_error_failure() {
@@ -139,10 +139,10 @@ class ServiceManagerTests: XCTestCase {
 			}
 		)
 
-		wait(for: [expectation], timeout: 2)
+		wait(for: [expectation], timeout: 1)
 	}
 
-	func test_get_decodeError_failure() {
+	func test_get_whenDecodeError_shouldReturnFailure() {
 		// Given
 		let endpoint = Router.fetchRestaurants
 		let successCompletion: URLProtocolMock.RequestCompletion = (
@@ -174,7 +174,7 @@ class ServiceManagerTests: XCTestCase {
 			}
 		)
 
-		wait(for: [expectation], timeout: 2)
+		wait(for: [expectation], timeout: 1)
 	}
 
 

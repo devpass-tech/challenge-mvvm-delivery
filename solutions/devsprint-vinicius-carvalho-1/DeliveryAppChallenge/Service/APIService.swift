@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: Protocol
 protocol APIServiceProtocol {
 
 	var session: URLSession { get }
@@ -19,7 +18,6 @@ protocol APIServiceProtocol {
 	)
 }
 
-// MARK: Implementation
 final class APIService: APIServiceProtocol {
 
 	let session: URLSession

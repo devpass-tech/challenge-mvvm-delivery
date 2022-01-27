@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70944D5227A2187300C3B03B /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70944D5127A2187300C3B03B /* Test.swift */; };
 		983271BD272752AF0010C63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BC272752AF0010C63A /* AppDelegate.swift */; };
 		983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BE272752AF0010C63A /* SceneDelegate.swift */; };
 		983271C1272752AF0010C63A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271C0272752AF0010C63A /* HomeViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70944D5127A2187300C3B03B /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		983271F0272753000010C63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				70944D5127A2187300C3B03B /* Test.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
+				70944D5227A2187300C3B03B /* Test.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
 				98612707272F56AB0049403C /* SettingsView.swift in Sources */,
 				98F1297D272F51DE00B88A87 /* MenuItemViewController.swift in Sources */,

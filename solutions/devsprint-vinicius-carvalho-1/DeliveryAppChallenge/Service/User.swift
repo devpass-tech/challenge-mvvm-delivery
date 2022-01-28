@@ -10,9 +10,4 @@ import Foundation
 struct User: Codable {
     let userName: String
     let userEmail: String
-    
-    init(userName: String, userEmail: String) {
-        self.userName = userName
-        self.userEmail = userEmail
-    }
 }

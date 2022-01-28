@@ -13,6 +13,7 @@ enum Router {
 	case fetchRestaurants
 	case fetchRestaurantDetails
 	case fetchMenuItem
+    case fetchAddress
 
 	static private let baseURL: String = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api"
 
@@ -28,6 +29,8 @@ enum Router {
 			return ""
 		case .fetchMenuItem:
 			return ""
+        case .fetchAddress:
+            return "/address_search_results.json"
 		}
 	}
 

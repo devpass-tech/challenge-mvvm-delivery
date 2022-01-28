@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RestaurantsListModel: Codable {
+struct RestaurantsListModel: Decodable {
 	let name: String
 	let category: String
 	let deliveryTime: DeliveryTime

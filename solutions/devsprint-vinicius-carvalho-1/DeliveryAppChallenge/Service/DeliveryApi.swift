@@ -10,23 +10,12 @@ import Foundation
 // TODO: Use service abstraction
 struct DeliveryApi {
 
-	var serviceManager: APIServiceProtocol = APIService()
+    private let serviceManager: APIServiceProtocol
 
-	/**
-	 Fetch restaurants from API.
+    init(serviceManager: APIServiceProtocol = APIService()) {
+        self.serviceManager = serviceManager
+    }
 
-	 - Parameters:
-	   - completion: a callback to receive the `[RestaurantListModel]` array.
-
-	 Usage:
-	 ```
-	 let api = DeliveryApi()
-
-	 api.fetchRestaurants { restaurants in
-	   // do what you want with the restaurants array
-	 }
-	 ```
-	*/
     func fetchRestaurants(_ completion: @escaping ([RestaurantsListModel]) -> Void) {
 		serviceManager.get(request: Router.fetchRestaurants.getRequest,
 						   of: [RestaurantsListModel].self) { result in
@@ -48,12 +37,14 @@ struct DeliveryApi {
         completion("Restaurant Details")
     }
 
-    func fetchMenuItem(_ completion: ([RestaurantItem]) -> Void) {
-        guard let dataFromJson = Data.readData(from: "restaurant-details"),
-              let restaurantDetails = try? JSONDecoder().decode(Restaurant.self, from: dataFromJson) else {
-                  completion([])
-                  return
-              }
-        completion(restaurantDetails.menu)
+    func fetchMenuItem(_ completion: @escaping ([RestaurantItem]) -> Void) {
+           serviceManager.get(request: Router.fetchMenuItem.getRequest, of: RestaurantsListModel.self) { result in
+               switch result {
+               case .success(let restaurantDetails):
+                   completion(restaurantDetails.menu)
+               case .failure:
+                   completion([])
+               }
+           }
     }
 }

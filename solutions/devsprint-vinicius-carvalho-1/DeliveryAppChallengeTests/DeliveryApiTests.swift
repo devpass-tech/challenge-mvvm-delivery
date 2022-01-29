@@ -54,7 +54,7 @@ class DeliveryApiTests: XCTestCase {
 		}
 	}
 
-	private func encode(_ dataMock: [RestaurantsListModel]) -> Data {
+	private func encode(_ dataMock: [Restaurant]) -> Data {
 		try! JSONEncoder().encode(dataMock)
 	}
 

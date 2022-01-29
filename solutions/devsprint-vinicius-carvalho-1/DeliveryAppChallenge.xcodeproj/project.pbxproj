@@ -12,7 +12,7 @@
 		18C4814B27A098E7000BF262 /* DeliveryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4814A27A098E7000BF262 /* DeliveryApiTests.swift */; };
 		18DC4613279F6176001911D6 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4612279F6176001911D6 /* ServiceError.swift */; };
 		18DC4617279F71A4001911D6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4616279F71A4001911D6 /* APIService.swift */; };
-		18DC4619279F85D3001911D6 /* RestaurantsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */; };
+		18DC4619279F85D3001911D6 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4618279F85D3001911D6 /* Restaurant.swift */; };
 		18DC461C279FA210001911D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC461B279FA210001911D6 /* Router.swift */; };
 		983271BD272752AF0010C63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BC272752AF0010C63A /* AppDelegate.swift */; };
 		983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271BE272752AF0010C63A /* SceneDelegate.swift */; };
@@ -59,7 +59,7 @@
 		18C4814A27A098E7000BF262 /* DeliveryApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApiTests.swift; sourceTree = "<group>"; };
 		18DC4612279F6176001911D6 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		18DC4616279F71A4001911D6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantsListModel.swift; path = DeliveryAppChallenge/Models/RestaurantsListModel.swift; sourceTree = SOURCE_ROOT; };
+		18DC4618279F85D3001911D6 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = DeliveryAppChallenge/Models/Restaurant.swift; sourceTree = SOURCE_ROOT; };
 		18DC461B279FA210001911D6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,7 +208,7 @@
 		983271F0272753000010C63A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */,
+				18DC4618279F85D3001911D6 /* Restaurant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -458,7 +458,7 @@
 				18DC4613279F6176001911D6 /* ServiceError.swift in Sources */,
 				98FC5AB12732BB7D002412EA /* RatingView.swift in Sources */,
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
-				18DC4619279F85D3001911D6 /* RestaurantsListModel.swift in Sources */,
+				18DC4619279F85D3001911D6 /* Restaurant.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
 				98612707272F56AB0049403C /* SettingsView.swift in Sources */,
 				98F1297D272F51DE00B88A87 /* MenuItemViewController.swift in Sources */,

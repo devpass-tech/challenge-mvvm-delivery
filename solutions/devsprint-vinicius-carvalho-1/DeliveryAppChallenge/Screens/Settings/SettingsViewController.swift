@@ -7,7 +7,9 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
+    
 
     init() {
         super.init(nibName: nil, bundle: nil)

@@ -7,7 +7,8 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Coordinating {
+    var coordinator: Coordinator?
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -15,8 +16,8 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Delivery App"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
-                                                            target: nil,
-                                                            action: nil)
+                                                            target: self,
+                                                            action: #selector(didTapButtonSettings))
     }
     
     required init?(coder: NSCoder) {
@@ -29,5 +30,10 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = HomeView()
+    }
+    
+    @objc
+    func didTapButtonSettings() {
+        coordinator?.eventOccurred(with: .buttonTappedSettings)
     }
 }

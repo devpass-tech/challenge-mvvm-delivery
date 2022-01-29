@@ -8,7 +8,7 @@
 import UIKit
 
 class RestaurantDetailsViewController: UIViewController {
-
+    
     override func loadView() {
         self.view = RestaurantDetailsView()
     }

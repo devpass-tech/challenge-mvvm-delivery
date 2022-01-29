@@ -7,7 +7,9 @@
 
 import UIKit
 
-class AddressView: UIView {
+class AddressView: UIView, Coordinating {
+    
+    var coordinator: Coordinator?
 
     let addressLabel: UILabel = {
 
@@ -28,7 +30,7 @@ class AddressView: UIView {
 
     init() {
         super.init(frame: .zero)
-
+        
         addSubviews()
         configureConstraints()
     }

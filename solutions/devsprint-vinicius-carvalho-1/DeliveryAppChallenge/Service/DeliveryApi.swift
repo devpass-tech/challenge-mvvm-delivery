@@ -38,13 +38,13 @@ struct DeliveryApi {
 		}
     }
 
-    func searchAddresses(_ completion: @escaping ([Address]) -> Void) {
+    func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void) {
         serviceManager.get(request: Router.fetchAddress.getRequest, of: [Address].self) { result in
             switch result {
             case .success(let addressList):
-                completion(addressList)
-            case .failure:
-                completion([])
+                completion(.success(addressList))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

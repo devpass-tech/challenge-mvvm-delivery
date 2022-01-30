@@ -80,7 +80,7 @@ class DeliveryApiTests: XCTestCase {
 		}
 	}
 
-	func test_fetchRestaurantList_aapiManagerReturnNonEmptyList() {
+	func test_fetchRestaurantList_apiManagerReturnNonEmptyList() {
 		// Given
 		let listMock = [RestaurantsListModel(
 			name: "Benjamin a Padaria",

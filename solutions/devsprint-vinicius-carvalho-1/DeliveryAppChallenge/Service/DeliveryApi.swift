@@ -9,9 +9,33 @@ import Foundation
 
 struct DeliveryApi {
 
-    func fetchRestaurants(_ completion: ([String]) -> Void) {
+	var serviceManager: APIServiceProtocol = APIService()
 
-        completion(["Restaurant 1", "Restaurant 2", "Restaurant 3"])
+	/**
+	 Fetch restaurants from API.
+
+	 - Parameters:
+	   - completion: a callback to receive the `[RestaurantListModel]` array.
+
+	 Usage:
+	 ```
+	 let api = DeliveryApi()
+
+	 api.fetchRestaurants { restaurants in
+	   // do what you want with the restaurants array
+	 }
+	 ```
+	*/
+    func fetchRestaurants(_ completion: @escaping ([RestaurantsListModel]) -> Void) {
+		serviceManager.get(request: Router.fetchRestaurants.getRequest,
+						   of: [RestaurantsListModel].self) { result in
+			switch result {
+			case .success(let restaurantList):
+				completion(restaurantList)
+			case .failure:
+				completion([])
+			}
+		}
     }
 
     func searchAddresses(_ completion: ([String]) -> Void) {

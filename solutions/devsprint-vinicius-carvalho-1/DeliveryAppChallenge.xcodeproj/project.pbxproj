@@ -451,6 +451,7 @@
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
+				70944D5227A2187300C3B03B /* Test.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
 				98612707272F56AB0049403C /* SettingsView.swift in Sources */,
 				98F1297D272F51DE00B88A87 /* MenuItemViewController.swift in Sources */,

@@ -11,14 +11,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let userDefaults = UserDefaults.standard
-        userDefaults.setValue("John Appleseed", forKey: "user-name")
-        userDefaults.setValue("john@apple.com", forKey: "user-email")
-        userDefaults.setValue("Rua Bela Cintra, 495 - Consolação", forKey: "address")
-        userDefaults.setValue("Cartão de Crédito", forKey: "payment-method")
-        userDefaults.synchronize()
-
+        
+        DefaultsKey.user.value = User(userName: "John Appleseed", userEmail: "john@apple.com")
+        DefaultsKey.adress.value = "Rua Bela Cintra, 495 - Consolação"
+        DefaultsKey.paymentMethod.value = "Cartão de Crédito"
+        
         return true
     }
 

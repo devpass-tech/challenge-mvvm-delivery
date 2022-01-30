@@ -43,10 +43,18 @@ struct DeliveryApi {
         completion(["Address 1", "Address 2", "Address 3"])
     }
 
-    func fetchRestaurantDetails(_ completion: (String) -> Void) {
+	func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void) {
 
-        completion("Restaurant Details")
-    }
+		serviceManager.get(request: Router.fetchRestaurantDetails.getRequest,
+						   of: RestaurantDetailsModel.self) { result in
+			switch result {
+			case .success(let restaurantDetails):
+				completion(restaurantDetails)
+			case .failure(_):
+				completion(nil)
+			}
+		}
+	}
 
     func fetchMenuItem(_ completion: (String) -> Void) {
 

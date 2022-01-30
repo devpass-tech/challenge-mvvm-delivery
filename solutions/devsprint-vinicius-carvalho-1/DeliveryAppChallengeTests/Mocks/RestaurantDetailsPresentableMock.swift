@@ -18,7 +18,7 @@ class RestaurantDetailsPresentableMock: RestaurantDetailsPresentable {
         displayedDetails = true
     }
 
-    func displayErros(error: Error) {
+    func displayError(error: Error) {
         displayedErrors = true
     }
 }

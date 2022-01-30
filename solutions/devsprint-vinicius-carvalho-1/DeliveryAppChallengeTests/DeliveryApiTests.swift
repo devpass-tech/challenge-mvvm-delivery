@@ -82,10 +82,12 @@ class DeliveryApiTests: XCTestCase {
 
 	func test_fetchRestaurantList_apiManagerReturnNonEmptyList() {
 		// Given
-		let listMock = [RestaurantsListModel(
+		let listMock = [Restaurant(
 			name: "Benjamin a Padaria",
 			category: "Padaria",
-			deliveryTime: .init(min: 10, max: 45)
+			deliveryTime: .init(min: 10, max: 45),
+            reviews: nil,
+            menu: []
 		)]
 		let data: Data = try! JSONEncoder().encode(listMock)
 		let spy = APIServiceSpy(

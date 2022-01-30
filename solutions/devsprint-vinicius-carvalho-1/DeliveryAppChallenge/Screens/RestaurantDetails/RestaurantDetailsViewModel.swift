@@ -9,7 +9,7 @@ import Foundation
 
 protocol RestaurantDetailsPresentable: AnyObject {
     func displayRestaurantDetails(with restaurant: Restaurant)
-    func displayErros(error: Error)
+    func displayError(error: Error)
 }
 
 class RestaurantDetailsViewModel {
@@ -29,7 +29,7 @@ class RestaurantDetailsViewModel {
                 self.presenter?.displayRestaurantDetails(with: restaurant)
 
             case .failure(let error):
-                self.presenter?.displayErros(error: error)
+                self.presenter?.displayError(error: error)
             }
         }
     }

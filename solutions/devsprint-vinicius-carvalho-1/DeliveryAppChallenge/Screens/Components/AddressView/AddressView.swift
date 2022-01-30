@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddressView: UIView, Coordinating {
+class AddressView: UIView {
     
     var coordinator: Coordinator?
 

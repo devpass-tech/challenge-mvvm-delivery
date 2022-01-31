@@ -9,23 +9,18 @@ import Foundation
 
 struct SettingsViewModel {
     func getName() -> String {
-        //TODO: retrieve data from UserDefaults
-        "John Appleseed"
-        
+        DefaultsKey.user.value?.userName ?? ""
     }
     
     func getEmail() -> String {
-        //TODO: retrieve data from UserDefaults
-        "john@apple.com"
+        DefaultsKey.user.value?.userEmail ?? ""
     }
     
     func getAddress() -> String {
-        //TODO: retrieve data from UserDefaults
-        "Rua Bela Cintra, 495 - Consolação"
+        DefaultsKey.adress.value ?? ""
     }
     
     func getPaymentMethod() -> String {
-        //TODO: retrieve data from UserDefaults
-        "Cartão de Crédito"
+        DefaultsKey.paymentMethod.value ?? ""
     }
 }

@@ -201,7 +201,9 @@ class ServiceManagerTests: XCTestCase {
 			RestaurantsListModel(
 				name: "Benjamin a Padaria",
 				category: "Padaria",
-				deliveryTime: .init(min: 10, max: 45)
+				deliveryTime: .init(min: 10, max: 45),
+                reviews: Review(score: 20.0, count: 20),
+                menu: []
 			)
 		]
 		return dataMock

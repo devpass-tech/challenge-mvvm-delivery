@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Review: Decodable {
+struct Review: Codable {
     let score: Double
     let count: Int
 }

@@ -26,7 +26,7 @@ enum Router {
 		case .fetchRestaurants:
 			return "/home_restaurant_list.json"
 		case .fetchRestaurantDetails:
-			return ""
+			return "/restaurant_details.json"
 		case .fetchMenuItem:
 			return ""
         case .fetchAddress:

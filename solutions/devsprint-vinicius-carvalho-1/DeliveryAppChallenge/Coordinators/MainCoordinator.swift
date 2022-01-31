@@ -15,15 +15,15 @@ class MainCoordinator: Coordinator {
     func eventOccurred(with type: Event) {
         switch type {
         case .buttonTappedSettings:
-            var vc: UIViewController & Coordinating = SettingsViewController()
-            vc.coordinator = self
-            navigationController?.pushViewController(vc, animated: true)
+            var viewController: UIViewController & Coordinating = SettingsViewController()
+            viewController.coordinator = self
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
     func start() {
-        var vc: UIViewController & Coordinating = HomeViewController()
-        vc.coordinator = self
-        navigationController?.setViewControllers([vc], animated: true)
+        var viewController: UIViewController & Coordinating = HomeViewController()
+        viewController.coordinator = self
+        navigationController?.setViewControllers([viewController], animated: true)
     }
 }

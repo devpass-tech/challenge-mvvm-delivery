@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+class AppCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var presenter: UINavigationController
 
@@ -21,13 +21,6 @@ final class AppCoordinator: Coordinator {
         presenter.pushViewController(viewController, animated: false)
     }
     
-    func goToSettings() {
-        let child = SettingsCoordinator(presenter: presenter)
-        child.parentCoordinator = self
-        childCoordinators.append(child)
-        child.start()
-    }
-    
     func childDidFinish(_ child: Coordinator?) {
         for (index, coordinator) in childCoordinators.enumerated() {
             if coordinator === child {
@@ -36,5 +29,13 @@ final class AppCoordinator: Coordinator {
             }
         }
     }
+}
 
+extension AppCoordinator: Settings {
+    func goToSettings() {
+        let child = SettingsCoordinator(presenter: presenter)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start()
+    }
 }

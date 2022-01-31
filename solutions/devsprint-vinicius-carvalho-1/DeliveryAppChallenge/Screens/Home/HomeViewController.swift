@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: Settings?
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
                                                             target: self,
-                                                            action: #selector(presentNewScreen))
+                                                            action: #selector(presentSettings))
     }
     
     required init?(coder: NSCoder) {
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
         self.view = HomeView()
     }
     
-    @objc func presentNewScreen() {
+    @objc func presentSettings() {
         coordinator?.goToSettings()
     }
 }

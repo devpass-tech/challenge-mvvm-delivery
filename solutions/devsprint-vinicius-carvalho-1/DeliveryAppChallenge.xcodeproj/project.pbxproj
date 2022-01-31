@@ -14,6 +14,7 @@
 		18DC4617279F71A4001911D6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4616279F71A4001911D6 /* APIService.swift */; };
 		18DC4619279F85D3001911D6 /* RestaurantsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */; };
 		18DC461C279FA210001911D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC461B279FA210001911D6 /* Router.swift */; };
+		9234B79127A899EE00FD58E5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79027A899EE00FD58E5 /* Settings.swift */; };
 		9277504D27A081C8005FBCF8 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277504C27A081C8005FBCF8 /* DefaultsManager.swift */; };
 		9277504F27A081F6005FBCF8 /* DefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277504E27A081F6005FBCF8 /* DefaultsKey.swift */; };
 		9277505127A08218005FBCF8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277505027A08218005FBCF8 /* UserDefaults.swift */; };
@@ -68,6 +69,7 @@
 		18DC4616279F71A4001911D6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantsListModel.swift; path = DeliveryAppChallenge/Models/RestaurantsListModel.swift; sourceTree = SOURCE_ROOT; };
 		18DC461B279FA210001911D6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9234B79027A899EE00FD58E5 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		9277504C27A081C8005FBCF8 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		9277504E27A081F6005FBCF8 /* DefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultsKey.swift; path = DeliveryAppChallenge/Service/DefaultsKey.swift; sourceTree = SOURCE_ROOT; };
 		9277505027A08218005FBCF8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaults.swift; path = DeliveryAppChallenge/Service/UserDefaults.swift; sourceTree = SOURCE_ROOT; };
@@ -139,6 +141,7 @@
 				92FE369027A48E2C00A0C491 /* Coordinator.swift */,
 				92FE369227A48E4200A0C491 /* AppCoordinator.swift */,
 				92FE369627A48E8200A0C491 /* SettingsCoordinator.swift */,
+				9234B79027A899EE00FD58E5 /* Settings.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				92FE369327A48E4200A0C491 /* AppCoordinator.swift in Sources */,
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
 				98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */,
+				9234B79127A899EE00FD58E5 /* Settings.swift in Sources */,
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				9277504D27A081C8005FBCF8 /* DefaultsManager.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,

@@ -15,7 +15,6 @@ final class SettingsCoordinator: Coordinator {
 
     init(presenter: UINavigationController) {
         self.presenter = presenter
-                
     }
     
     func start() {
@@ -27,5 +26,4 @@ final class SettingsCoordinator: Coordinator {
     func didFinish() {
         parentCoordinator?.childDidFinish(self)
     }
-
 }

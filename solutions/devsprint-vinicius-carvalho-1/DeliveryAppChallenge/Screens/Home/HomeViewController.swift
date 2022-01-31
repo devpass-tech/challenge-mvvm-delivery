@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    weak var coordinator: AppCoordinator?
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -15,8 +17,8 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Delivery App"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
-                                                            target: nil,
-                                                            action: nil)
+                                                            target: self,
+                                                            action: #selector(presentNewScreen))
     }
     
     required init?(coder: NSCoder) {
@@ -29,5 +31,9 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = HomeView()
+    }
+    
+    @objc func presentNewScreen() {
+        coordinator?.goToSettings()
     }
 }

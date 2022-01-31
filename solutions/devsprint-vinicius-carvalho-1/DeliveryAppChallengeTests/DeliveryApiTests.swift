@@ -8,30 +8,10 @@
 import XCTest
 @testable import DeliveryAppChallenge
 
-
-class DeliveryApiTests: XCTestCase {
+final class DeliveryApiTests: XCTestCase {
 
 	// MARK: Subject under test
-	var sut: DeliveryApi!
-
-	class APIServiceSpy: APIServiceProtocol {
-
-		let session: URLSession
-
-		init(session: URLSession) {
-			self.session = session
-		}
-
-		var getCalled: Bool = false
-
-		func get<T>(
-			request: URLRequest,
-			of type: T.Type,
-			completion: @escaping (Result<T, ServiceError>) -> Void
-		) where T : Decodable {
-			getCalled = true
-		}
-	}
+	private var sut: DeliveryApi!
 
 	// MARK: Test setup
 	override func setUp() {
@@ -56,7 +36,7 @@ class DeliveryApiTests: XCTestCase {
 
 		// When
 		sut.fetchRestaurants { _ in
-			
+
 		// Then
 			XCTAssertTrue(spy.getCalled)
 		}
@@ -82,13 +62,7 @@ class DeliveryApiTests: XCTestCase {
 
 	func test_fetchRestaurantList_apiManagerReturnNonEmptyList() {
 		// Given
-		let listMock = [RestaurantsListModel(
-			name: "Benjamin a Padaria",
-			category: "Padaria",
-			deliveryTime: .init(min: 10, max: 45),
-            reviews: Review(score: 20.0, count: 20),
-            menu: []
-		)]
+		let listMock = makeRestaurantList()
 		let data: Data = try! JSONEncoder().encode(listMock)
 		let spy = APIServiceSpy(
 			session:
@@ -123,9 +97,46 @@ class DeliveryApiTests: XCTestCase {
 
 		// Then
 			XCTAssertTrue(spy.getCalled)
-
 		}
 	}
+
+    func test_fetchMenuItem_shouldReturnValidMenuItems() {
+        let detailMock = makeDetailRestaurant()
+        let data: Data = try! JSONEncoder().encode(detailMock)
+        let spy = APIServiceSpy(session: URLProtocolMock.mockSession(
+            with: Router.fetchMenuItem.getRequest, completionMock: (data, nil, nil)))
+
+        sut.serviceManager = spy
+
+        sut.fetchMenuItem { items in
+            print(items)
+            XCTAssertEqual(items.count, detailMock.menu.count)
+        }
+    }
+
+    func test_fetchMenuItem_shouldReturnEmptyMenuItems() {
+        let detailMock = makeRestaurantList()[0]
+        let data: Data = try! JSONEncoder().encode(detailMock)
+        let spy = APIServiceSpy(session: URLProtocolMock.mockSession(
+            with: Router.fetchMenuItem.getRequest, completionMock: (data, nil, nil)))
+
+        sut.serviceManager = spy
+
+        sut.fetchMenuItem { items in
+            XCTAssertTrue(items.isEmpty)
+        }
+    }
+
+    func test_fetchMenuItem_shouldReturnErrorForInvalidJson() {
+        let spy = APIServiceSpy(session: URLProtocolMock.mockSession(
+            with: Router.fetchMenuItem.getRequest, completionMock: (nil, nil, ServiceError.decodeError)))
+
+        sut.serviceManager = spy
+
+        sut.fetchMenuItem { items in
+            XCTAssertNil(items)
+        }
+    }
 
 	func test_fetchRestaurantDetails_apiManagerSendsNilForRequestError() {
 		// Given
@@ -147,14 +158,7 @@ class DeliveryApiTests: XCTestCase {
 
 	func test_fetchRestaurantDetails_apiManagerReturnNonEmptyDetails() {
 		// Given
-		let detailsMock = RestaurantDetailsModel(
-			name: "Benjamin a Padaria",
-			category: "Padaria",
-			deliveryTime: .init(min: 10, max: 45),
-			reviews: .init(score: 4.6, count: 100),
-			menu: .init(name: "Bolo de Laranja 🍊", category: "Padaria", price: 9.99)
-		)
-
+		let detailsMock = makeDetailRestaurant()
 		let data: Data = try! JSONEncoder().encode(detailsMock)
 		let spy = APIServiceSpy(
 			session: URLProtocolMock.mockSession(
@@ -171,3 +175,28 @@ class DeliveryApiTests: XCTestCase {
 		}
 	}
 }
+
+extension DeliveryApiTests {
+    private func makeRestaurantList() -> [RestaurantsListModel] {
+        [RestaurantsListModel(
+            name: "Benjamin a Padaria",
+            category: "Padaria",
+            deliveryTime: DeliveryTime(minimum: 10, maximum: 45),
+            reviews: Review(score: 20.0, count: 20),
+            menu: []
+        )]
+    }
+
+    private func makeDetailRestaurant() -> RestaurantDetailsModel {
+       RestaurantDetailsModel(
+            name: "Benjamin a Padaria",
+            category: "Padaria",
+            deliveryTime: DeliveryTime(minimum: 10, maximum: 45),
+            reviews:  Review(score: 4.6, count: 100),
+            menu: [RestaurantItem(category: "Padaria", name: "Bolo de Laranja 🍊", price: 9.99)]
+        )
+    }
+}
+
+
+

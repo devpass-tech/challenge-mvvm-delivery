@@ -14,11 +14,6 @@ struct RestaurantsListModel: Codable {
     let reviews: Review
     let menu: [RestaurantItem]
 
-	struct DeliveryTime: Codable {
-		let min: Int
-		let max: Int
-	}
-
 	private enum CodingKeys: String, CodingKey {
 		case name, category, reviews, menu
 		case deliveryTime = "delivery_time"

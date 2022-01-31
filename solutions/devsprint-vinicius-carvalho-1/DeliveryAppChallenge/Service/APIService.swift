@@ -7,7 +7,6 @@
 
 import Foundation
 
-// TODO: Add one more layer to make the service laye
 protocol APIServiceProtocol {
 
 	var session: URLSession { get }

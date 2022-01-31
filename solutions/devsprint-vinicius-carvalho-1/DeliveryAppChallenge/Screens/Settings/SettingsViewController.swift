@@ -14,6 +14,7 @@ class SettingsViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
 
+        navigationItem.title = "Settings"
     }
     
     required init?(coder: NSCoder) {

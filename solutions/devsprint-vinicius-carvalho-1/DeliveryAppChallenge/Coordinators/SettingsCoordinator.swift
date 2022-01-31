@@ -16,7 +16,6 @@ final class SettingsCoordinator: Coordinator {
     init(presenter: UINavigationController) {
         self.presenter = presenter
                 
-        presenter.navigationItem.title = "Settings"
     }
     
     func start() {

@@ -109,7 +109,6 @@ final class DeliveryApiTests: XCTestCase {
         sut.serviceManager = spy
 
         sut.fetchMenuItem { items in
-            print(items)
             XCTAssertEqual(items.count, detailMock.menu.count)
         }
     }

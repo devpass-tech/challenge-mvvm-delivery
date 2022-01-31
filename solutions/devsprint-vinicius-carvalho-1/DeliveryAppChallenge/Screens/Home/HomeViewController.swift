@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
                                                             target: self,
-                                                            action: #selector(presentSettings))
+                                                            action: #selector(routeToSettings))
     }
     
     required init?(coder: NSCoder) {
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
         self.view = HomeView()
     }
     
-    @objc func presentSettings() {
+    @objc func routeToSettings(_ sender: UITapGestureRecognizer) {
         coordinator?.goToSettings()
     }
 }

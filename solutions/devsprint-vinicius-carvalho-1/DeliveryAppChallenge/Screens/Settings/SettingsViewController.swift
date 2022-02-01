@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    weak var coordinator: SettingsCoordinator?
+    var viewModel: SettingsViewModel = SettingsViewModel()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -23,7 +23,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        coordinator?.didFinish()
+        viewModel.coordinator?.onFinish()
     }
     
     override func loadView() {

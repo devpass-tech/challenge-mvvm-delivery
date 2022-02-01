@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		186785D927A36C420084A695 /* RestaurantDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186785D827A36C420084A695 /* RestaurantDetailsModel.swift */; };
 		18C4813E27A05509000BF262 /* ServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4813D27A05509000BF262 /* ServiceManagerTests.swift */; };
 		18C4814927A0698F000BF262 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4814827A0698F000BF262 /* URLProtocolMock.swift */; };
@@ -16,9 +15,13 @@
 		18DC4617279F71A4001911D6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4616279F71A4001911D6 /* APIService.swift */; };
 		18DC4619279F85D3001911D6 /* RestaurantsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */; };
 		18DC461C279FA210001911D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC461B279FA210001911D6 /* Router.swift */; };
-		9234B79127A899EE00FD58E5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79027A899EE00FD58E5 /* Settings.swift */; };
 		5B45CBAB27A5113500ED9294 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45CBAA27A5113500ED9294 /* SettingsViewModelTests.swift */; };
 		5B8A49FB279FC07B00392B7F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A49FA279FC07B00392B7F /* SettingsViewModel.swift */; };
+		9234B79327A8A1DB00FD58E5 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79227A8A1DB00FD58E5 /* Coordinatable.swift */; };
+		9234B79B27A8A9A300FD58E5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79A27A8A9A300FD58E5 /* HomeViewModel.swift */; };
+		9234B79D27A8A9B900FD58E5 /* HomeViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79C27A8A9B900FD58E5 /* HomeViewModelType.swift */; };
+		9234B79F27A8A9FC00FD58E5 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79E27A8A9FC00FD58E5 /* HomeCoordinator.swift */; };
+		9234B7A127A8B9F200FD58E5 /* SettigsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B7A027A8B9F200FD58E5 /* SettigsViewModelType.swift */; };
 		9277504D27A081C8005FBCF8 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277504C27A081C8005FBCF8 /* DefaultsManager.swift */; };
 		9277504F27A081F6005FBCF8 /* DefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277504E27A081F6005FBCF8 /* DefaultsKey.swift */; };
 		9277505127A08218005FBCF8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277505027A08218005FBCF8 /* UserDefaults.swift */; };
@@ -74,9 +77,13 @@
 		18DC4616279F71A4001911D6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantsListModel.swift; path = DeliveryAppChallenge/Models/RestaurantsListModel.swift; sourceTree = SOURCE_ROOT; };
 		18DC461B279FA210001911D6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		9234B79027A899EE00FD58E5 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5B45CBAA27A5113500ED9294 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
 		5B8A49FA279FC07B00392B7F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		9234B79227A8A1DB00FD58E5 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		9234B79A27A8A9A300FD58E5 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9234B79C27A8A9B900FD58E5 /* HomeViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelType.swift; sourceTree = "<group>"; };
+		9234B79E27A8A9FC00FD58E5 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		9234B7A027A8B9F200FD58E5 /* SettigsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettigsViewModelType.swift; sourceTree = "<group>"; };
 		9277504C27A081C8005FBCF8 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		9277504E27A081F6005FBCF8 /* DefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultsKey.swift; path = DeliveryAppChallenge/Service/DefaultsKey.swift; sourceTree = SOURCE_ROOT; };
 		9277505027A08218005FBCF8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaults.swift; path = DeliveryAppChallenge/Service/UserDefaults.swift; sourceTree = SOURCE_ROOT; };
@@ -146,9 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				92FE369027A48E2C00A0C491 /* Coordinator.swift */,
+				9234B79227A8A1DB00FD58E5 /* Coordinatable.swift */,
 				92FE369227A48E4200A0C491 /* AppCoordinator.swift */,
+				9234B79E27A8A9FC00FD58E5 /* HomeCoordinator.swift */,
 				92FE369627A48E8200A0C491 /* SettingsCoordinator.swift */,
-				9234B79027A899EE00FD58E5 /* Settings.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -264,6 +272,8 @@
 		983271F2272753100010C63A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9234B79C27A8A9B900FD58E5 /* HomeViewModelType.swift */,
+				9234B79A27A8A9A300FD58E5 /* HomeViewModel.swift */,
 				983271C0272752AF0010C63A /* HomeViewController.swift */,
 				98F1296D272F363200B88A87 /* HomeView.swift */,
 			);
@@ -359,6 +369,7 @@
 				98F1297A272F51AE00B88A87 /* SettingsViewController.swift */,
 				98612706272F56AB0049403C /* SettingsView.swift */,
 				5B8A49FA279FC07B00392B7F /* SettingsViewModel.swift */,
+				9234B7A027A8B9F200FD58E5 /* SettigsViewModelType.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -491,8 +502,9 @@
 				9277504F27A081F6005FBCF8 /* DefaultsKey.swift in Sources */,
 				92FE369327A48E4200A0C491 /* AppCoordinator.swift in Sources */,
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
+				9234B79B27A8A9A300FD58E5 /* HomeViewModel.swift in Sources */,
 				98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */,
-				9234B79127A899EE00FD58E5 /* Settings.swift in Sources */,
+				9234B79F27A8A9FC00FD58E5 /* HomeCoordinator.swift in Sources */,
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				9277504D27A081C8005FBCF8 /* DefaultsManager.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
@@ -505,14 +517,17 @@
 				18DC4613279F6176001911D6 /* ServiceError.swift in Sources */,
 				98FC5AB12732BB7D002412EA /* RatingView.swift in Sources */,
 				18DC4619279F85D3001911D6 /* RestaurantsListModel.swift in Sources */,
+				9234B79D27A8A9B900FD58E5 /* HomeViewModelType.swift in Sources */,
 				9277505327A0826B005FBCF8 /* User.swift in Sources */,
 				98F12975272F48E400B88A87 /* AddressCellView.swift in Sources */,
 				18DC461C279FA210001911D6 /* Router.swift in Sources */,
+				9234B79327A8A1DB00FD58E5 /* Coordinatable.swift in Sources */,
 				98F12970272F41AE00B88A87 /* RestaurantCellView.swift in Sources */,
 				5B8A49FB279FC07B00392B7F /* SettingsViewModel.swift in Sources */,
 				186785D927A36C420084A695 /* RestaurantDetailsModel.swift in Sources */,
 				98F12977272F48F000B88A87 /* AddressListView.swift in Sources */,
 				98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */,
+				9234B7A127A8B9F200FD58E5 /* SettigsViewModelType.swift in Sources */,
 				98F1297B272F51AE00B88A87 /* SettingsViewController.swift in Sources */,
 				98F1296C272F328200B88A87 /* CategoryListView.swift in Sources */,
 				98F1296E272F363200B88A87 /* HomeView.swift in Sources */,

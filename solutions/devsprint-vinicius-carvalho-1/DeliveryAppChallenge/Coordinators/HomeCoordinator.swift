@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SettingsCoordinator: Coordinator {
+final class HomeCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     var presenter: UINavigationController
@@ -18,9 +18,16 @@ final class SettingsCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = SettingsViewController()
+        let viewController = HomeViewController()
         viewController.viewModel.coordinator = self
         presenter.pushViewController(viewController, animated: true)
+    }
+    
+    func goToSettings() {
+        let child = SettingsCoordinator(presenter: presenter)
+        child.parentCoordinator = parentCoordinator
+        childCoordinators.append(child)
+        child.start()
     }
     
     func onFinish() {

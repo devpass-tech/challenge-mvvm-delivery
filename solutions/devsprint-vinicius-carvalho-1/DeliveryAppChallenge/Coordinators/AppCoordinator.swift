@@ -16,9 +16,9 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let viewController = HomeViewController()
-        viewController.coordinator = self
-        presenter.pushViewController(viewController, animated: false)
+        let child = HomeCoordinator(presenter: presenter)
+        child.parentCoordinator = self
+        child.start()
     }
     
     func childDidFinish(_ child: Coordinator?) {
@@ -28,14 +28,5 @@ class AppCoordinator: Coordinator {
                 break
             }
         }
-    }
-}
-
-extension AppCoordinator: Settings {
-    func goToSettings() {
-        let child = SettingsCoordinator(presenter: presenter)
-        child.parentCoordinator = self
-        childCoordinators.append(child)
-        child.start()
     }
 }

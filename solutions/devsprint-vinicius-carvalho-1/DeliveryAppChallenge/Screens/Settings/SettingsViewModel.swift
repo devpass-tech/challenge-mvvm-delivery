@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct SettingsViewModel {
+class SettingsViewModel: SettigsViewModelType {
+    
+    var coordinator: SettingsCoordinator?
+    
+    func onFinish() {
+        coordinator?.onFinish()
+    }
+    
     func getName() -> String {
         DefaultsKey.user.value?.userName ?? ""
     }

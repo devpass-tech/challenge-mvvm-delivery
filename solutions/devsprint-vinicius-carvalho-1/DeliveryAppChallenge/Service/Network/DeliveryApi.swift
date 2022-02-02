@@ -9,7 +9,7 @@ import Foundation
 
 protocol DeliveryApiService {
     func fetchRestaurants(_ completion: @escaping (Result<[RestaurantsListModel], ServiceError>) -> Void)
-    func searchAddresses(_ completion: ([String]) -> Void)
+    func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void)
     func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void)
     func fetchMenuItem(_ completion: (String) -> Void)
 }
@@ -33,9 +33,14 @@ struct DeliveryApi {
         }
     }
 
-    func searchAddresses(_ completion: ([String]) -> Void) {
-        serviceManager.searchAddresses { addresses in
-            completion(addresses)
+    func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void) {
+        serviceManager.searchAddresses { result in
+            switch result {
+            case .success(let addressList):
+                completion(.success(addressList))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 

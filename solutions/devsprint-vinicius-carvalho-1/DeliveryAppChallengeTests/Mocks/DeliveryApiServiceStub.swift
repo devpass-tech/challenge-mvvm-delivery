@@ -12,7 +12,7 @@ final class DeliveryApiServiceStub: DeliveryApiService {
     var expectedRestaurants: Result<[RestaurantsListModel], ServiceError> = .success([])
     var expectedItems = ""
     var expectedDetails: RestaurantDetailsModel?
-    var expectedAddresses: [String] = []
+    var expectedAddresses: Result<[Address], ServiceError> = .success([])
 
     func fetchRestaurants(_ completion: @escaping (Result<[RestaurantsListModel], ServiceError>) -> Void) {
         completion(expectedRestaurants)
@@ -26,7 +26,7 @@ final class DeliveryApiServiceStub: DeliveryApiService {
         completion(expectedDetails)
     }
 
-    func searchAddresses(_ completion: ([String]) -> Void) {
+    func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void) {
         completion(expectedAddresses)
     }
 }

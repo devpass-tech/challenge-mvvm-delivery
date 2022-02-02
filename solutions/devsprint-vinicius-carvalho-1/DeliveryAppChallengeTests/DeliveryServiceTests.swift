@@ -82,7 +82,7 @@ final class DeliveryServiceTests: XCTestCase {
                 XCTFail()
             }
         }
-       wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 1)
     }
 
     func test_fetchRestaurants_shouldReturnFailure() {
@@ -110,6 +110,126 @@ final class DeliveryServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
 
+    func test_fetchRestaurants_shouldReturnDecodeError() {
+        // Given
+        let successCompletion: URLProtocolMock.RequestCompletion = (
+            "{\"key\": \"value\"}".data(using: .utf8),
+            nil,
+            nil
+        )
+
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "failure")
+
+        // When
+        sut.fetchRestaurants{ result in
+            switch result {
+            case .failure(let error):
+                expectation.fulfill()
+                XCTAssertEqual(error.localizedDescription, ServiceError.decodeError.localizedDescription)
+            case .success:
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func test_searchAddress_shouldReturnSuccess() {
+        // Given
+        let endpoint = Router.fetchAddress
+        let addressDataMock = addressDataMock()
+        let successCompletion = createResquestCompletionMock(endpoint: endpoint,
+                                                             dataMock: addressDataMock,
+                                                             statusCode: 200,
+                                                             error: nil)
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "Success")
+
+        // When
+        sut.searchAddresses { result in
+            // Then
+            switch result {
+            case .failure:
+                XCTFail()
+            case .success(let address):
+                expectation.fulfill()
+                XCTAssertFalse(address.isEmpty)
+                if let address = try? XCTUnwrap(address.first) {
+                    XCTAssertEqual(address.street, addressDataMock[0].street)
+                    XCTAssertEqual(address.number, addressDataMock[0].number)
+                    XCTAssertEqual(address.neighborhood, addressDataMock[0].neighborhood)
+                } else {
+                    XCTFail()
+                }
+            }
+        }
+        wait(for: [expectation], timeout: 0.7)
+    }
+
+    func test_searchAddress_shouldReturnEmptyData() {
+        // Given
+        let successCompletion: URLProtocolMock.RequestCompletion = (nil,nil,nil)
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "failure")
+
+        // When
+        sut.searchAddresses { result in
+            // Then
+            switch result {
+            case .failure(let error):
+                expectation.fulfill()
+                XCTAssertEqual(error.localizedDescription, ServiceError.emptyData.localizedDescription)
+            case .success:
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: 0.7)
+    }
+
+    func test_searchAddress_shouldReturnFailure() {
+        // Given
+        let expectedError = NSError(domain: NSURLErrorDomain, code: NSURLErrorTimedOut, userInfo: nil)
+        let successCompletion: URLProtocolMock.RequestCompletion = (nil,nil,expectedError)
+
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "failure")
+
+        // When
+        sut.searchAddresses { result in
+            // Then
+            switch result {
+            case .failure(let error):
+                expectation.fulfill()
+                XCTAssertEqual(error.localizedDescription,
+                               ServiceError.requestFailed(description: expectedError.localizedDescription).localizedDescription)
+            case .success:
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: 0.7)
+    }
+
+    func test_searchAddress_shouldReturnDecodeError() {
+        // Given
+        let successCompletion: URLProtocolMock.RequestCompletion = ("{\"key\": \"value\"}".data(using: .utf8), nil, nil)
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "failure")
+
+        // When
+        sut.searchAddresses { result in
+            // Then
+            switch result {
+            case .failure(let error):
+                expectation.fulfill()
+                XCTAssertEqual(error.localizedDescription, ServiceError.decodeError.localizedDescription)
+            case .success:
+                XCTFail()
+            }
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+
     // MARK: - Mocks
     private func createResquestCompletionMock<T: Codable>(
         endpoint: Router,
@@ -136,6 +256,11 @@ final class DeliveryServiceTests: XCTestCase {
             )
         ]
         return dataMock
+    }
+
+    private func addressDataMock() -> [Address] {
+        let addressDataMock: [Address] = [Address(street: "Rua Augusta", number: "495", neighborhood: "Consolação")]
+        return addressDataMock
     }
 
     private func convertDataValue<T: Decodable>(of type: T.Type, from data: Data) -> T? {

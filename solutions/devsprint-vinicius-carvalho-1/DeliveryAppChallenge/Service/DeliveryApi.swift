@@ -27,9 +27,15 @@ struct DeliveryApi {
 		}
     }
 
-    func searchAddresses(_ completion: ([String]) -> Void) {
-
-        completion(["Address 1", "Address 2", "Address 3"])
+    func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void) {
+        serviceManager.get(request: Router.fetchAddress.getRequest, of: [Address].self) { result in
+            switch result {
+            case .success(let addressList):
+                completion(.success(addressList))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 
 	func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void) {

@@ -28,8 +28,8 @@ private enum Sections: Int, CaseIterable {
 }
 
 class SettingsView: UIView {
-
     let cellIdentifier = "SettingsCell"
+    var settingsViewModel = SettingsViewModel()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
@@ -95,16 +95,16 @@ extension SettingsView: UITableViewDataSource {
 
         switch sectionIndex {
         case .name:
-            cell.textLabel?.text = "John Appleseed"
+            cell.textLabel?.text = settingsViewModel.getName()
 
         case .email:
-            cell.textLabel?.text = "john@apple.com"
+            cell.textLabel?.text = settingsViewModel.getEmail()
 
         case .address:
-            cell.textLabel?.text = "Rua Bela Cintra, 495 - Consolação"
+            cell.textLabel?.text = settingsViewModel.getAddress()
 
         case .paymentMethod:
-            cell.textLabel?.text = "Cartão de Crédito"
+            cell.textLabel?.text = settingsViewModel.getPaymentMethod()
         }
         
         return cell

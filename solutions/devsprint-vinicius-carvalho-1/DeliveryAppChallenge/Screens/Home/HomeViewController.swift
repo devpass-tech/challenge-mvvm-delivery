@@ -15,8 +15,8 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Delivery App"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
-                                                            target: nil,
-                                                            action: nil)
+                                                            target: self,
+                                                            action: #selector(routeToSettings))
     }
     
     required init?(coder: NSCoder) {
@@ -29,5 +29,9 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = HomeView()
+    }
+    
+    @objc func routeToSettings(_ sender: UITapGestureRecognizer) {
+        navigationController?.present(SettingsViewController(), animated: true, completion: nil)
     }
 }

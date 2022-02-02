@@ -38,7 +38,8 @@ class URLProtocolMock: URLProtocol {
 	}
 
 	override func startLoading() {
-        URLProtocolMock.emit?(request)
+        // This code line is for capture the request maded and check http status and verbs
+        // URLProtocolMock.emit?(request)
 
 		// We have a mock response specified so return it.
         if let responseStrong = URLProtocolMock.requestCompletion?.response {

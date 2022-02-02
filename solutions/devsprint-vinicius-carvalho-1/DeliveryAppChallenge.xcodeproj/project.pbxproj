@@ -13,8 +13,12 @@
 		18C4814B27A098E7000BF262 /* DeliveryApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4814A27A098E7000BF262 /* DeliveryApiTests.swift */; };
 		18DC4613279F6176001911D6 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4612279F6176001911D6 /* ServiceError.swift */; };
 		18DC4617279F71A4001911D6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4616279F71A4001911D6 /* APIService.swift */; };
-		18DC4619279F85D3001911D6 /* RestaurantsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */; };
+		18DC4619279F85D3001911D6 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC4618279F85D3001911D6 /* Restaurant.swift */; };
 		18DC461C279FA210001911D6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DC461B279FA210001911D6 /* Router.swift */; };
+		62F5D90927A58C7400352C52 /* RestaurantDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5D90827A58C7400352C52 /* RestaurantDetailsViewModel.swift */; };
+		62F5D90B27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5D90A27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift */; };
+		62F5D90D27A5954200352C52 /* RestaurantDetailsPresentableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5D90C27A5954200352C52 /* RestaurantDetailsPresentableMock.swift */; };
+		62F5D90F27A599DA00352C52 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5D90E27A599DA00352C52 /* APIServiceMock.swift */; };
 		5B45CBAB27A5113500ED9294 /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B45CBAA27A5113500ED9294 /* SettingsViewModelTests.swift */; };
 		5B8A49FB279FC07B00392B7F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8A49FA279FC07B00392B7F /* SettingsViewModel.swift */; };
 		9234B79327A8A1DB00FD58E5 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79227A8A1DB00FD58E5 /* Coordinatable.swift */; };
@@ -76,8 +80,12 @@
 		18C4814A27A098E7000BF262 /* DeliveryApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApiTests.swift; sourceTree = "<group>"; };
 		18DC4612279F6176001911D6 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		18DC4616279F71A4001911D6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantsListModel.swift; path = DeliveryAppChallenge/Models/RestaurantsListModel.swift; sourceTree = SOURCE_ROOT; };
+		18DC4618279F85D3001911D6 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Restaurant.swift; path = DeliveryAppChallenge/Models/Restaurant.swift; sourceTree = SOURCE_ROOT; };
 		18DC461B279FA210001911D6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		62F5D90827A58C7400352C52 /* RestaurantDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModel.swift; sourceTree = "<group>"; };
+		62F5D90A27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		62F5D90C27A5954200352C52 /* RestaurantDetailsPresentableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsPresentableMock.swift; sourceTree = "<group>"; };
+		62F5D90E27A599DA00352C52 /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
 		5B45CBAA27A5113500ED9294 /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
 		5B8A49FA279FC07B00392B7F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		9234B79227A8A1DB00FD58E5 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
@@ -147,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				18C4814827A0698F000BF262 /* URLProtocolMock.swift */,
+				62F5D90C27A5954200352C52 /* RestaurantDetailsPresentableMock.swift */,
+				62F5D90E27A599DA00352C52 /* APIServiceMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -202,6 +212,7 @@
 				983271D3272752B50010C63A /* DeliveryAppChallengeTests.swift */,
 				18C4813D27A05509000BF262 /* ServiceManagerTests.swift */,
 				18C4814A27A098E7000BF262 /* DeliveryApiTests.swift */,
+				62F5D90A27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift */,
 				5B45CBAA27A5113500ED9294 /* SettingsViewModelTests.swift */,
 			);
 			path = DeliveryAppChallengeTests;
@@ -257,7 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				9277505227A0826B005FBCF8 /* User.swift */,
-				18DC4618279F85D3001911D6 /* RestaurantsListModel.swift */,
+				18DC4618279F85D3001911D6 /* Restaurant.swift */,
 				186785D827A36C420084A695 /* RestaurantDetailsModel.swift */,
 				B75AA24D27A875C200B8D11D /* Address.swift */,
 			);
@@ -304,6 +315,7 @@
 			children = (
 				98EA0560272A0963007B0228 /* RestaurantDetailsViewController.swift */,
 				98FC5AAA2732B938002412EA /* RestaurantDetailsView.swift */,
+				62F5D90827A58C7400352C52 /* RestaurantDetailsViewModel.swift */,
 			);
 			path = RestaurantDetails;
 			sourceTree = "<group>";
@@ -511,6 +523,7 @@
 				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
 				9277504D27A081C8005FBCF8 /* DefaultsManager.swift in Sources */,
 				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
+				62F5D90927A58C7400352C52 /* RestaurantDetailsViewModel.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
 				92FE369127A48E2C00A0C491 /* Coordinator.swift in Sources */,
@@ -519,6 +532,9 @@
 				18DC4617279F71A4001911D6 /* APIService.swift in Sources */,
 				18DC4613279F6176001911D6 /* ServiceError.swift in Sources */,
 				98FC5AB12732BB7D002412EA /* RatingView.swift in Sources */,
+				98EA055B272A092F007B0228 /* AddressSearchViewController.swift in Sources */,
+				18DC4619279F85D3001911D6 /* Restaurant.swift in Sources */,
+				98EA0566272A0A0F007B0228 /* DeliveryApi.swift in Sources */,
 				18DC4619279F85D3001911D6 /* RestaurantsListModel.swift in Sources */,
 				9234B79D27A8A9B900FD58E5 /* HomeViewModelType.swift in Sources */,
 				9277505327A0826B005FBCF8 /* User.swift in Sources */,
@@ -555,11 +571,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F5D90F27A599DA00352C52 /* APIServiceMock.swift in Sources */,
 				18C4814927A0698F000BF262 /* URLProtocolMock.swift in Sources */,
 				983271D4272752B50010C63A /* DeliveryAppChallengeTests.swift in Sources */,
+				62F5D90B27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift in Sources */,
 				5B45CBAB27A5113500ED9294 /* SettingsViewModelTests.swift in Sources */,
 				18C4814B27A098E7000BF262 /* DeliveryApiTests.swift in Sources */,
 				18C4813E27A05509000BF262 /* ServiceManagerTests.swift in Sources */,
+				62F5D90D27A5954200352C52 /* RestaurantDetailsPresentableMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,7 +727,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeliveryAppChallenge/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -735,7 +754,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B8F644M47X;
+				DEVELOPMENT_TEAM = 5M357XQ75F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DeliveryAppChallenge/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

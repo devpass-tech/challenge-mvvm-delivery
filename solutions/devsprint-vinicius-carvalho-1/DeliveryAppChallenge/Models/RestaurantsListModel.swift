@@ -1,18 +1,18 @@
 //
-//  RestaurantDetailsModel.swift
+//  RestaurantsListModel.swift
 //  DeliveryAppChallenge
 //
-//  Created by Alley Pereira on 27/01/22.
+//  Created by Alley Pereira on 24/01/22.
 //
 
 import Foundation
 
-struct RestaurantDetailsModel: Codable {
+struct RestaurantsListModel: Codable {
 	let name: String
 	let category: String
 	let deliveryTime: DeliveryTime
-	let reviews: Review
-	let menu: [RestaurantItem]
+    let reviews: Review
+    let menu: [RestaurantItem]
 
 	private enum CodingKeys: String, CodingKey {
 		case name, category, reviews, menu

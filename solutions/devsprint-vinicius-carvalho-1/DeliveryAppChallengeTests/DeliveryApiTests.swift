@@ -176,8 +176,8 @@ final class DeliveryApiTests: XCTestCase {
 }
 
 extension DeliveryApiTests {
-    private func makeRestaurantList() -> [RestaurantsListModel] {
-        [RestaurantsListModel(
+    private func makeRestaurantList() -> [Restaurant] {
+        [Restaurant(
             name: "Benjamin a Padaria",
             category: "Padaria",
             deliveryTime: DeliveryTime(minimum: 10, maximum: 45),

@@ -15,9 +15,9 @@ struct DeliveryApi {
         self.serviceManager = serviceManager
     }
 
-    func fetchRestaurants(_ completion: @escaping ([RestaurantsListModel]) -> Void) {
+    func fetchRestaurants(_ completion: @escaping ([Restaurant]) -> Void) {
 		serviceManager.get(request: Router.fetchRestaurants.getRequest,
-						   of: [RestaurantsListModel].self) { result in
+						   of: [Restaurant].self) { result in
 			switch result {
 			case .success(let restaurantList):
 				completion(restaurantList)
@@ -52,7 +52,7 @@ struct DeliveryApi {
 	}
 
     func fetchMenuItem(_ completion: @escaping ([RestaurantItem]) -> Void) {
-        serviceManager.get(request: Router.fetchMenuItem.getRequest, of: RestaurantsListModel.self) { result in
+        serviceManager.get(request: Router.fetchMenuItem.getRequest, of: Restaurant.self) { result in
             switch result {
             case .success(let restaurantDetails):
                    completion(restaurantDetails.menu)

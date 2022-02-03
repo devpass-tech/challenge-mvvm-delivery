@@ -9,26 +9,15 @@ import Foundation
 
 struct DeliveryApi {
 
-	var serviceManager: APIServiceProtocol = APIService()
+    var serviceManager: APIServiceProtocol
 
-	/**
-	 Fetch restaurants from API.
+    init(serviceManager: APIServiceProtocol = APIService()) {
+        self.serviceManager = serviceManager
+    }
 
-	 - Parameters:
-	   - completion: a callback to receive the `[RestaurantListModel]` array.
-
-	 Usage:
-	 ```
-	 let api = DeliveryApi()
-
-	 api.fetchRestaurants { restaurants in
-	   // do what you want with the restaurants array
-	 }
-	 ```
-	*/
-    func fetchRestaurants(_ completion: @escaping ([RestaurantsListModel]) -> Void) {
+    func fetchRestaurants(_ completion: @escaping ([Restaurant]) -> Void) {
 		serviceManager.get(request: Router.fetchRestaurants.getRequest,
-						   of: [RestaurantsListModel].self) { result in
+						   of: [Restaurant].self) { result in
 			switch result {
 			case .success(let restaurantList):
 				completion(restaurantList)
@@ -38,18 +27,38 @@ struct DeliveryApi {
 		}
     }
 
-    func searchAddresses(_ completion: ([String]) -> Void) {
-
-        completion(["Address 1", "Address 2", "Address 3"])
+    func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void) {
+        serviceManager.get(request: Router.fetchAddress.getRequest, of: [Address].self) { result in
+            switch result {
+            case .success(let addressList):
+                completion(.success(addressList))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 
-    func fetchRestaurantDetails(_ completion: (String) -> Void) {
+	func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void) {
 
-        completion("Restaurant Details")
-    }
+		serviceManager.get(request: Router.fetchRestaurantDetails.getRequest,
+						   of: RestaurantDetailsModel.self) { result in
+			switch result {
+			case .success(let restaurantDetails):
+				completion(restaurantDetails)
+			case .failure(_):
+				completion(nil)
+			}
+		}
+	}
 
-    func fetchMenuItem(_ completion: (String) -> Void) {
-
-        completion("Menu Item")
+    func fetchMenuItem(_ completion: @escaping ([RestaurantItem]) -> Void) {
+        serviceManager.get(request: Router.fetchMenuItem.getRequest, of: Restaurant.self) { result in
+            switch result {
+            case .success(let restaurantDetails):
+                   completion(restaurantDetails.menu)
+            case .failure:
+                   completion([])
+            }
+        }
     }
 }

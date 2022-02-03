@@ -9,6 +9,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    var viewModel: SettingsViewModel = SettingsViewModel()
+
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -17,6 +19,11 @@ class SettingsViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.coordinator?.onFinish()
     }
     
     override func loadView() {

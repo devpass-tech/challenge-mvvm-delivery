@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+        
+    var viewModel: HomeViewModelType = HomeViewModel()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -32,6 +34,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc func routeToSettings(_ sender: UITapGestureRecognizer) {
-        navigationController?.present(SettingsViewController(), animated: true, completion: nil)
+        viewModel.coordinator?.goToSettings()
     }
 }

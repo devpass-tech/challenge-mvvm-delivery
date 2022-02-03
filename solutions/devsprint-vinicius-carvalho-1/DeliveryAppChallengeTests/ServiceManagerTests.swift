@@ -46,7 +46,7 @@ class ServiceManagerTests: XCTestCase {
 		// When
 		sut.get(
 			request: endpoint.getRequest,
-			of: [RestaurantsListModel].self,
+			of: [Restaurant].self,
 			completion: { result in
 				// Then
 				switch result {
@@ -90,7 +90,7 @@ class ServiceManagerTests: XCTestCase {
 		// When
 		sut.get(
 			request: endpoint.getRequest,
-			of: [RestaurantsListModel].self,
+			of: [Restaurant].self,
 			completion: { result in
 				// Then
 				switch result {
@@ -126,7 +126,7 @@ class ServiceManagerTests: XCTestCase {
 		// When
 		sut.get(
 			request: endpoint.getRequest,
-			of: [RestaurantsListModel].self,
+			of: [Restaurant].self,
 			completion: { result in
 				// Then
 				switch result {
@@ -161,7 +161,7 @@ class ServiceManagerTests: XCTestCase {
 		// When
 		sut.get(
 			request: endpoint.getRequest,
-			of: [RestaurantsListModel].self,
+			of: [Restaurant].self,
 			completion: { result in
 				// Then
 				switch result {
@@ -301,12 +301,14 @@ class ServiceManagerTests: XCTestCase {
 		return (data, response, error)
 	}
 
-	private func dataMock() -> [RestaurantsListModel] {
-		let dataMock: [RestaurantsListModel] = [
-			RestaurantsListModel(
+	private func dataMock() -> [Restaurant] {
+		let dataMock: [Restaurant] = [
+			Restaurant(
 				name: "Benjamin a Padaria",
 				category: "Padaria",
-				deliveryTime: .init(min: 10, max: 45)
+                deliveryTime: .init(min: 10, max: 45),
+                reviews: .init(score: 4.9, count: 10),
+                menu: []
 			)
 		]
 		return dataMock

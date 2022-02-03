@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+        
+    var viewModel: HomeViewModelType = HomeViewModel()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -15,8 +17,8 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Delivery App"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
-                                                            target: nil,
-                                                            action: nil)
+                                                            target: self,
+                                                            action: #selector(routeToSettings))
     }
     
     required init?(coder: NSCoder) {
@@ -29,5 +31,9 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         self.view = HomeView()
+    }
+    
+    @objc func routeToSettings(_ sender: UITapGestureRecognizer) {
+        viewModel.coordinator?.goToSettings()
     }
 }

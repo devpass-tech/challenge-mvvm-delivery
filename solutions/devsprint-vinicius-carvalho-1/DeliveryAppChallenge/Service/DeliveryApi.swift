@@ -9,23 +9,56 @@ import Foundation
 
 struct DeliveryApi {
 
-    func fetchRestaurants(_ completion: ([String]) -> Void) {
+    var serviceManager: APIServiceProtocol
 
-        completion(["Restaurant 1", "Restaurant 2", "Restaurant 3"])
+    init(serviceManager: APIServiceProtocol = APIService()) {
+        self.serviceManager = serviceManager
     }
 
-    func searchAddresses(_ completion: ([String]) -> Void) {
-
-        completion(["Address 1", "Address 2", "Address 3"])
+    func fetchRestaurants(_ completion: @escaping ([Restaurant]) -> Void) {
+		serviceManager.get(request: Router.fetchRestaurants.getRequest,
+						   of: [Restaurant].self) { result in
+			switch result {
+			case .success(let restaurantList):
+				completion(restaurantList)
+			case .failure:
+				completion([])
+			}
+		}
     }
 
-    func fetchRestaurantDetails(_ completion: (String) -> Void) {
-
-        completion("Restaurant Details")
+    func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void) {
+        serviceManager.get(request: Router.fetchAddress.getRequest, of: [Address].self) { result in
+            switch result {
+            case .success(let addressList):
+                completion(.success(addressList))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 
-    func fetchMenuItem(_ completion: (String) -> Void) {
+	func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void) {
 
-        completion("Menu Item")
+		serviceManager.get(request: Router.fetchRestaurantDetails.getRequest,
+						   of: RestaurantDetailsModel.self) { result in
+			switch result {
+			case .success(let restaurantDetails):
+				completion(restaurantDetails)
+			case .failure(_):
+				completion(nil)
+			}
+		}
+	}
+
+    func fetchMenuItem(_ completion: @escaping ([RestaurantItem]) -> Void) {
+        serviceManager.get(request: Router.fetchMenuItem.getRequest, of: Restaurant.self) { result in
+            switch result {
+            case .success(let restaurantDetails):
+                   completion(restaurantDetails.menu)
+            case .failure:
+                   completion([])
+            }
+        }
     }
 }

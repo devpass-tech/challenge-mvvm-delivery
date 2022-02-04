@@ -21,6 +21,10 @@ class SettingsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        navigationController?.pushViewController(AddressSearchViewController(), animated: true)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         viewModel.coordinator?.onFinish()

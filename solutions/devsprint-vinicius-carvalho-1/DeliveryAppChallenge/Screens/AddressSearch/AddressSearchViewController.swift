@@ -8,6 +8,8 @@
 import UIKit
 
 class AddressSearchViewController: UIViewController {
+    
+    let viewModel = AddressSearchViewModel()
 
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -22,6 +24,15 @@ class AddressSearchViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.title = "Address Search"
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        let settingsButton = UIBarButtonItem(title: "boqueta", style: .plain, target: self, action: #selector(pressedSettings))
+        
+        navigationItem.rightBarButtonItem = settingsButton
+        navigationItem.searchController = searchController
+    }
+    
+    @objc func pressedSettings() {
+        print("oi to aqui")
     }
 
     override func viewDidLoad() {
@@ -40,13 +51,13 @@ class AddressSearchViewController: UIViewController {
 extension AddressSearchViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-
+        print("passou")
     }
 }
 
 extension AddressSearchViewController: UISearchBarDelegate, UISearchControllerDelegate {
-
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("lupa")
     }
 }

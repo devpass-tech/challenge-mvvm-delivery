@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		1550842927A02676009388C6 /* restaurant-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 1550842827A02676009388C6 /* restaurant-details.json */; };
 		1550842F27A02F9C009388C6 /* Data+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550842E27A02F9C009388C6 /* Data+Resource.swift */; };
+		15A3F96527AB8919008ABADF /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 15A3F96427AB8919008ABADF /* SnapshotTesting */; };
 		15D9BBD727A867C200F59E5C /* ApiServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBD627A867C200F59E5C /* ApiServiceSpy.swift */; };
 		15D9BBDB27A869F600F59E5C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBD827A869F500F59E5C /* Review.swift */; };
 		15D9BBDC27A869F600F59E5C /* DeliveryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBD927A869F500F59E5C /* DeliveryTime.swift */; };
 		15D9BBDD27A869F600F59E5C /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBDA27A869F600F59E5C /* RestaurantItem.swift */; };
-		15A3F96527AB8919008ABADF /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 15A3F96427AB8919008ABADF /* SnapshotTesting */; };
 		186785D927A36C420084A695 /* RestaurantDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186785D827A36C420084A695 /* RestaurantDetailsModel.swift */; };
 		18C4813E27A05509000BF262 /* ServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4813D27A05509000BF262 /* ServiceManagerTests.swift */; };
 		18C4814927A0698F000BF262 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4814827A0698F000BF262 /* URLProtocolMock.swift */; };
@@ -28,6 +28,9 @@
 		62F5D90B27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5D90A27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift */; };
 		62F5D90D27A5954200352C52 /* RestaurantDetailsPresentableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5D90C27A5954200352C52 /* RestaurantDetailsPresentableMock.swift */; };
 		62F5D90F27A599DA00352C52 /* APIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F5D90E27A599DA00352C52 /* APIServiceMock.swift */; };
+		70FF83CB27AC7B51005A8060 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FF83CA27AC7B51005A8060 /* AddressSearchViewModel.swift */; };
+		70FF83CD27AC7D7F005A8060 /* AddressSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FF83CC27AC7D7F005A8060 /* AddressSearchTests.swift */; };
+		70FF83CF27AC8020005A8060 /* AddressSearchPresentableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FF83CE27AC8020005A8060 /* AddressSearchPresentableMock.swift */; };
 		9234B79327A8A1DB00FD58E5 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79227A8A1DB00FD58E5 /* Coordinatable.swift */; };
 		9234B79B27A8A9A300FD58E5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79A27A8A9A300FD58E5 /* HomeViewModel.swift */; };
 		9234B79D27A8A9B900FD58E5 /* HomeViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9234B79C27A8A9B900FD58E5 /* HomeViewModelType.swift */; };
@@ -101,6 +104,9 @@
 		62F5D90A27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewModelTests.swift; sourceTree = "<group>"; };
 		62F5D90C27A5954200352C52 /* RestaurantDetailsPresentableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsPresentableMock.swift; sourceTree = "<group>"; };
 		62F5D90E27A599DA00352C52 /* APIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceMock.swift; sourceTree = "<group>"; };
+		70FF83CA27AC7B51005A8060 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
+		70FF83CC27AC7D7F005A8060 /* AddressSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchTests.swift; sourceTree = "<group>"; };
+		70FF83CE27AC8020005A8060 /* AddressSearchPresentableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchPresentableMock.swift; sourceTree = "<group>"; };
 		9234B79227A8A1DB00FD58E5 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		9234B79A27A8A9A300FD58E5 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9234B79C27A8A9B900FD58E5 /* HomeViewModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelType.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				15D9BBD627A867C200F59E5C /* ApiServiceSpy.swift */,
 				62F5D90C27A5954200352C52 /* RestaurantDetailsPresentableMock.swift */,
 				62F5D90E27A599DA00352C52 /* APIServiceMock.swift */,
+				70FF83CE27AC8020005A8060 /* AddressSearchPresentableMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -229,6 +236,7 @@
 				18C4814A27A098E7000BF262 /* DeliveryApiTests.swift */,
 				62F5D90A27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift */,
 				5B45CBAA27A5113500ED9294 /* SettingsViewModelTests.swift */,
+				70FF83CC27AC7D7F005A8060 /* AddressSearchTests.swift */,
 			);
 			path = DeliveryAppChallengeTests;
 			sourceTree = "<group>";
@@ -319,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				98EA055A272A092F007B0228 /* AddressSearchViewController.swift */,
+				70FF83CA27AC7B51005A8060 /* AddressSearchViewModel.swift */,
 			);
 			path = AddressSearch;
 			sourceTree = "<group>";
@@ -543,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9277504F27A081F6005FBCF8 /* DefaultsKey.swift in Sources */,
+				70FF83CB27AC7B51005A8060 /* AddressSearchViewModel.swift in Sources */,
 				92FE369327A48E4200A0C491 /* AppCoordinator.swift in Sources */,
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
 				9234B79B27A8A9A300FD58E5 /* HomeViewModel.swift in Sources */,
@@ -551,7 +561,6 @@
 				9277504D27A081C8005FBCF8 /* DefaultsManager.swift in Sources */,
 				62F5D90927A58C7400352C52 /* RestaurantDetailsViewModel.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
-				70944D5227A2187300C3B03B /* Test.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
 				92FE369127A48E2C00A0C491 /* Coordinator.swift in Sources */,
 				98612707272F56AB0049403C /* SettingsView.swift in Sources */,
@@ -599,9 +608,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70FF83CD27AC7D7F005A8060 /* AddressSearchTests.swift in Sources */,
 				15D9BBD727A867C200F59E5C /* ApiServiceSpy.swift in Sources */,
 				62F5D90F27A599DA00352C52 /* APIServiceMock.swift in Sources */,
 				18C4814927A0698F000BF262 /* URLProtocolMock.swift in Sources */,
+				70FF83CF27AC8020005A8060 /* AddressSearchPresentableMock.swift in Sources */,
 				983271D4272752B50010C63A /* DeliveryAppChallengeTests.swift in Sources */,
 				62F5D90B27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift in Sources */,
 				5B45CBAB27A5113500ED9294 /* SettingsViewModelTests.swift in Sources */,

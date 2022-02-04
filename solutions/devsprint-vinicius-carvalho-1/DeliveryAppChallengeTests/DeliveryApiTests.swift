@@ -10,169 +10,91 @@ import XCTest
 
 final class DeliveryApiTests: XCTestCase {
 
-	// MARK: Subject under test
-	private var sut: DeliveryApi!
+    // MARK: Subject under test
+    private var sut: DeliveryApi!
+    private var stub: DeliveryApiServiceStub!
 
-	// MARK: Test setup
-	override func setUp() {
-		super.setUp()
-		self.sut = DeliveryApi()
-	}
+    // MARK: Test setup
+    override func setUp() {
+        super.setUp()
+        self.stub = DeliveryApiServiceStub()
+        self.sut = DeliveryApi(serviceManager: stub)
+    }
 
-	override func tearDown() {
-		super.tearDown()
-		self.sut = nil
-	}
+    override func tearDown() {
+        self.stub = nil
+        self.sut = nil
+        super.tearDown()
+    }
 
-	func test_fetchRestaurants_apiManagerCallsGet() {
-		// Given
-		let spy = APIServiceSpy(
-			session: URLProtocolMock.mockSession(
-				with: Router.fetchRestaurants.getRequest,
-				completionMock: (nil,nil,nil)
-			)
-		)
-		self.sut.serviceManager = spy
+    func test_fetchRestaurantList_shouldReturnNil() {
+        sut.fetchRestaurants { list in
+            XCTAssert(list.isEmpty)
+        }
+    }
 
-		// When
-		sut.fetchRestaurants { _ in
+    func test_fetchRestaurantList_shouldReturnList() {
+        // Given
+        let listMock = makeRestaurantList()
+        stub.expectedRestaurants = .success(listMock)
+        // When
+        sut.fetchRestaurants { listArray in
+            // Then
+            if listArray.isEmpty {
+                XCTFail()
+            } else {
+                listArray.enumerated().forEach { (index, restaurant) in
+                    XCTAssertEqual(restaurant.category, listMock[index].category)
+                }
+            }
+        }
+    }
 
-		// Then
-			XCTAssertTrue(spy.getCalled)
-		}
-	}
-
-	func test_fetchRestaurantList_apiManagerSendsNilForRequestEmpty() {
-		// Given
-		let spy = APIServiceSpy(
-			session: URLProtocolMock.mockSession(
-				with: Router.fetchRestaurantDetails.getRequest,
-				completionMock: (nil,nil,ServiceError.emptyData)
-			)
-		)
-		self.sut.serviceManager = spy
-
-		// When
-		sut.fetchRestaurants { list in
-
-			// Then
-			XCTAssert(list.isEmpty)
-		}
-	}
-
-	func test_fetchRestaurantList_apiManagerReturnNonEmptyList() {
-		// Given
-		let listMock = makeRestaurantList()
-		let data: Data = try! JSONEncoder().encode(listMock)
-		let spy = APIServiceSpy(
-			session:
-				URLProtocolMock.mockSession(
-					with: Router.fetchRestaurants.getRequest,
-					completionMock: (data, nil, nil)
-				)
-		)
-		self.sut.serviceManager = spy
-
-		// When
-		sut.fetchRestaurants { listArray in
-			// Then
-			listArray.enumerated().forEach { (index, restaurant) in
-				XCTAssertEqual(restaurant.category, listMock[index].category)
-			}
-		}
-	}
-
-	func test_fetchRestaurantDetails_apiManagerCallsGet() {
-		// Given
-		let spy = APIServiceSpy(
-			session: URLProtocolMock.mockSession(
-				with: Router.fetchRestaurantDetails.getRequest,
-				completionMock: (nil,nil,nil)
-			)
-		)
-		self.sut.serviceManager = spy
-
-		// When
-		sut.fetchRestaurantDetails { _ in
-
-		// Then
-			XCTAssertTrue(spy.getCalled)
-		}
-	}
+    func test_fetchRestaurantDetails_shouldReturnRestaurantDetail() {
+        // Given
+        let detailsMock = makeDetailRestaurant()
+        stub.expectedDetails = .success(detailsMock)
+        // When
+        sut.fetchRestaurantDetails { result in
+            // Then
+            switch result {
+            case .success(let details):
+                XCTAssertEqual(details.name, detailsMock.name)
+            case .failure:
+                XCTFail()
+            }
+        }
+    }
 
     func test_fetchMenuItem_shouldReturnValidMenuItems() {
         let detailMock = makeDetailRestaurant()
-        let data: Data = try! JSONEncoder().encode(detailMock)
-        let spy = APIServiceSpy(session: URLProtocolMock.mockSession(
-            with: Router.fetchMenuItem.getRequest, completionMock: (data, nil, nil)))
 
-        sut.serviceManager = spy
+        stub.expectedItems = .success(detailMock.menu)
 
-        sut.fetchMenuItem { items in
-            XCTAssertEqual(items.count, detailMock.menu.count)
+        sut.fetchMenuItem { result in
+            switch result {
+            case .success(let items):
+                XCTAssertEqual(items.count, detailMock.menu.count)
+            case .failure:
+                XCTFail()
+            }
         }
     }
 
     func test_fetchMenuItem_shouldReturnEmptyMenuItems() {
         let detailMock = makeRestaurantList()[0]
-        let data: Data = try! JSONEncoder().encode(detailMock)
-        let spy = APIServiceSpy(session: URLProtocolMock.mockSession(
-            with: Router.fetchMenuItem.getRequest, completionMock: (data, nil, nil)))
 
-        sut.serviceManager = spy
+        stub.expectedItems = .success(detailMock.menu)
 
-        sut.fetchMenuItem { items in
-            XCTAssertTrue(items.isEmpty)
+        sut.fetchMenuItem { result in
+            switch result {
+            case .success(let items):
+                XCTAssertTrue(items.isEmpty)
+            case .failure:
+                XCTFail()
+            }
         }
     }
-
-    func test_fetchMenuItem_shouldReturnErrorForInvalidJson() {
-        let spy = APIServiceSpy(session: URLProtocolMock.mockSession(
-            with: Router.fetchMenuItem.getRequest, completionMock: (nil, nil, ServiceError.decodeError)))
-
-        sut.serviceManager = spy
-
-        sut.fetchMenuItem { items in
-            XCTAssertNil(items)
-        }
-    }
-
-	func test_fetchRestaurantDetails_apiManagerSendsNilForRequestError() {
-		// Given
-		let spy = APIServiceSpy(
-			session: URLProtocolMock.mockSession(
-				with: Router.fetchRestaurantDetails.getRequest,
-				completionMock: (nil,nil,ServiceError.decodeError)
-			)
-		)
-		self.sut.serviceManager = spy
-
-		// When
-		sut.fetchRestaurantDetails { details in
-
-			// Then
-			XCTAssertNil(details)
-		}
-	}
-
-	func test_fetchRestaurantDetails_apiManagerReturnNonEmptyDetails() {
-		// Given
-		let detailsMock = makeDetailRestaurant()
-		let data: Data = try! JSONEncoder().encode(detailsMock)
-		let spy = APIServiceSpy(
-			session: URLProtocolMock.mockSession(
-				with: Router.fetchRestaurantDetails.getRequest,
-				completionMock: (data, nil, nil)
-			)
-		)
-		self.sut.serviceManager = spy
-
-		// When
-		sut.fetchRestaurantDetails { details in
-			// Then
-			XCTAssertEqual(details?.name, detailsMock.name)
-		}
-	}
 }
 
 extension DeliveryApiTests {
@@ -186,8 +108,8 @@ extension DeliveryApiTests {
         )]
     }
 
-    private func makeDetailRestaurant() -> RestaurantDetailsModel {
-       RestaurantDetailsModel(
+    private func makeDetailRestaurant() -> Restaurant {
+       Restaurant(
             name: "Benjamin a Padaria",
             category: "Padaria",
             deliveryTime: DeliveryTime(minimum: 10, maximum: 45),

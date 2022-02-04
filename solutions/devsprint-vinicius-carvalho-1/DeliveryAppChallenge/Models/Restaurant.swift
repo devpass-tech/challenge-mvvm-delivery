@@ -11,27 +11,11 @@ struct Restaurant: Codable {
     let name: String
     let category: String
     let deliveryTime: DeliveryTime
-    let reviews: Reviews?
-    let menu: [MenuItem]?
+    let reviews: Review
+    let menu: [RestaurantItem]
 
     enum CodingKeys: String, CodingKey {
         case name, category, reviews, menu
         case deliveryTime = "delivery_time"
     }
-}
-
-struct DeliveryTime: Codable {
-    let min: Int
-    let max: Int
-}
-
-struct Reviews: Codable {
-    let score: Double
-    let count: Int
-}
-
-struct MenuItem: Codable {
-    let category: String
-    let name: String
-    let price: Double
 }

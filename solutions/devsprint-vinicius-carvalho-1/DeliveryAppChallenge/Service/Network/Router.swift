@@ -21,14 +21,14 @@ enum Router {
 		URL(string: Self.baseURL+self.path)!
 	}
 
-	var path: String {
+	private var path: String {
 		switch self {
 		case .fetchRestaurants:
 			return "/home_restaurant_list.json"
 		case .fetchRestaurantDetails:
 			return "/restaurant_details.json"
 		case .fetchMenuItem:
-			return ""
+			return "/restaurant-details.json"
         case .fetchAddress:
             return "/address_search_results.json"
 		}

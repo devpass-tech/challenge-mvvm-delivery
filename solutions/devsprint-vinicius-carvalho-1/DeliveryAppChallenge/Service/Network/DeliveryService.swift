@@ -55,7 +55,7 @@ final class DeliveryServiceImplementation: DeliveryApiService {
                     let json = try JSONDecoder().decode(Restaurant.self, from: data)
                     completion(.success(json))
                 } catch {
-                    completion(.failure(ServiceError.decodeError))
+                    completion(.failure(.decodeError))
                 }
             case .failure(let error):
                 completion(.failure(error))
@@ -63,7 +63,19 @@ final class DeliveryServiceImplementation: DeliveryApiService {
         }
     }
     
-    func fetchMenuItem(_ completion: (String) -> Void) {
-        completion("Menu Item")
+    func fetchMenuItem(_ completion: @escaping(Result<[RestaurantItem], ServiceError>) -> Void) {
+        networkDataSource.get(request: Router.fetchMenuItem.getRequest) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let json = try JSONDecoder().decode(Restaurant.self, from: data)
+                    completion(.success(json.menu))
+                } catch {
+                    completion(.failure(.decodeError))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

@@ -58,8 +58,8 @@ class ServiceManagerTests: XCTestCase {
 					if let first = try? XCTUnwrap(model.first) {
 						XCTAssertEqual(first.name, dataMock[0].name)
 						XCTAssertEqual(first.category, dataMock[0].category)
-						XCTAssertEqual(first.deliveryTime.min, dataMock[0].deliveryTime.min)
-						XCTAssertEqual(first.deliveryTime.max, dataMock[0].deliveryTime.max)
+						XCTAssertEqual(first.deliveryTime.minimum, dataMock[0].deliveryTime.minimum)
+						XCTAssertEqual(first.deliveryTime.maximum, dataMock[0].deliveryTime.maximum)
 					} else {
 						XCTFail()
 					}
@@ -306,8 +306,8 @@ class ServiceManagerTests: XCTestCase {
 			Restaurant(
 				name: "Benjamin a Padaria",
 				category: "Padaria",
-                deliveryTime: .init(min: 10, max: 45),
-                reviews: .init(score: 4.9, count: 10),
+				deliveryTime: DeliveryTime(minimum: 10, maximum: 45),
+                reviews: Review(score: 20.0, count: 20),
                 menu: []
 			)
 		]

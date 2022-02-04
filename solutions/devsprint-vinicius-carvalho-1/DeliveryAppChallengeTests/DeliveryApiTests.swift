@@ -35,14 +35,7 @@ final class DeliveryApiTests: XCTestCase {
 
     func test_fetchRestaurantList_shouldReturnList() {
         // Given
-        let listMock = [Restaurant(
-            name: "Benjamin a Padaria",
-            category: "Padaria",
-            deliveryTime: DeliveryTime(min: 10, max: 45),
-            reviews: nil,
-            menu: nil
-        )]
-
+        let listMock = makeRestaurantList()
         stub.expectedRestaurants = .success(listMock)
         // When
         sut.fetchRestaurants { listArray in
@@ -59,13 +52,7 @@ final class DeliveryApiTests: XCTestCase {
 
     func test_fetchRestaurantDetails_shouldReturnRestaurantDetail() {
         // Given
-        let detailsMock = Restaurant(
-            name: "Benjamin a Padaria",
-            category: "Padaria",
-            deliveryTime: DeliveryTime(min: 10, max: 45),
-            reviews: Reviews(score: 4.6, count: 100),
-            menu: [MenuItem(category: "Padaria", name: "Bolo de Laranja 🍊", price: 9.99)]
-        )
+        let detailsMock = makeDetailRestaurant()
         stub.expectedDetails = .success(detailsMock)
         // When
         sut.fetchRestaurantDetails { result in
@@ -78,4 +65,59 @@ final class DeliveryApiTests: XCTestCase {
             }
         }
     }
+
+    func test_fetchMenuItem_shouldReturnValidMenuItems() {
+        let detailMock = makeDetailRestaurant()
+
+        stub.expectedItems = .success(detailMock.menu)
+
+        sut.fetchMenuItem { result in
+            switch result {
+            case .success(let items):
+                XCTAssertEqual(items.count, detailMock.menu.count)
+            case .failure:
+                XCTFail()
+            }
+        }
+    }
+
+    func test_fetchMenuItem_shouldReturnEmptyMenuItems() {
+        let detailMock = makeRestaurantList()[0]
+
+        stub.expectedItems = .success(detailMock.menu)
+
+        sut.fetchMenuItem { result in
+            switch result {
+            case .success(let items):
+                XCTAssertTrue(items.isEmpty)
+            case .failure:
+                XCTFail()
+            }
+        }
+    }
 }
+
+extension DeliveryApiTests {
+    private func makeRestaurantList() -> [Restaurant] {
+        [Restaurant(
+            name: "Benjamin a Padaria",
+            category: "Padaria",
+            deliveryTime: DeliveryTime(minimum: 10, maximum: 45),
+            reviews: Review(score: 20.0, count: 20),
+            menu: []
+        )]
+    }
+
+    private func makeDetailRestaurant() -> Restaurant {
+       Restaurant(
+            name: "Benjamin a Padaria",
+            category: "Padaria",
+            deliveryTime: DeliveryTime(minimum: 10, maximum: 45),
+            reviews:  Review(score: 4.6, count: 100),
+            menu: [RestaurantItem(category: "Padaria", name: "Bolo de Laranja 🍊", price: 9.99)]
+        )
+    }
+}
+
+
+

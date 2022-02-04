@@ -11,7 +11,7 @@ protocol DeliveryApiService {
     func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], ServiceError>) -> Void)
     func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void)
     func fetchRestaurantDetails(_ completion: @escaping (Result<Restaurant, ServiceError>) -> Void)
-    func fetchMenuItem(_ completion: (String) -> Void)
+    func fetchMenuItem(_ completion: @escaping(Result<[RestaurantItem], ServiceError>) -> Void)
 }
 
 struct DeliveryApi {
@@ -55,9 +55,14 @@ struct DeliveryApi {
         }
     }
 
-    func fetchMenuItem(_ completion: (String) -> Void) {
-        serviceManager.fetchMenuItem { items in
-            completion(items)
+    func fetchMenuItem(_ completion: @escaping(Result<[RestaurantItem], ServiceError>) -> Void) {
+        serviceManager.fetchMenuItem { result in
+            switch result {
+            case .success(let items):
+                completion(.success(items))
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
 }

@@ -50,8 +50,8 @@ final class DeliveryServiceTests: XCTestCase {
                 if let first = try? XCTUnwrap(restaurantsList.first) {
                     XCTAssertEqual(first.name, dataMock[0].name)
                     XCTAssertEqual(first.category, dataMock[0].category)
-                    XCTAssertEqual(first.deliveryTime.min, dataMock[0].deliveryTime.min)
-                    XCTAssertEqual(first.deliveryTime.max, dataMock[0].deliveryTime.max)
+                    XCTAssertEqual(first.deliveryTime.minimum, dataMock[0].deliveryTime.minimum)
+                    XCTAssertEqual(first.deliveryTime.maximum, dataMock[0].deliveryTime.maximum)
                 } else {
                     XCTFail()
                 }
@@ -77,10 +77,10 @@ final class DeliveryServiceTests: XCTestCase {
             switch result {
             case .failure(let error):
                 XCTAssertEqual(error.localizedDescription, ServiceError.emptyData.localizedDescription)
-                expectation.fulfill()
             case .success:
                 XCTFail()
             }
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
     }
@@ -102,10 +102,10 @@ final class DeliveryServiceTests: XCTestCase {
             switch result {
             case .failure(let error):
                 XCTAssertEqual(error.localizedDescription, ServiceError.requestFailed(description: expectedError.localizedDescription).localizedDescription)
-                expectation.fulfill()
             case .success:
                 XCTFail()
             }
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
     }
@@ -125,11 +125,11 @@ final class DeliveryServiceTests: XCTestCase {
         sut.fetchRestaurants{ result in
             switch result {
             case .failure(let error):
-                expectation.fulfill()
                 XCTAssertEqual(error.localizedDescription, ServiceError.decodeError.localizedDescription)
             case .success:
                 XCTFail()
             }
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
     }
@@ -152,7 +152,6 @@ final class DeliveryServiceTests: XCTestCase {
             case .failure:
                 XCTFail()
             case .success(let address):
-                expectation.fulfill()
                 XCTAssertFalse(address.isEmpty)
                 if let address = try? XCTUnwrap(address.first) {
                     XCTAssertEqual(address.street, addressDataMock[0].street)
@@ -162,6 +161,7 @@ final class DeliveryServiceTests: XCTestCase {
                     XCTFail()
                 }
             }
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.7)
     }
@@ -177,11 +177,11 @@ final class DeliveryServiceTests: XCTestCase {
             // Then
             switch result {
             case .failure(let error):
-                expectation.fulfill()
                 XCTAssertEqual(error.localizedDescription, ServiceError.emptyData.localizedDescription)
             case .success:
                 XCTFail()
             }
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.7)
     }
@@ -199,12 +199,12 @@ final class DeliveryServiceTests: XCTestCase {
             // Then
             switch result {
             case .failure(let error):
-                expectation.fulfill()
                 XCTAssertEqual(error.localizedDescription,
                                ServiceError.requestFailed(description: expectedError.localizedDescription).localizedDescription)
             case .success:
                 XCTFail()
             }
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.7)
     }
@@ -220,11 +220,106 @@ final class DeliveryServiceTests: XCTestCase {
             // Then
             switch result {
             case .failure(let error):
-                expectation.fulfill()
                 XCTAssertEqual(error.localizedDescription, ServiceError.decodeError.localizedDescription)
             case .success:
                 XCTFail()
             }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func test_fetchMenuItems_shouldReturnMenuItemsList() {
+        // Given
+        let endpoint = Router.fetchMenuItem
+        let menuItemsDataMock = restaurantDataMock()
+        let successCompletion = createResquestCompletionMock(endpoint: endpoint,
+                                                             dataMock: menuItemsDataMock,
+                                                             statusCode: 200,
+                                                             error: nil)
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "Success")
+
+        // When
+        sut.fetchMenuItem { result in
+            // Then
+            switch result {
+            case .failure:
+                XCTFail()
+            case .success(let items):
+                XCTAssertFalse(items.isEmpty)
+                guard let firstItem = items.first else {
+                    XCTFail()
+                    return
+                }
+                XCTAssertEqual(firstItem.category, menuItemsDataMock.menu[0].category)
+                XCTAssertEqual(firstItem.price, menuItemsDataMock.menu[0].price)
+                XCTAssertEqual(firstItem.name, menuItemsDataMock.menu[0].name)
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+    }
+
+    func test_fetchMenuItems_shouldReturnEmptyList() {
+        // Given
+        let successCompletion: URLProtocolMock.RequestCompletion = (nil,nil,nil)
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "failure")
+
+        // When
+        sut.fetchMenuItem { result in
+            // Then
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error.localizedDescription, ServiceError.emptyData.localizedDescription)
+            case .success:
+                XCTFail()
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+    }
+
+    func test_fetchMenuItems_shouldReturnFailure() {
+        // Given
+        let expectedError = NSError(domain: NSURLErrorDomain, code: NSURLErrorTimedOut, userInfo: nil)
+        let successCompletion: URLProtocolMock.RequestCompletion = (nil,nil,expectedError)
+
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "failure")
+
+        // When
+        sut.fetchMenuItem { result in
+            // Then
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error.localizedDescription,
+                               ServiceError.requestFailed(description: expectedError.localizedDescription).localizedDescription)
+            case .success:
+                XCTFail()
+            }
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.7)
+    }
+
+    func test_fetchMenuItems_shouldReturnDecodeError() {
+        // Given
+        let successCompletion: URLProtocolMock.RequestCompletion = ("{\"key\": \"value\"}".data(using: .utf8), nil, nil)
+        URLProtocolMock.simulate(completionMock: successCompletion)
+        let expectation = expectation(description: "failure")
+
+        // When
+        sut.fetchMenuItem { result in
+            // Then
+            switch result {
+            case .failure(let error):
+                XCTAssertEqual(error.localizedDescription, ServiceError.decodeError.localizedDescription)
+            case .success:
+                XCTFail()
+            }
+            expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1)
     }
@@ -247,25 +342,19 @@ final class DeliveryServiceTests: XCTestCase {
         return (data, response, error)
     }
 
+    private func restaurantDataMock() -> Restaurant {
+        Restaurant(name: "Benjamin a Padaria", category: "Padaria", deliveryTime: DeliveryTime(minimum: 10, maximum: 45), reviews: Review(score: 10, count: 10), menu: menuItemsMock())
+    }
+
     private func dataMock() -> [Restaurant] {
-        let dataMock: [Restaurant] = [
-            Restaurant(
-                name: "Benjamin a Padaria",
-                category: "Padaria",
-                deliveryTime: .init(min: 10, max: 45),
-                reviews: nil,
-                menu: nil
-            )
-        ]
-        return dataMock
+        [Restaurant(name: "Benjamin a Padaria", category: "Padaria", deliveryTime: DeliveryTime(minimum: 10, maximum: 45), reviews: Review(score: 10, count: 10), menu: [])]
     }
 
     private func addressDataMock() -> [Address] {
-        let addressDataMock: [Address] = [Address(street: "Rua Augusta", number: "495", neighborhood: "Consolação")]
-        return addressDataMock
+        [Address(street: "Rua Augusta", number: "495", neighborhood: "Consolação")]
     }
 
-    private func convertDataValue<T: Decodable>(of type: T.Type, from data: Data) -> T? {
-        try? JSONDecoder().decode(T.self, from: data)
+    private func menuItemsMock() -> [RestaurantItem] {
+        [RestaurantItem(category: "Dummy", name: "Dummy", price: 10.0)]
     }
 }

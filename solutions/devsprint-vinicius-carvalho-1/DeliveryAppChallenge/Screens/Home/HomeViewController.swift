@@ -30,10 +30,18 @@ class HomeViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = HomeView()
+		let view = HomeView()
+		view.restaurantListView.delegate = self
+		self.view = view
     }
     
     @objc func routeToSettings(_ sender: UITapGestureRecognizer) {
         viewModel.coordinator?.goToSettings()
     }
+}
+
+extension HomeViewController: RestaurantListDelegate {
+	func didSelectGoToRestaurantDetails(row: Int) {
+		viewModel.coordinator?.goToDetails()
+	}
 }

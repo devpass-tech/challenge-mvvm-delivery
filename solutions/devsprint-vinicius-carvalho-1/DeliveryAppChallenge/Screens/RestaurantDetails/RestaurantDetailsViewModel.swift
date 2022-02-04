@@ -12,9 +12,12 @@ protocol RestaurantDetailsPresentable: AnyObject {
     func displayError(error: Error)
 }
 
-class RestaurantDetailsViewModel {
-    let service: APIServiceProtocol
+class RestaurantDetailsViewModel: RestaurantDetailsViewModelType {
 
+	var coordinator: RestaurantDetailsCoordinator?
+	
+    let service: APIServiceProtocol
+	
     weak var presenter: RestaurantDetailsPresentable?
 
     init(with service: APIServiceProtocol = APIService()) {
@@ -33,4 +36,8 @@ class RestaurantDetailsViewModel {
             }
         }
     }
+	
+	func onFinish() {
+		coordinator?.onFinish()
+	}
 }

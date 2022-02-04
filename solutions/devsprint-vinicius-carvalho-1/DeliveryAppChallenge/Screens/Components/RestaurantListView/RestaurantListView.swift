@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol RestaurantListDelegate: AnyObject {
+	func didSelectGoToRestaurantDetails(row: Int)
+}
+
 class RestaurantListView: UIView {
 
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "RestaurantCellIdentifier"
+	
+	weak var delegate: RestaurantListDelegate?
 
     lazy var tableView: UITableView = {
 
@@ -67,7 +73,7 @@ extension RestaurantListView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantCellView
-
+		cell.selectionStyle = .none
         return cell
     }
 }
@@ -79,6 +85,6 @@ extension RestaurantListView: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+		self.delegate?.didSelectGoToRestaurantDetails(row: indexPath.row)
     }
 }

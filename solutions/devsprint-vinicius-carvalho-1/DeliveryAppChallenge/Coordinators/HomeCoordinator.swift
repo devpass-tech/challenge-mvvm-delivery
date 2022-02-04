@@ -29,6 +29,13 @@ final class HomeCoordinator: Coordinator {
         childCoordinators.append(child)
         child.start()
     }
+	
+	func goToDetails() {
+		let child = RestaurantDetailsCoordinator(presenter: presenter)
+		child.parentCoordinator = parentCoordinator
+		childCoordinators.append(child)
+		child.start()
+	}
     
     func onFinish() {
         parentCoordinator?.childDidFinish(self)

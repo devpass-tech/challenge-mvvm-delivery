@@ -8,8 +8,15 @@
 import UIKit
 
 class RestaurantDetailsViewController: UIViewController {
+	
+	var viewModel: RestaurantDetailsViewModel = RestaurantDetailsViewModel()
 
     override func loadView() {
         self.view = RestaurantDetailsView()
     }
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		viewModel.coordinator?.onFinish()
+	}
 }

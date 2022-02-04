@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol RestaurantDetailsViewModelType: Coordinatable {
+	var coordinator: RestaurantDetailsCoordinator? { get set }
+}

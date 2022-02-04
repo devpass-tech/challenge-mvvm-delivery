@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol RestaurantDetailsDelegate: AnyObject {
+	func didSelectGoToMenuItem()
+}
+
 class RestaurantDetailsView: UIView {
+	
+	weak var delegate: RestaurantDetailsDelegate?
 
     let scrollView: UIScrollView = {
 
@@ -56,14 +62,25 @@ class RestaurantDetailsView: UIView {
 
         addSubviews()
         configureConstraints()
+		setupGesture()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+	
+	@objc func cellTapped(_ sender: UITapGestureRecognizer) {
+		self.delegate?.didSelectGoToMenuItem()
+	}
 }
 
 extension RestaurantDetailsView {
+	
+	func setupGesture() {
+		let tap = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+		stackView.isUserInteractionEnabled = true
+		stackView.addGestureRecognizer(tap)
+	}
 
     func addSubviews() {
 

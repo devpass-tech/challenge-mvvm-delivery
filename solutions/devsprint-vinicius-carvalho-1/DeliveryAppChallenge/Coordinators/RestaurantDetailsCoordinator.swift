@@ -25,7 +25,15 @@ final class RestaurantDetailsCoordinator: Coordinator {
 		presenter.pushViewController(viewController, animated: true)
 	}
 	
+	func goToMenuItem() {
+		let child = MenuItemCoordinator(presenter: presenter)
+		child.parentCoordinator = parentCoordinator
+		childCoordinators.append(child)
+		child.start()
+	}
+	
 	func onFinish() {
 		parentCoordinator?.childDidFinish(self)
 	}
+	
 }

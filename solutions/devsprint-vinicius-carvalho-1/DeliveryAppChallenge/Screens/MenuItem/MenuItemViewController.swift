@@ -8,6 +8,8 @@
 import UIKit
 
 class MenuItemViewController: UIViewController {
+	
+	var viewModel: MenuViewModelType = MenuViewModel()
 
     override func loadView() {
         self.view = MenuItemView()

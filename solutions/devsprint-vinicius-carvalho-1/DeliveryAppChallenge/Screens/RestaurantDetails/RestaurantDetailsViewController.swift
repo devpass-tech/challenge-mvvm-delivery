@@ -12,11 +12,20 @@ class RestaurantDetailsViewController: UIViewController {
 	var viewModel: RestaurantDetailsViewModel = RestaurantDetailsViewModel()
 
     override func loadView() {
-        self.view = RestaurantDetailsView()
+		let view = RestaurantDetailsView()
+		view.delegate = self
+        self.view = view		
     }
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		viewModel.coordinator?.onFinish()
 	}
+}
+
+extension RestaurantDetailsViewController: RestaurantDetailsDelegate {
+	func didSelectGoToMenuItem() {
+		viewModel.coordinator?.goToMenuItem()
+	}
+	
 }

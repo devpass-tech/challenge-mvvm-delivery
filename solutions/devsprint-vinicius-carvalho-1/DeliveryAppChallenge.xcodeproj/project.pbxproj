@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		1550842927A02676009388C6 /* restaurant-details.json in Resources */ = {isa = PBXBuildFile; fileRef = 1550842827A02676009388C6 /* restaurant-details.json */; };
 		1550842F27A02F9C009388C6 /* Data+Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1550842E27A02F9C009388C6 /* Data+Resource.swift */; };
+		15A3F96527AB8919008ABADF /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 15A3F96427AB8919008ABADF /* SnapshotTesting */; };
 		15D9BBD727A867C200F59E5C /* ApiServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBD627A867C200F59E5C /* ApiServiceSpy.swift */; };
 		15D9BBDB27A869F600F59E5C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBD827A869F500F59E5C /* Review.swift */; };
 		15D9BBDC27A869F600F59E5C /* DeliveryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBD927A869F500F59E5C /* DeliveryTime.swift */; };
 		15D9BBDD27A869F600F59E5C /* RestaurantItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BBDA27A869F600F59E5C /* RestaurantItem.swift */; };
-		15A3F96527AB8919008ABADF /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 15A3F96427AB8919008ABADF /* SnapshotTesting */; };
 		186785D927A36C420084A695 /* RestaurantDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186785D827A36C420084A695 /* RestaurantDetailsModel.swift */; };
 		18C4813E27A05509000BF262 /* ServiceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4813D27A05509000BF262 /* ServiceManagerTests.swift */; };
 		18C4814927A0698F000BF262 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C4814827A0698F000BF262 /* URLProtocolMock.swift */; };
@@ -37,6 +37,7 @@
 		9277504F27A081F6005FBCF8 /* DefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277504E27A081F6005FBCF8 /* DefaultsKey.swift */; };
 		9277505127A08218005FBCF8 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277505027A08218005FBCF8 /* UserDefaults.swift */; };
 		9277505327A0826B005FBCF8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277505227A0826B005FBCF8 /* User.swift */; };
+		929935E827ADA7E900BC87C8 /* RestaurantDetailsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929935E727ADA7E900BC87C8 /* RestaurantDetailsViewControllerTests.swift */; };
 		92FE369127A48E2C00A0C491 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE369027A48E2C00A0C491 /* Coordinator.swift */; };
 		92FE369327A48E4200A0C491 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE369227A48E4200A0C491 /* AppCoordinator.swift */; };
 		92FE369727A48E8200A0C491 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE369627A48E8200A0C491 /* SettingsCoordinator.swift */; };
@@ -110,6 +111,7 @@
 		9277504E27A081F6005FBCF8 /* DefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultsKey.swift; path = DeliveryAppChallenge/Service/DefaultsKey.swift; sourceTree = SOURCE_ROOT; };
 		9277505027A08218005FBCF8 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaults.swift; path = DeliveryAppChallenge/Service/UserDefaults.swift; sourceTree = SOURCE_ROOT; };
 		9277505227A0826B005FBCF8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = DeliveryAppChallenge/Service/User.swift; sourceTree = SOURCE_ROOT; };
+		929935E727ADA7E900BC87C8 /* RestaurantDetailsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewControllerTests.swift; sourceTree = "<group>"; };
 		92FE369027A48E2C00A0C491 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		92FE369227A48E4200A0C491 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		92FE369627A48E8200A0C491 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				18C4814A27A098E7000BF262 /* DeliveryApiTests.swift */,
 				62F5D90A27A593CF00352C52 /* RestaurantDetailsViewModelTests.swift */,
 				5B45CBAA27A5113500ED9294 /* SettingsViewModelTests.swift */,
+				929935E727ADA7E900BC87C8 /* RestaurantDetailsViewControllerTests.swift */,
 			);
 			path = DeliveryAppChallengeTests;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				5B45CBAB27A5113500ED9294 /* SettingsViewModelTests.swift in Sources */,
 				18C4814B27A098E7000BF262 /* DeliveryApiTests.swift in Sources */,
 				18C4813E27A05509000BF262 /* ServiceManagerTests.swift in Sources */,
+				929935E827ADA7E900BC87C8 /* RestaurantDetailsViewControllerTests.swift in Sources */,
 				62F5D90D27A5954200352C52 /* RestaurantDetailsPresentableMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

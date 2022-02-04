@@ -29,12 +29,12 @@ class APIServiceMock: APIServiceProtocol {
             case .decodeError:
                 completion(.failure(.decodeError))
             default:
-                    let deliveryTime = DeliveryTime(min: 20, max: 40)
+            let deliveryTime = DeliveryTime(minimum: 20, maximum: 40)
                     let result = Restaurant(
                         name: "Benjamin A Padaria",
                         category: "Padaria",
                         deliveryTime: deliveryTime,
-                        reviews: nil,
+                        reviews: Review(score: 0, count: 0),
                         menu: []
                     )
 

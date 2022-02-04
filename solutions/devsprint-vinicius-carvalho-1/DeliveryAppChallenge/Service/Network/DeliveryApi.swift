@@ -8,9 +8,9 @@
 import Foundation
 
 protocol DeliveryApiService {
-    func fetchRestaurants(_ completion: @escaping (Result<[RestaurantsListModel], ServiceError>) -> Void)
+    func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], ServiceError>) -> Void)
     func searchAddresses(_ completion: @escaping (Result<[Address], ServiceError>) -> Void)
-    func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void)
+    func fetchRestaurantDetails(_ completion: @escaping (Result<Restaurant, ServiceError>) -> Void)
     func fetchMenuItem(_ completion: (String) -> Void)
 }
 
@@ -22,7 +22,7 @@ struct DeliveryApi {
         self.serviceManager = serviceManager
     }
 
-    func fetchRestaurants(_ completion: @escaping ([RestaurantsListModel]) -> Void) {
+    func fetchRestaurants(_ completion: @escaping ([Restaurant]) -> Void) {
         serviceManager.fetchRestaurants { result in
             switch result {
             case .success(let restaurantList):
@@ -44,13 +44,14 @@ struct DeliveryApi {
         }
     }
 
-    func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void) {
-        serviceManager.fetchRestaurantDetails { details in
-            guard let restaurantDetails = details else {
-                completion(nil)
-                return
+    func fetchRestaurantDetails(_ completion: @escaping (Result<Restaurant, ServiceError>) -> Void) {
+        serviceManager.fetchRestaurantDetails { result in
+            switch result {
+            case .success(let restaurant):
+                completion(.success(restaurant))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            return completion(restaurantDetails)
         }
     }
 

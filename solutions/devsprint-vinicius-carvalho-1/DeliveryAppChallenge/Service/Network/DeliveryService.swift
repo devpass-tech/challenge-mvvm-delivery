@@ -15,12 +15,12 @@ final class DeliveryServiceImplementation: DeliveryApiService {
         self.networkDataSource = networkDataSource
     }
     
-    func fetchRestaurants(_ completion: @escaping (Result<[RestaurantsListModel], ServiceError>) -> Void) {
+    func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], ServiceError>) -> Void) {
         networkDataSource.get(request: Router.fetchRestaurants.getRequest) { result in
             switch result {
             case .success(let data):
                 do {
-                    let json = try JSONDecoder().decode([RestaurantsListModel].self, from: data)
+                    let json = try JSONDecoder().decode([Restaurant].self, from: data)
                     completion(.success(json))
                 } catch {
                     completion(.failure(.decodeError))
@@ -47,18 +47,18 @@ final class DeliveryServiceImplementation: DeliveryApiService {
         }
     }
     
-    func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void) {
+    func fetchRestaurantDetails(_ completion: @escaping (Result<Restaurant, ServiceError>) -> Void) {
         networkDataSource.get(request: Router.fetchRestaurantDetails.getRequest) { result in
             switch result {
             case .success(let data):
                 do {
-                    let json = try JSONDecoder().decode(RestaurantDetailsModel.self, from: data)
-                    completion(json)
+                    let json = try JSONDecoder().decode(Restaurant.self, from: data)
+                    completion(.success(json))
                 } catch {
-                    completion(nil)
+                    completion(.failure(ServiceError.decodeError))
                 }
-            case .failure(_):
-                completion(nil)
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

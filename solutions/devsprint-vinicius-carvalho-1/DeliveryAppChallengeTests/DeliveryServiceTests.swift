@@ -247,12 +247,14 @@ final class DeliveryServiceTests: XCTestCase {
         return (data, response, error)
     }
 
-    private func dataMock() -> [RestaurantsListModel] {
-        let dataMock: [RestaurantsListModel] = [
-            RestaurantsListModel(
+    private func dataMock() -> [Restaurant] {
+        let dataMock: [Restaurant] = [
+            Restaurant(
                 name: "Benjamin a Padaria",
                 category: "Padaria",
-                deliveryTime: .init(min: 10, max: 45)
+                deliveryTime: .init(min: 10, max: 45),
+                reviews: nil,
+                menu: nil
             )
         ]
         return dataMock

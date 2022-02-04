@@ -33,48 +33,49 @@ final class DeliveryApiTests: XCTestCase {
         }
     }
 
-    func test_fetchRestaurantList_apiManagerReturnNonEmptyList() {
+    func test_fetchRestaurantList_shouldReturnList() {
         // Given
-        let listMock = [RestaurantsListModel(
+        let listMock = [Restaurant(
             name: "Benjamin a Padaria",
             category: "Padaria",
-            deliveryTime: .init(min: 10, max: 45)
+            deliveryTime: DeliveryTime(min: 10, max: 45),
+            reviews: nil,
+            menu: nil
         )]
 
         stub.expectedRestaurants = .success(listMock)
         // When
         sut.fetchRestaurants { listArray in
             // Then
-            listArray.enumerated().forEach { (index, restaurant) in
-                XCTAssertEqual(restaurant.category, listMock[index].category)
+            if listArray.isEmpty {
+                XCTFail()
+            } else {
+                listArray.enumerated().forEach { (index, restaurant) in
+                    XCTAssertEqual(restaurant.category, listMock[index].category)
+                }
             }
         }
     }
 
-    func test_fetchRestaurantDetails_apiManagerSendsNilForRequestError() {
+    func test_fetchRestaurantDetails_shouldReturnRestaurantDetail() {
         // Given
-        stub.expectedDetails = nil
-        // When
-        sut.fetchRestaurantDetails { details in
-            // Then
-            XCTAssertNil(details)
-        }
-    }
-
-    func test_fetchRestaurantDetails_apiManagerReturnNonEmptyDetails() {
-        // Given
-        let detailsMock = RestaurantDetailsModel(
+        let detailsMock = Restaurant(
             name: "Benjamin a Padaria",
             category: "Padaria",
-            deliveryTime: .init(min: 10, max: 45),
-            reviews: .init(score: 4.6, count: 100),
-            menu: .init(name: "Bolo de Laranja 🍊", category: "Padaria", price: 9.99)
+            deliveryTime: DeliveryTime(min: 10, max: 45),
+            reviews: Reviews(score: 4.6, count: 100),
+            menu: [MenuItem(category: "Padaria", name: "Bolo de Laranja 🍊", price: 9.99)]
         )
-        stub.expectedDetails = detailsMock
+        stub.expectedDetails = .success(detailsMock)
         // When
-        sut.fetchRestaurantDetails { details in
+        sut.fetchRestaurantDetails { result in
             // Then
-            XCTAssertEqual(details?.name, detailsMock.name)
+            switch result {
+            case .success(let details):
+                XCTAssertEqual(details.name, detailsMock.name)
+            case .failure:
+                XCTFail()
+            }
         }
     }
 }

@@ -9,12 +9,12 @@ import Foundation
 @testable import DeliveryAppChallenge
 
 final class DeliveryApiServiceStub: DeliveryApiService {
-    var expectedRestaurants: Result<[RestaurantsListModel], ServiceError> = .success([])
+    var expectedRestaurants: Result<[Restaurant], ServiceError> = .success([])
     var expectedItems = ""
-    var expectedDetails: RestaurantDetailsModel?
+    var expectedDetails: Result<Restaurant, ServiceError> = .success(Restaurant(name: "", category: "", deliveryTime: DeliveryTime(min: 0, max: 0), reviews: nil, menu: nil))
     var expectedAddresses: Result<[Address], ServiceError> = .success([])
 
-    func fetchRestaurants(_ completion: @escaping (Result<[RestaurantsListModel], ServiceError>) -> Void) {
+    func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], ServiceError>) -> Void) {
         completion(expectedRestaurants)
     }
 
@@ -22,7 +22,7 @@ final class DeliveryApiServiceStub: DeliveryApiService {
         completion(expectedItems)
     }
 
-    func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetailsModel?) -> Void) {
+    func fetchRestaurantDetails(_ completion: @escaping (Result<Restaurant, ServiceError>) -> Void) {
         completion(expectedDetails)
     }
 

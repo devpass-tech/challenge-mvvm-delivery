@@ -14,19 +14,17 @@ protocol RestaurantDetailsPresentable: AnyObject {
 
 class RestaurantDetailsViewModel: RestaurantDetailsViewModelType {
 
+    private let service: DeliveryApiService
 	var coordinator: RestaurantDetailsCoordinator?
-	
-    let service: APIServiceProtocol
 	
     weak var presenter: RestaurantDetailsPresentable?
 
-    init(with service: APIServiceProtocol = APIService()) {
+    init(with service: DeliveryApiService = DeliveryServiceImplementation()) {
         self.service = service
     }
 
     func loadRestaurantDetails() {
-
-        service.get(request: Router.fetchRestaurantDetails.getRequest, of: Restaurant.self ) { (result: Result<Restaurant, ServiceError>) in
+        service.fetchRestaurantDetails { result in
             switch result {
             case .success(let restaurant):
                 self.presenter?.displayRestaurantDetails(with: restaurant)

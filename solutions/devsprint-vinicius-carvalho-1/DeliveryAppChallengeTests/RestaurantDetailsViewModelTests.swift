@@ -8,32 +8,41 @@
 import XCTest
 @testable import DeliveryAppChallenge
 
-class RestaurantDetailsViewModelTests: XCTestCase {
+final class RestaurantDetailsViewModelTests: XCTestCase {
 
-    var sut: RestaurantDetailsViewModel!
-    let presenter = RestaurantDetailsPresentableMock()
-    let service = APIServiceMock()
+    private var sut: RestaurantDetailsViewModel!
+    private var stub: DeliveryApiServiceStub!
+    private var presenterSpy: RestaurantDetailsPresentableMock!
 
     override func setUp() {
-        sut = RestaurantDetailsViewModel(with: service)
-        sut.presenter = presenter
         super.setUp()
+        stub = DeliveryApiServiceStub()
+        presenterSpy = RestaurantDetailsPresentableMock()
+        sut = RestaurantDetailsViewModel(with: stub)
+        sut.presenter = presenterSpy
     }
 
     override func tearDown() {
-        super.tearDown()
+        stub = nil
         sut = nil
+        presenterSpy = nil
+        super.tearDown()
     }
 
-    func testLoadRestaurantDetails() throws {
+    func test_LoadRestaurantDetails_shouldDisplayDetails() throws {
+        stub.expectedDetails = .success(makeRestaurantDetailMock())
         sut.loadRestaurantDetails()
-        XCTAssertTrue(presenter.displayedDetails)
+        XCTAssertTrue(presenterSpy.displayedDetails)
     }
 
     func testLoadRestaurantDetailsWithError() throws {
-        service.errorAPI = .emptyData
+        stub.expectedDetails = .failure(.emptyData)
         sut.loadRestaurantDetails()
-        XCTAssertTrue(presenter.displayedErrors)
+        XCTAssertTrue(presenterSpy.displayedErrors)
     }
-
+}
+extension RestaurantDetailsViewModelTests {
+    private func makeRestaurantDetailMock() -> Restaurant {
+        Restaurant(name: "Dummy", category: "Dummy", deliveryTime: DeliveryTime(minimum: 10, maximum: 10), reviews: Review(score: 10, count: 10), menu: [])
+    }
 }

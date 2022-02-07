@@ -21,7 +21,7 @@ final class MenuItemCoordinator: Coordinator {
 		let viewController = MenuItemViewController()
 		viewController.viewModel.coordinator = self
 		viewController.modalPresentationStyle = .overCurrentContext
-		 viewController.modalTransitionStyle = .crossDissolve
+		viewController.modalTransitionStyle = .crossDissolve
 		presenter.pushViewController(viewController, animated: true)
 	}
 	

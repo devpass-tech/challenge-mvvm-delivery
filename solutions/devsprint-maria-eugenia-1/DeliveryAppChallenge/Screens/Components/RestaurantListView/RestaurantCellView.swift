@@ -90,4 +90,9 @@ extension RestaurantCellView {
 
         ])
     }
+    
+    func setupCell(model: RestaurantModel) {
+        self.restaurantInfoLabel.text = "Padaria • \(String(describing: model.deliveryTime?.max)) - + \(String(describing: model.deliveryTime?.min))"
+        self.restaurantNameLabel.text = model.name
+    }
 }

@@ -38,7 +38,6 @@ class RestaurantCellView: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 17)
-        label.text = "Benjamin a Padaria"
         return label
     }()
 
@@ -47,7 +46,6 @@ class RestaurantCellView: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "Padaria • 23-33 min"
         return label
     }()
 
@@ -89,5 +87,10 @@ extension RestaurantCellView {
             self.logoImageView.heightAnchor.constraint(equalToConstant: 50),
 
         ])
+    }
+    
+    func setupCell(model: RestaurantModel) {
+        self.restaurantInfoLabel.text = "Padaria • \(String(describing: model.delivery_time?.max)) - \(String(describing: model.delivery_time?.min))"
+        self.restaurantNameLabel.text = model.name
     }
 }

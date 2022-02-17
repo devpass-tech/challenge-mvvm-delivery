@@ -8,11 +8,11 @@
 import UIKit
 
 class RestaurantListView: UIView {
-
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "RestaurantCellIdentifier"
-
+    private var viewModel: RestaurantListViewModel = RestaurantListViewModel()
+    
     lazy var tableView: UITableView = {
 
         let tableView = UITableView(frame: .zero)
@@ -29,10 +29,10 @@ class RestaurantListView: UIView {
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-
-        tableView.reloadData()
+        viewModel.delegatePresentable = self
+        viewModel.load()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -61,13 +61,15 @@ extension RestaurantListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return viewModel.numberOfRow()
+        
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantCellView
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RestaurantCellView else { return UITableViewCell() }
+        
+        cell.setupCell(model: viewModel.cellForRow(indexPath: indexPath))
+        
         return cell
     }
 }
@@ -80,5 +82,16 @@ extension RestaurantListView: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
+}
+
+extension RestaurantListView: RestuarantListPresentable {
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func presentError(title: String, message: APIError) {
     }
 }

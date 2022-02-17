@@ -7,11 +7,17 @@
 
 import Foundation
 
-struct DeliveryApi {
+protocol DeliveryApiProtocol {
+    func fetchRestaurants(_ completion: @escaping (Result<[RestaurantModel]?, APIError>) -> Void)
+}
 
-    func fetchRestaurants(_ completion: ([String]) -> Void) {
+struct DeliveryApi: DeliveryApiProtocol {
+    
+    let delegate: APIManagerProtocol = ApiManager()
 
-        completion(["Restaurant 1", "Restaurant 2", "Restaurant 3"])
+    func fetchRestaurants(_ completion: @escaping (Result<[RestaurantModel]?, APIError>) -> Void) {
+        let url = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/home_restaurant_list.json"
+        delegate.performRequest(pathURL: url, method: .get, completion: completion)
     }
 
     func searchAddresses(_ completion: ([String]) -> Void) {

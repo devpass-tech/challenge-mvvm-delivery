@@ -10,11 +10,12 @@ import Foundation
 struct RestaurantModel: Codable  {
     let name: String?
     let category: String?
-    let delivery_time: DeliveryTime?
+    let deliveryTime: DeliveryTime?
+    
+    enum CodingKeys: String, CodingKey {
+        case name, category
+        case deliveryTime = "delivery_time"
+    }
 }
 
-//enum CodingKeys: String, CodingKey {
-//    case name, category
-//    case deliveryTime = "delivery_time"
-//}
 

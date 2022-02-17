@@ -35,6 +35,6 @@ class RestaurantListViewModel {
     }
     
     func cellForRow(indexPath: IndexPath) -> RestaurantModel {
-        return model?[indexPath.row] ?? RestaurantModel(name: "", category: "", delivery_time: DeliveryTime(min: 0, max: 0))
+        return model?[indexPath.row] ?? RestaurantModel(name: "", category: "", deliveryTime: DeliveryTime(min: 0, max: 0))
     }
 }

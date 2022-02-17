@@ -90,7 +90,8 @@ extension RestaurantCellView {
     }
     
     func setupCell(model: RestaurantModel) {
-        self.restaurantInfoLabel.text = "Padaria • \(String(describing: model.delivery_time?.max)) - \(String(describing: model.delivery_time?.min))"
+        guard let maxTime = model.deliveryTime?.max, let minTime = model.deliveryTime?.min else { return  }
+        self.restaurantInfoLabel.text = "Padaria • \(String(describing: maxTime))-\(String(describing: minTime))min"
         self.restaurantNameLabel.text = model.name
     }
 }

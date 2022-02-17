@@ -29,11 +29,10 @@ class ApiManager: APIManagerProtocol {
         method: HTTPMethod,
         completion: @escaping (Result<T, APIError>) -> Void) {
             
-            //        guard let baseURL = Bundle.main.object(forInfoDictionaryKey: "ServerURL") as? String,
-            //                let url = URL(string: baseURL + pathURL)
-            //        else { return completion(.failure(.invalidURL)) }
-            
-            guard let url = URL(string: pathURL) else { return completion(.failure(.invalidURL))}
+            guard let baseURL = Bundle.main.object(forInfoDictionaryKey: "BaseUrl") as? String,
+                  let url = URL(string: baseURL + pathURL)
+            else { return completion(.failure(.invalidURL)) }
+
             var request = URLRequest(url: url)
             request.httpMethod = method.rawValue
             

@@ -16,8 +16,8 @@ struct DeliveryApi: DeliveryApiProtocol {
     let delegate: APIManagerProtocol = ApiManager()
 
     func fetchRestaurants(_ completion: @escaping (Result<[RestaurantModel]?, APIError>) -> Void) {
-        let url = "https://raw.githubusercontent.com/devpass-tech/challenge-delivery-app/main/api/home_restaurant_list.json"
-        delegate.performRequest(pathURL: url, method: .get, completion: completion)
+        let pathUrl = "/devpass-tech/challenge-delivery-app/main/api/home_restaurant_list.json"
+        delegate.performRequest(pathURL: pathUrl, method: .get, completion: completion)
     }
 
     func searchAddresses(_ completion: ([String]) -> Void) {

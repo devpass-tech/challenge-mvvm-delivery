@@ -37,6 +37,7 @@
 		B91B6C6427BB2064004C0498 /* RestaurantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B6C6327BB2064004C0498 /* RestaurantModel.swift */; };
 		B91B6C6627BC65BD004C0498 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91B6C6527BC65BC004C0498 /* ApiManager.swift */; };
 		B99BA7D027BD4ADE00A940C4 /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BA7CF27BD4ADE00A940C4 /* RestaurantListViewModel.swift */; };
+		B99BA7D227BDD56C00A940C4 /* DeliveryTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BA7D127BDD56C00A940C4 /* DeliveryTime.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		B91B6C6327BB2064004C0498 /* RestaurantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantModel.swift; sourceTree = "<group>"; };
 		B91B6C6527BC65BC004C0498 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		B99BA7CF27BD4ADE00A940C4 /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
+		B99BA7D127BDD56C00A940C4 /* DeliveryTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTime.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
 				B91B6C6327BB2064004C0498 /* RestaurantModel.swift */,
 				B91B6C6527BC65BC004C0498 /* ApiManager.swift */,
+				B99BA7D127BDD56C00A940C4 /* DeliveryTime.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */,
 				98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */,
 				983271BD272752AF0010C63A /* AppDelegate.swift in Sources */,
+				B99BA7D227BDD56C00A940C4 /* DeliveryTime.swift in Sources */,
 				B91B6C6627BC65BD004C0498 /* ApiManager.swift in Sources */,
 				98F12968272F30E500B88A87 /* AddressView.swift in Sources */,
 				983271BF272752AF0010C63A /* SceneDelegate.swift in Sources */,

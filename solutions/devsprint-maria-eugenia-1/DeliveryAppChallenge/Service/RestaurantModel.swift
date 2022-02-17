@@ -8,17 +8,13 @@
 import Foundation
 
 struct RestaurantModel: Codable  {
-    let name: String
-    let category: String
-    let deliveryTime: DeliveryTime?
+    let name: String?
+    let category: String?
+    let delivery_time: DeliveryTime?
 }
 
-struct DeliveryTime: Codable {
-    let max: Int
-    let min: Int
-}
+//enum CodingKeys: String, CodingKey {
+//    case name, category
+//    case deliveryTime = "delivery_time"
+//}
 
-enum CodingKeys: String, CodingKey {
-    case name, category
-    case time = "delivery_time"
-}

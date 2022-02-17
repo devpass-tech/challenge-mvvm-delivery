@@ -49,6 +49,8 @@ class ApiManager: APIManagerProtocol {
                     do{
                         let jsonDecoder = JSONDecoder()
                         let repository = try jsonDecoder.decode(T.self, from: data)
+                        print(response.description)
+                        
                         completion(.success(repository))
                     } catch {
                         completion(.failure(.parseError))

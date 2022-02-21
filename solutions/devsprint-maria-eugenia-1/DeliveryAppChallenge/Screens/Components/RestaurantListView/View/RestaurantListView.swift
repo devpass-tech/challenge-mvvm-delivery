@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol RestaurantListViewDelegate {
+    func pushViewController()
+}
+
 class RestaurantListView: UIView {
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "RestaurantCellIdentifier"
     private var viewModel: RestaurantListViewModel = RestaurantListViewModel()
+    var delegate: RestaurantListViewDelegate?
     
     lazy var tableView: UITableView = {
 
@@ -81,7 +86,7 @@ extension RestaurantListView: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        delegate?.pushViewController()
     }
 }
 

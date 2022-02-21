@@ -76,7 +76,7 @@ extension HomeView {
 
     func configureConstraints() {
 
-        let estimatedHeight = CGFloat(restaurantListView.tableView.numberOfRows(inSection: 0))*RestaurantListView.cellSize
+        let estimatedHeight = CGFloat(500)
 
         NSLayoutConstraint.activate([
 

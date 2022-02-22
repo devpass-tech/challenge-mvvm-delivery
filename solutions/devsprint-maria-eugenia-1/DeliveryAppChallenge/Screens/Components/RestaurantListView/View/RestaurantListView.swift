@@ -74,6 +74,7 @@ extension RestaurantListView: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RestaurantCellView else { return UITableViewCell() }
         
         cell.setupCell(model: viewModel.cellForRow(indexPath: indexPath))
+        cell.selectionStyle = .none
         
         return cell
     }

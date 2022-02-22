@@ -28,7 +28,6 @@ class RestaurantListCoordinator {
     func goTableView() {
         let vc  = RestaurantDetailsViewController()
         navigationController.pushViewController(vc, animated: true)
-        star()
     }
     
     func childDidFinish(_ child: Coordinator) {

@@ -7,8 +7,13 @@
 
 import UIKit
 
-class HomeView: UIView {
+protocol HomeViewDelegate: AnyObject {
+    func goToDetailListRestaurant()
+}
 
+class HomeView: UIView {
+    weak var delegate: HomeViewDelegate?
+    
     let scrollView: UIScrollView = {
 
         let scrollView = UIScrollView()
@@ -55,6 +60,7 @@ class HomeView: UIView {
 
         addSubviews()
         configureConstraints()
+        restaurantListView.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -94,6 +100,12 @@ extension HomeView {
 
             restaurantListView.heightAnchor.constraint(equalToConstant: estimatedHeight)
         ])
+    }
+}
+
+extension HomeView: RestaurantListViewDelegate {
+    func pushViewController() {
+        self.delegate?.goToDetailListRestaurant()
     }
 }
 

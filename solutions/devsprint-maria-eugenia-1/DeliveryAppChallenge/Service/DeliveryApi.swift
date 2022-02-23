@@ -9,7 +9,7 @@ import Foundation
 
 protocol DeliveryApiProtocol {
     func fetchRestaurants(_ completion: @escaping (Result<[RestaurantModel]?, APIError>) -> Void)
-    func fetchMenuItem(_ completion: @escaping (Result<[RestaurantMenuModel]?, APIError>) -> Void)
+    func fetchRestaurantDetails(_ completion: @escaping (Result<RestaurantDetailsModel?, APIError>) -> Void)
 }
 
 struct DeliveryApi: DeliveryApiProtocol {
@@ -31,7 +31,7 @@ struct DeliveryApi: DeliveryApiProtocol {
         completion("Restaurant Details")
     }
 
-    func fetchMenuItem(_ completion: @escaping (Result<[RestaurantMenuModel]?, APIError>) -> Void) {
+    func fetchRestaurantDetails(_ completion: @escaping (Result<RestaurantDetailsModel?, APIError>) -> Void) {
         let pathUrl = "/devpass-tech/challenge-delivery-app/main/api/restaurant_details.json"
         delegate.performRequest(pathURL: pathUrl, method: .get, completion: completion)
     }

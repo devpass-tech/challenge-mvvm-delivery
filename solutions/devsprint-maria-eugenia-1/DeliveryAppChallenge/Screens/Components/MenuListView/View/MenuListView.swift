@@ -8,6 +8,8 @@
 import UIKit
 
 class MenuListView: UIView {
+    
+    let menuViewModel = MenuViewModel()
 
     static let cellSize = CGFloat(96)
 
@@ -29,8 +31,9 @@ class MenuListView: UIView {
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-
-        tableView.reloadData()
+        
+        menuViewModel.delegatePresentable = self
+        
     }
 
     required init?(coder: NSCoder) {
@@ -80,5 +83,13 @@ extension MenuListView: UITableViewDelegate {
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+    }
+}
+
+extension MenuListView: MenuPresentable {
+    func reloadData() {
+    }
+    
+    func presentError(title: String, message: APIError) {
     }
 }

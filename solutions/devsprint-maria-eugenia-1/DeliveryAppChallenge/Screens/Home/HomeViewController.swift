@@ -28,6 +28,17 @@ class HomeViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = HomeView()
+        let homeView = HomeView()
+        homeView.delegate = self
+        self.view = homeView
+    }
+}
+
+extension HomeViewController: HomeViewDelegate {
+    func goToDetailListRestaurant() {
+        guard let navigation = self.navigationController else  { return }
+        let delegate: RestaurantListCoordinator = RestaurantListCoordinator(navigationController: navigation)
+        delegate.goTableView()
+        
     }
 }

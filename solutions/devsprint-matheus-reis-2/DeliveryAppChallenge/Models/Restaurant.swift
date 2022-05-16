@@ -7,6 +7,11 @@
 
 import Foundation
 
-struct Restaurant: Decodable {
+struct Restaurant: Codable {
+    let name, category: String
+    let deliveryTime: DeliveryTime
+}
 
+struct DeliveryTime: Codable {
+    let min, max: Int
 }

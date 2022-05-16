@@ -51,6 +51,11 @@ playground.xcworkspace
 #
 Pods/
 
+## xCodegen
+#
+solutions/devsprint-matheus-reis-2/*.xcodeproj/*
+solutions/devsprint-matheus-reis-2/*.xcworkspace/*
+
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.

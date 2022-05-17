@@ -7,25 +7,65 @@
 
 import Foundation
 
-struct DeliveryApi {
+enum UrlName {
+    static let restaurantList: String = "home_restaurant_list.json"
+}
 
-    func fetchRestaurants(_ completion: ([String]) -> Void) {
+protocol DeliveryApiProtocol {
+    func fetchRestaurants(_ name: String, _ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void)
+    func searchAddresses(_ completion: ([String]) -> Void)
+    func fetchRestaurantDetails(_ completion: (String) -> Void)
+    func fetchMenuItem(_ completion: (String) -> Void)
+}
 
-        completion(["Restaurant 1", "Restaurant 2", "Restaurant 3"])
+struct DeliveryApi: DeliveryApiProtocol {
+    
+    func fetchRestaurants(_ name: String, _ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void) {
+        self.request(name, completion: completion   )
     }
-
+    
     func searchAddresses(_ completion: ([String]) -> Void) {
-
-        completion(["Address 1", "Address 2", "Address 3"])
+        
     }
-
+    
     func fetchRestaurantDetails(_ completion: (String) -> Void) {
-
-        completion("Restaurant Details")
+        
     }
-
+    
     func fetchMenuItem(_ completion: (String) -> Void) {
-
-        completion("Menu Item")
+        
+    }
+    
+    private func request<T: Decodable>(_ name: String, completion: @escaping (Result<T, DeliveryApiError>) -> Void){
+        guard let  url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-mvvm-delivery/main/api/\(name)") else {
+            return completion(.failure(.invalidURL))
+            
+        }
+        let dataTask = URLSession.shared.dataTask(with: url){ data, response, error
+            in
+            
+            if let error = error{
+                return completion(.failure(.requestError(description: error.localizedDescription)))
+            }
+            
+            if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
+                return completion(.failure(.invalidResponse))
+            }
+            
+            guard let data = data else {
+                return completion(.failure(.invalidData))
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                let result = try decoder.decode(T.self, from: data)
+                completion(.success(result))
+            } catch(let error) {
+                completion(.failure(.decodingError(description: error.localizedDescription)))
+            }
+        }
+        dataTask.resume()
     }
 }

@@ -37,12 +37,15 @@ struct DeliveryApi: DeliveryApiProtocol {
     }
     
     private func request<T: Decodable>(_ name: String, completion: @escaping (Result<T, DeliveryApiError>) -> Void){
-        guard let  url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-mvvm-delivery/main/api/\(name)") else { return }
+        guard let  url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-mvvm-delivery/main/api/\(name)") else {
+            return completion(.failure(.invalidURL))
+            
+        }
         let dataTask = URLSession.shared.dataTask(with: url){ data, response, error
             in
             
             if let error = error{
-                return completion(.failure(.errorGeneric(description: error.localizedDescription)))
+                return completion(.failure(.requestError(description: error.localizedDescription)))
             }
             
             if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
@@ -54,14 +57,13 @@ struct DeliveryApi: DeliveryApiProtocol {
             }
             
             do {
-                let jsonDecodable = JSONDecoder()
-                jsonDecodable.keyDecodingStrategy = .convertFromSnakeCase
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 
-                if let result = try? jsonDecodable.decode(T.self, from: data) {
-                    completion(.success(result))
-                } else {
-                    completion(.failure(.errorDecoder))
-                }
+                let result = try decoder.decode(T.self, from: data)
+                completion(.success(result))
+            } catch(let error) {
+                completion(.failure(.decodingError(description: error.localizedDescription)))
             }
         }
         dataTask.resume()

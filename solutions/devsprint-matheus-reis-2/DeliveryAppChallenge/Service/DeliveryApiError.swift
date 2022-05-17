@@ -9,8 +9,8 @@ import Foundation
 
 enum DeliveryApiError: Error {
     case invalidURL
-    case errorGeneric(description: String)
+    case requestError(description: String)
     case invalidResponse
     case invalidData
-    case errorDecoder
+    case decodingError(description: String)
 }

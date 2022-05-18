@@ -9,9 +9,7 @@ import Foundation
 
 
 struct UserInfo {
-    
-    private init() {}
-    
+
     static func getData(key: String) -> String {
         return UserDefaults.standard.string(forKey: key) ?? ""
     }

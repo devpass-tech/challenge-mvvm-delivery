@@ -12,9 +12,7 @@ struct UserInfo {
     
     private init() {}
     
-    static var shared = UserInfo()
-    
-     func getData(key: String) -> String {
+    static func getData(key: String) -> String {
         return UserDefaults.standard.string(forKey: key) ?? ""
     }
 }

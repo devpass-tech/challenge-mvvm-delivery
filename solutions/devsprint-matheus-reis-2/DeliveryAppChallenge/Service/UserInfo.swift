@@ -9,9 +9,12 @@ import Foundation
 
 
 struct UserInfo {
-    private let defaults = UserDefaults.standard
     
-    func getData(key: String) -> String {
-        return defaults.string(forKey: key) ?? ""
+    private init() {}
+    
+    static var shared = UserInfo()
+    
+     func getData(key: String) -> String {
+        return UserDefaults.standard.string(forKey: key) ?? ""
     }
 }

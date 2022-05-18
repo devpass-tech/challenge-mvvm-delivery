@@ -8,7 +8,6 @@
 import Foundation
 
 struct Addresses: Codable {
-    
     let street: String
     let number: String
     let neighborhood: String

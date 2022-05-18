@@ -9,13 +9,14 @@ import Foundation
 
 enum UrlName {
     static let restaurantList: String = "home_restaurant_list.json"
+    static let menuItemDetails: String = "menu_item_details.json"
 }
 
 protocol DeliveryApiProtocol {
     func fetchRestaurants(_ name: String, _ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void)
     func searchAddresses(_ name: String, _ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void)
     func fetchRestaurantDetails(_ completion: (String) -> Void)
-    func fetchMenuItem(_ completion: (String) -> Void)
+    func fetchMenuItem(_ name: String, _ completion: @escaping (Result<MenuItemDetails, DeliveryApiError>) -> Void)
 }
 
 struct DeliveryApi: DeliveryApiProtocol {
@@ -32,8 +33,8 @@ struct DeliveryApi: DeliveryApiProtocol {
         
     }
     
-    func fetchMenuItem(_ completion: (String) -> Void) {
-        
+    func fetchMenuItem(_ name: String, _ completion: @escaping (Result<MenuItemDetails, DeliveryApiError>) -> Void) {
+        self.request(name, completion: completion)
     }
     
     private func request<T: Decodable>(_ name: String, completion: @escaping (Result<T, DeliveryApiError>) -> Void){

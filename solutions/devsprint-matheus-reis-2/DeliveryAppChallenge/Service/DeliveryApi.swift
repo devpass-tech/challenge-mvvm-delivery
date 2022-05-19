@@ -9,6 +9,7 @@ import Foundation
 
 enum UrlName {
     static let restaurantList: String = "home_restaurant_list.json"
+    static let addressesList: String = "address_search_results.json"
 }
 
 protocol DeliveryApiProtocol {

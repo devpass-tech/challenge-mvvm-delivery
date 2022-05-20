@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel {
+final class HomeViewModel {
     
     private let service: DeliveryApi
     
@@ -27,6 +27,16 @@ class HomeViewModel {
                 print(error)
             }
         }
+    }
+}
+
+extension HomeViewModel: RestaurantListViewDataSource {
+    func getData(at: Int) -> Restaurant {
+        return restaurants[at]
+    }
+    
+    func getItemCount() -> Int {
+        return restaurants.count
     }
 }
 

@@ -8,10 +8,13 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    init() {
+    
+    private let viewModel: HomeViewModel?
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-
+        
         navigationItem.title = "Delivery App 🍕"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
@@ -22,12 +25,21 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func loadView() {
-        self.view = HomeView()
+        let homeView = HomeView()
+        self.view = homeView
+        
+        homeView.restaurantListView.dataSource = viewModel
+        
+        viewModel?.getRestaurantList {
+            DispatchQueue.main.async {
+                homeView.restaurantListView.tableView.reloadData()
+            }
+        }   
     }
 }

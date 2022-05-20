@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Endpoint {
+enum Endpoints {
     static let restaurantList: String = "home_restaurant_list.json"
     static let searchList = "address_search_results.json"
 }
@@ -22,11 +22,11 @@ protocol DeliveryApiProtocol {
 struct DeliveryApi: DeliveryApiProtocol {
     
     func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void) {
-        self.request(Endpoint.restaurantList, completion: completion   )
+        self.request(Endpoints.restaurantList, completion: completion   )
     }
     
     func searchAddresses(_ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void) {
-        self.request(Endpoint.searchList, completion: completion)
+        self.request(Endpoints.searchList, completion: completion)
     }
     
     func fetchRestaurantDetails(_ completion: (String) -> Void) {

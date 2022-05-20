@@ -31,6 +31,8 @@ class SettingsView: UIView {
 
     let cellIdentifier = "SettingsCell"
 
+    private let settingsViewModel: SettingsViewModelProtocol
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,9 +42,9 @@ class SettingsView: UIView {
         return tableView
     }()
 
-    override init(frame: CGRect = .zero) {
-        super.init(frame: frame)
-
+    init(viewModel: SettingsViewModelProtocol = SettingsViewModel()) {
+        self.settingsViewModel = viewModel
+        super.init(frame: .zero)
         backgroundColor = .white
         
         addSubviews()
@@ -50,9 +52,9 @@ class SettingsView: UIView {
 
         tableView.reloadData()
     }
-
+    @available( *, unavailable)
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -95,16 +97,16 @@ extension SettingsView: UITableViewDataSource {
 
         switch sectionIndex {
         case .name:
-            cell.textLabel?.text = "John Appleseed"
+            cell.textLabel?.text = settingsViewModel.getUserName()
 
         case .email:
-            cell.textLabel?.text = "john@apple.com"
+            cell.textLabel?.text = settingsViewModel.getUserEmail()
 
         case .address:
-            cell.textLabel?.text = "Rua Bela Cintra, 495 - Consolação"
+            cell.textLabel?.text = settingsViewModel.getUserAddress()
 
         case .paymentMethod:
-            cell.textLabel?.text = "Cartão de Crédito"
+            cell.textLabel?.text = settingsViewModel.getUserPaymentMethod()
         }
         
         return cell

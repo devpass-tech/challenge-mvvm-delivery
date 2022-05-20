@@ -9,11 +9,12 @@ import Foundation
 
 enum Endpoint {
     static let restaurantList: String = "home_restaurant_list.json"
+    static let searchList = "address_search_results.json"
 }
 
 protocol DeliveryApiProtocol {
     func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void)
-    func searchAddresses(_ completion: ([String]) -> Void)
+    func searchAddresses(_ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void)
     func fetchRestaurantDetails(_ completion: (String) -> Void)
     func fetchMenuItem(_ completion: (String) -> Void)
 }
@@ -24,8 +25,8 @@ struct DeliveryApi: DeliveryApiProtocol {
         self.request(Endpoint.restaurantList, completion: completion   )
     }
     
-    func searchAddresses(_ completion: ([String]) -> Void) {
-        
+    func searchAddresses(_ name: String, _ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void) {
+        self.request(Endpoint.searchList, completion: completion)
     }
     
     func fetchRestaurantDetails(_ completion: (String) -> Void) {

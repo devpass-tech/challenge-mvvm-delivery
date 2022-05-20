@@ -2,7 +2,7 @@
 //  SettingsViewModel.swift
 //  DeliveryAppChallenge
 //
-//  Created by Cora on 18/05/22.
+//  Created by Anderson Oliveira on 18/05/22.
 //
 
 import Foundation
@@ -54,6 +54,3 @@ extension SettingsViewModel {
         }
     }
 }
-
-
-

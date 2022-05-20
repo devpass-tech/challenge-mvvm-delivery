@@ -30,9 +30,3 @@ class HomeViewModel {
     }
 }
 
-extension HomeViewModel: RestaurantListViewDataSource {
-    func getData(at: Int) -> Restaurant {
-        return restaurants[at]
-    }
-}
-

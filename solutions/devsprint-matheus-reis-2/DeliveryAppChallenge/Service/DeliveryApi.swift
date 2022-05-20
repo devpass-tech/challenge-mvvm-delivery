@@ -25,7 +25,7 @@ struct DeliveryApi: DeliveryApiProtocol {
         self.request(Endpoint.restaurantList, completion: completion   )
     }
     
-    func searchAddresses(_ name: String, _ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void) {
+    func searchAddresses(_ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void) {
         self.request(Endpoint.searchList, completion: completion)
     }
     

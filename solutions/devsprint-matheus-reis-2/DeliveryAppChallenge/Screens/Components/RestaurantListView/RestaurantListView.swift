@@ -75,7 +75,7 @@ extension RestaurantListView: UITableViewDataSource {
         
         if let data = dataSource?.getData(at: indexPath.row) {
             cell.restaurantNameLabel.text = data.name
-            cell.restaurantInfoLabel.text = String.formattedRestaurantInfo(category: data.name, minDeliveryTime: data.deliveryTime.min, maxDeliveryTime: data.deliveryTime.max)
+            cell.restaurantInfoLabel.text = data.formattedInfo()
         }
         return cell
     }

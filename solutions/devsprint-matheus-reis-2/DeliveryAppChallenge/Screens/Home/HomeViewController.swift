@@ -18,7 +18,8 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Delivery App 🍕"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
-                                                            target: self, action: #selector(openSettingsModal))
+                                                            target: self,
+                                                            action: #selector(openSettingsModal))
     }
     
     required init?(coder: NSCoder) {

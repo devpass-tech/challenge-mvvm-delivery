@@ -25,6 +25,8 @@ class CategoryCellView: UIView {
         imageView.image = UIImage(named: "pizza")
         imageView.layer.cornerRadius = 8
         imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+
         return imageView
     }()
 
@@ -52,6 +54,12 @@ class CategoryCellView: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: 54, height: 70)
     }
+    
+    @objc func tap() {
+        if let topViewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController {
+            topViewController.pushViewController(RestaurantListViewController(), animated: true)
+        }
+    }
 }
 
 extension CategoryCellView {
@@ -61,6 +69,9 @@ extension CategoryCellView {
         addSubview(stackView)
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(nameLabel)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tap))
+        imageView.addGestureRecognizer(tap)
+
     }
 
     func configureConstraints() {

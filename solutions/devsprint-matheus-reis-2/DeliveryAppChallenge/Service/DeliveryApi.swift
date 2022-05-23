@@ -7,26 +7,27 @@
 
 import Foundation
 
-enum UrlName {
+enum Endpoints {
     static let restaurantList: String = "home_restaurant_list.json"
     static let menuItemDetails: String = "menu_item_details.json"
+    static let searchList = "address_search_results.json"
 }
 
 protocol DeliveryApiProtocol {
-    func fetchRestaurants(_ name: String, _ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void)
-    func searchAddresses(_ name: String, _ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void)
+    func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void)
+    func searchAddresses(_ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void)
     func fetchRestaurantDetails(_ completion: (String) -> Void)
     func fetchMenuItem(_ name: String, _ completion: @escaping (Result<MenuItemDetails, DeliveryApiError>) -> Void)
 }
 
 struct DeliveryApi: DeliveryApiProtocol {
     
-    func fetchRestaurants(_ name: String, _ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void) {
-        self.request(name, completion: completion   )
+    func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void) {
+        self.request(Endpoints.restaurantList, completion: completion   )
     }
     
-    func searchAddresses(_ name: String, _ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void) {
-        self.request(name, completion: completion)
+    func searchAddresses(_ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void) {
+        self.request(Endpoints.searchList, completion: completion)
     }
     
     func fetchRestaurantDetails(_ completion: (String) -> Void) {

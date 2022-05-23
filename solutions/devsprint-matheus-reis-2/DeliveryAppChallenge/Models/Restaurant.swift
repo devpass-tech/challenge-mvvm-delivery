@@ -10,6 +10,10 @@ import Foundation
 struct Restaurant: Codable {
     let name, category: String
     let deliveryTime: DeliveryTime
+    
+    func formattedInfo() -> String {
+        return "\(category) • \(deliveryTime.min)-\(deliveryTime.max) min"
+    }
 }
 
 struct DeliveryTime: Codable {

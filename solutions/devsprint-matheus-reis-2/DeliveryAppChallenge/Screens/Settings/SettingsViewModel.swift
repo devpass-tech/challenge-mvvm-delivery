@@ -7,32 +7,6 @@
 
 import Foundation
 
-//protocol SettingsViewModelProtocol {
-//    func getUserName() -> String
-//    func getUserEmail() -> String
-//    func getUserAddress() -> String
-//    func getUserPaymentMethod() -> String
-//}
-
-//final class SettingsViewModel: SettingsViewModelProtocol {
-//
-//    func getUserName() -> String {
-//        return String(UserInfoData.userName.data)
-//    }
-//
-//    func getUserEmail() -> String {
-//        return String(UserInfoData.userEmail.data)
-//    }
-//
-//    func getUserAddress() -> String {
-//        return String(UserInfoData.userAddress.data)
-//    }
-//
-//    func getUserPaymentMethod() -> String {
-//        return String(UserInfoData.paymentMethod.data)
-//    }
-//}
-
 final class SettingsViewModel {
     
      enum UserInfoData: String {

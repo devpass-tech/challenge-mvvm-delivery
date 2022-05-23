@@ -31,7 +31,7 @@ class SettingsView: UIView {
 
     let cellIdentifier = "SettingsCell"
 
-    private let settingsViewModel: SettingsViewModelProtocol
+    private let viewModel: SettingsViewModel
     
     lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
@@ -42,8 +42,8 @@ class SettingsView: UIView {
         return tableView
     }()
 
-    init(viewModel: SettingsViewModelProtocol = SettingsViewModel()) {
-        self.settingsViewModel = viewModel
+    init(viewModel: SettingsViewModel = SettingsViewModel()) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         backgroundColor = .white
         
@@ -97,16 +97,16 @@ extension SettingsView: UITableViewDataSource {
 
         switch sectionIndex {
         case .name:
-            cell.textLabel?.text = settingsViewModel.getUserName()
+            cell.textLabel?.text = viewModel.getInfo(for: .userName)
 
         case .email:
-            cell.textLabel?.text = settingsViewModel.getUserEmail()
+            cell.textLabel?.text = viewModel.getInfo(for: .userEmail)
 
         case .address:
-            cell.textLabel?.text = settingsViewModel.getUserAddress()
+            cell.textLabel?.text = viewModel.getInfo(for: .userAddress)
 
         case .paymentMethod:
-            cell.textLabel?.text = settingsViewModel.getUserPaymentMethod()
+            cell.textLabel?.text = viewModel.getInfo(for: .paymentMethod)
         }
         
         return cell

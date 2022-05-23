@@ -18,8 +18,7 @@ class HomeViewController: UIViewController {
         navigationItem.title = "Delivery App 🍕"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings",
                                                             style: .plain,
-                                                            target: nil,
-                                                            action: nil)
+                                                            target: self, action: #selector(openSettingsModal))
     }
     
     required init?(coder: NSCoder) {
@@ -41,5 +40,9 @@ class HomeViewController: UIViewController {
                 homeView.restaurantListView.tableView.reloadData()
             }
         }   
+    }
+    
+    @objc func openSettingsModal() {
+        present(UINavigationController(rootViewController: SettingsViewController()), animated: true)
     }
 }

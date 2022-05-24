@@ -38,15 +38,14 @@ class HomeViewModelTests: XCTestCase {
         }
     }
     
-    func test_fetchRestaurants_shouldReturnRestaurantLength () {
+    func test_getItemCount_shouldReturnRestaurantLength () {
         sut.restaurants.append(Restaurant(name: "Giraffas", category: "fast-food", deliveryTime: DeliveryTime(min: 10, max: 25)))
         XCTAssertEqual(sut.getItemCount(), 1)
     }
     
-    func test_fetchRestaurants_sholdReturnRestaurant() {
+    func test_getData_sholdReturnRestaurant() {
         sut.restaurants.append(Restaurant(name: "Giraffas", category: "fast-food", deliveryTime: DeliveryTime(min: 10, max: 25)))
-        sut.restaurants.append(Restaurant(name: "Bobs", category: "fast-food", deliveryTime: DeliveryTime(min: 10, max: 25)))
-        XCTAssertEqual(sut.getData(at: 1).name, "Bobs")
+        XCTAssertEqual(sut.getData(at: 0).name, "Giraffas")
     }
 
 }

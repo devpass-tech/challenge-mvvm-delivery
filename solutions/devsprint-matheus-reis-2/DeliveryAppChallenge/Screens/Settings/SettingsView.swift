@@ -12,7 +12,7 @@ private enum Sections: Int, CaseIterable {
     case email
     case address
     case paymentMethod
-
+    
     var name: String {
         switch self {
         case .name:
@@ -28,10 +28,10 @@ private enum Sections: Int, CaseIterable {
 }
 
 class SettingsView: UIView {
-
+    
     let cellIdentifier = "SettingsCell"
-
-    private let viewModel: SettingsViewModel
+    
+    private weak var delegate: SettingsViewControllerProtocol?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
@@ -41,15 +41,15 @@ class SettingsView: UIView {
         tableView.dataSource = self
         return tableView
     }()
-
-    init(viewModel: SettingsViewModel = SettingsViewModel()) {
-        self.viewModel = viewModel
+    
+    init(delegate: SettingsViewControllerProtocol) {
+        self.delegate = delegate
         super.init(frame: .zero)
         backgroundColor = .white
         
         addSubviews()
         configureConstraints()
-
+        
         tableView.reloadData()
     }
     @available( *, unavailable)
@@ -59,16 +59,14 @@ class SettingsView: UIView {
 }
 
 extension SettingsView {
-
+    
     func addSubviews() {
-
         addSubview(tableView)
     }
-
+    
     func configureConstraints() {
-
+        
         NSLayoutConstraint.activate([
-
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -78,44 +76,43 @@ extension SettingsView {
 }
 
 extension SettingsView: UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return Sections.allCases.count
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-
+        
         guard let sectionIndex = Sections(rawValue: indexPath.section)
         else { return UITableViewCell() }
-
+        
         switch sectionIndex {
         case .name:
-            cell.textLabel?.text = viewModel.getInfo(for: .userName)
-
+            cell.textLabel?.text = delegate?.getName()
+            
         case .email:
-            cell.textLabel?.text = viewModel.getInfo(for: .userEmail)
-
+            cell.textLabel?.text = delegate?.getEmail()
+            
         case .address:
-            cell.textLabel?.text = viewModel.getInfo(for: .userAddress)
-
+            cell.textLabel?.text = delegate?.getAddress()
+            
         case .paymentMethod:
-            cell.textLabel?.text = viewModel.getInfo(for: .paymentMethod)
+            cell.textLabel?.text = delegate?.getPaymentMethod()
         }
         
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
+        
         guard let section = Sections(rawValue: section) else {
-
+            
             return nil
         }
         return section.name

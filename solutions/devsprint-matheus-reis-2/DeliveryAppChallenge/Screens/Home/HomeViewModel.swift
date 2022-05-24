@@ -9,11 +9,11 @@ import Foundation
 
 final class HomeViewModel {
     
-    private let service: DeliveryApi
+    private let service: DeliveryApiProtocol
     
     public var restaurants: [Restaurant] = []
     
-    init(service: DeliveryApi){
+    init(service: DeliveryApiProtocol){
         self.service = service
     }
     

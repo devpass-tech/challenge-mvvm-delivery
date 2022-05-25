@@ -9,18 +9,34 @@ import Foundation
 
 class AddressSearchViewModel {
     
+    private var service: DeliveryApi
+    
     private var enderecos: [Address] = []
     
-    func fetchAddresses() {
-        let chamada = DeliveryApi()
-        chamada.searchAddresses(UrlName.addressesList) { result in
+    init(service: DeliveryApi) {
+        self.service = service
+    }
+    
+    func getAddressesList(completion: @escaping () -> Void) {
+        service.searchAddresses { result in
             switch result {
-            case .success(let sucess):
-                print("ok")
-            case .failure(let falha):
-                print("falha")
-            }
+            case .success(let addresses):
+                self.enderecos = addresses
+                completion()
+            case .failure(let error):
+                print(error)
             }
         }
     }
+}
+
+extension AddressSearchViewModel: AddressesListViewDataSource {
     
+    func getItemCount() -> Int {
+        return enderecos.count
+    }
+    
+    func getData(at: Int) -> Address {
+        return enderecos[at]
+    }
+}

@@ -31,7 +31,7 @@ class SettingsView: UIView {
     
     let cellIdentifier = "SettingsCell"
     
-    private weak var delegate: SettingsViewControllerProtocol?
+    weak var delegate: SettingsViewControllerDelegate?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
@@ -42,8 +42,7 @@ class SettingsView: UIView {
         return tableView
     }()
     
-    init(delegate: SettingsViewControllerProtocol) {
-        self.delegate = delegate
+    init() {
         super.init(frame: .zero)
         backgroundColor = .white
         
@@ -94,18 +93,17 @@ extension SettingsView: UITableViewDataSource {
         
         switch sectionIndex {
         case .name:
-            cell.textLabel?.text = delegate?.getName()
+            cell.textLabel?.text = delegate?.getInfo(key: .userName)
             
         case .email:
-            cell.textLabel?.text = delegate?.getEmail()
+            cell.textLabel?.text = delegate?.getInfo(key: .userEmail)
             
         case .address:
-            cell.textLabel?.text = delegate?.getAddress()
+            cell.textLabel?.text = delegate?.getInfo(key: .userAddress)
             
         case .paymentMethod:
-            cell.textLabel?.text = delegate?.getPaymentMethod()
+            cell.textLabel?.text = delegate?.getInfo(key: .paymentMethod)
         }
-        
         return cell
     }
     

@@ -7,22 +7,21 @@
 
 import UIKit
 
-protocol SettingsViewControllerProtocol: AnyObject {
-    func getName() -> String
-    func getEmail() -> String
-    func getAddress() -> String
-    func getPaymentMethod() -> String
-    
+protocol SettingsViewControllerDelegate: AnyObject {
+    func getInfo(key: SettingsViewModel.UserInfoData) -> String
 }
 
-
-class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
-
+class SettingsViewController: UIViewController, SettingsViewControllerDelegate {
+    
     private let viewModel: SettingsViewModel
     
-    init(viewModel: SettingsViewModel = SettingsViewModel()) {
+    private let settingsView: SettingsView
+    
+    init(viewModel: SettingsViewModel = SettingsViewModel(), settingsView: SettingsView = SettingsView()) {
+        self.settingsView = settingsView
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        settingsView.delegate = self
         navigationItem.title = "Settings"
     }
     
@@ -31,23 +30,10 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
     }
     
     override func loadView() {
-        self.view = SettingsView(delegate: self)
+        self.view = settingsView
     }
     
-    func getName() -> String {
-        return viewModel.getInfo(for: .userName)
+    func getInfo(key: SettingsViewModel.UserInfoData) -> String {
+        return  viewModel.getInfo(for: key)
     }
-    
-    func getEmail() -> String {
-        return viewModel.getInfo(for: .userEmail)
-    }
-    
-    func getAddress() -> String {
-        return viewModel.getInfo(for: .userAddress)
-    }
-    
-    func getPaymentMethod() -> String {
-        return viewModel.getInfo(for: .paymentMethod)
-    }
-
 }

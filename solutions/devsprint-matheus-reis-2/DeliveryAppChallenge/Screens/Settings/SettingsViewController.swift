@@ -11,13 +11,9 @@ class SettingsViewController: UIViewController {
     
     private let viewModel: SettingsViewModel
     
-    private let settingsView: SettingsView
-    
-    init(viewModel: SettingsViewModel = SettingsViewModel(), settingsView: SettingsView = SettingsView()) {
-        self.settingsView = settingsView
+    init(viewModel: SettingsViewModel = SettingsViewModel()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        settingsView.delegate = self
         navigationItem.title = "Settings"
     }
     
@@ -26,7 +22,10 @@ class SettingsViewController: UIViewController {
     }
     
     override func loadView() {
+        let settingsView = SettingsView()
+        settingsView.delegate = self
         self.view = settingsView
+
     }
 }
 

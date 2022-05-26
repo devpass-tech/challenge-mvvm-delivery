@@ -11,7 +11,7 @@ class AddressSearchViewModel {
     
     private var service: DeliveryApi
     
-    private var enderecos: [Address] = []
+    private var addresses: [Address] = []
     
     init(service: DeliveryApi) {
         self.service = service
@@ -21,7 +21,7 @@ class AddressSearchViewModel {
         service.searchAddresses { result in
             switch result {
             case .success(let addresses):
-                self.enderecos = addresses
+                self.addresses = addresses
                 completion()
             case .failure(let error):
                 print(error)
@@ -33,10 +33,10 @@ class AddressSearchViewModel {
 extension AddressSearchViewModel: AddressesListViewDataSource {
     
     func getItemCount() -> Int {
-        return enderecos.count
+        return addresses.count
     }
     
     func getData(at: Int) -> Address {
-        return enderecos[at]
+        return addresses[at]
     }
 }

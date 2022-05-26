@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol AddressesListViewDataSource {
+    func getData(at: Int) -> Address
+    func getItemCount() -> Int
+}
+
 class AddressListView: UIView {
 
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "AddressCellIdentifier"
+    public var dataSource: AddressesListViewDataSource?
 
     lazy var tableView: UITableView = {
 
@@ -61,13 +67,16 @@ extension AddressListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return dataSource?.getItemCount() ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AddressCellView
-
+        if let data = dataSource?.getData(at: indexPath.row) {
+            cell.titleLabel.text = "\(data.street), \(data.number)"
+            cell.subtitleLabel.text = data.neighborhood
+        }
         return cell
     }
 }

@@ -10,8 +10,10 @@ import UIKit
 class AddressSearchViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
+    private let viewModel: AddressSearchViewModel
 
-    init() {
+    init(viewModel: AddressSearchViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
 
         searchController.searchResultsUpdater = self
@@ -33,14 +35,22 @@ class AddressSearchViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = AddressListView()
+        let addresses = AddressListView()
+        self.view = addresses
+        addresses.dataSource = viewModel
+        
+        viewModel.getAddressesList {
+            DispatchQueue.main.async {
+                addresses.tableView.reloadData()
+            }
+        }
     }
 }
 
 extension AddressSearchViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-
+        //updateSearchResults
     }
 }
 

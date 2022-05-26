@@ -11,4 +11,8 @@ struct MenuItem: Codable {
     let name: String
     let description: String
     let price: Float
+    
+    func formattedPrice() -> String {
+        return "R$ \(price)"
+    }
 }

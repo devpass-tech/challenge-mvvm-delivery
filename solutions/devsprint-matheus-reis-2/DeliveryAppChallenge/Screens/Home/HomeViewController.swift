@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private let viewModel: HomeViewModel?
+    private let viewModel: HomeViewModel
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
         
         homeView.restaurantListView.dataSource = viewModel
         
-        viewModel?.getRestaurantList {
+        viewModel.getRestaurantList {
             DispatchQueue.main.async {
                 homeView.restaurantListView.tableView.reloadData()
             }

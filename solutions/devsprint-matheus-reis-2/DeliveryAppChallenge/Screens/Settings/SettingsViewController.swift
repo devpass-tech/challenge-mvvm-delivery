@@ -7,11 +7,7 @@
 
 import UIKit
 
-protocol SettingsViewControllerDelegate: AnyObject {
-    func getInfo(key: SettingsViewModel.UserInfoData) -> String
-}
-
-class SettingsViewController: UIViewController, SettingsViewControllerDelegate {
+class SettingsViewController: UIViewController, SettingsViewDelegate {
     
     private let viewModel: SettingsViewModel
     

@@ -27,11 +27,15 @@ private enum Sections: Int, CaseIterable {
     }
 }
 
+protocol SettingsViewDelegate: AnyObject {
+    func getInfo(key: SettingsViewModel.UserInfoData) -> String
+}
+
 class SettingsView: UIView {
     
     let cellIdentifier = "SettingsCell"
     
-    weak var delegate: SettingsViewControllerDelegate?
+    weak var delegate: SettingsViewDelegate?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)

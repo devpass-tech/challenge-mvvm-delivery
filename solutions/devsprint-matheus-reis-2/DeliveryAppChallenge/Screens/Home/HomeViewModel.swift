@@ -10,6 +10,7 @@ import Foundation
 final class HomeViewModel {
     
     private let service: DeliveryApiProtocol
+    var coordinator: HomeCoordinator?
     
     public var restaurants: [Restaurant] = []
     
@@ -27,6 +28,10 @@ final class HomeViewModel {
                 print(error)
             }
         }
+    }
+    
+    func onFinish() {
+        //coordinator.onFinish()
     }
 }
 

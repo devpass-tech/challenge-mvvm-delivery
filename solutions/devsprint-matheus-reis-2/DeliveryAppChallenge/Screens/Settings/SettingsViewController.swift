@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, SettingsViewDelegate {
+class SettingsViewController: UIViewController {
     
     private let viewModel: SettingsViewModel
     
@@ -28,7 +28,9 @@ class SettingsViewController: UIViewController, SettingsViewDelegate {
     override func loadView() {
         self.view = settingsView
     }
-    
+}
+
+extension SettingsViewController: SettingsViewDelegate {
     func getInfo(key: SettingsViewModel.UserInfoData) -> String {
         return  viewModel.getInfo(for: key)
     }

@@ -12,17 +12,17 @@ final class RestaurantDetailsViewModel {
     private let service: DeliveryApiProtocol
     var coordinator: RestaurantDetailsCoordinator?
     
-    public var restaurantsDetail: [RestaurantDetail] = []
+    public var restaurantsDetailMenu: [Menu] = []
     
     init(service: DeliveryApiProtocol) {
         self.service = service
     }
     
     func getRestaurantDetails (completion: @escaping () -> Void) {
-        service.fetchRestaurantDetails { (resut: Result<[RestaurantDetail], DeliveryApiError>) in
+        service.fetchRestaurantDetails { (resut: Result<RestaurantDetail, DeliveryApiError>) in
             switch resut {
             case .success(let restaurants):
-                self.restaurantsDetail = restaurants
+                self.restaurantsDetailMenu = restaurants.menu
                 completion()
             case .failure(let error):
                 print(error)
@@ -32,11 +32,11 @@ final class RestaurantDetailsViewModel {
 }
 
 extension RestaurantDetailsViewModel: MenuListViewDataSource {
-    func getData(at: Int) -> RestaurantDetail {
-        restaurantsDetail[at]
+    func getData(at: Int) -> Menu {
+        restaurantsDetailMenu[at]
     }
     
     func getItemCount() -> Int {
-        restaurantsDetail.count
+        restaurantsDetailMenu.count
     }
 }

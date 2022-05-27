@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MenuListViewDataSource {
-    func getData(at: Int) -> RestaurantDetail
+    func getData(at: Int) -> Menu
     func getItemCount() -> Int
 }
 
@@ -75,8 +75,8 @@ extension MenuListView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MenuCellView
         
         if let data = dataSource?.getData(at: indexPath.row) {
-            cell.itemNameLabel.text = data.menu[indexPath.row].name
-            cell.itemPriceLabel.text = data.menu[indexPath.row].formattedPrice()
+            cell.itemNameLabel.text = data.name
+            cell.itemPriceLabel.text = data.formattedPrice()
         }
 
         return cell

@@ -17,7 +17,7 @@ enum Endpoints {
 protocol DeliveryApiProtocol {
     func fetchRestaurants(_ completion: @escaping (Result<[Restaurant], DeliveryApiError>) -> Void)
     func searchAddresses(_ completion: @escaping (Result<[Address], DeliveryApiError>) -> Void)
-    func fetchRestaurantDetails(_ completion: @escaping (Result<[RestaurantDetail], DeliveryApiError>) -> Void)
+    func fetchRestaurantDetails(_ completion: @escaping (Result<RestaurantDetail, DeliveryApiError>) -> Void)
     func fetchMenuItem(_ completion: @escaping (Result<MenuItem, DeliveryApiError>) -> Void)
 }
 
@@ -31,7 +31,7 @@ struct DeliveryApi: DeliveryApiProtocol {
         self.request(Endpoints.searchList, completion: completion)
     }
     
-    func fetchRestaurantDetails(_ completion: @escaping (Result<[RestaurantDetail], DeliveryApiError>) -> Void) {
+    func fetchRestaurantDetails(_ completion: @escaping (Result<RestaurantDetail, DeliveryApiError>) -> Void) {
         self.request(Endpoints.restaurantDetail, completion: completion)
     }
     

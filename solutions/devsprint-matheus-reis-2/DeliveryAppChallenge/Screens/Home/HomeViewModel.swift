@@ -8,8 +8,9 @@
 import Foundation
 
 final class HomeViewModel {
-    
+
     private let service: DeliveryApiProtocol
+    var coordinator: HomeCoordinator?
     
     public var restaurants: [Restaurant] = []
     
@@ -39,4 +40,3 @@ extension HomeViewModel: RestaurantListViewDataSource {
         return restaurants.count
     }
 }
-

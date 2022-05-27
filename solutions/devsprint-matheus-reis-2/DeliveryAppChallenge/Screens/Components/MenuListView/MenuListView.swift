@@ -66,8 +66,11 @@ extension MenuListView {
 extension MenuListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return dataSource?.getItemCount() ?? 0
+        
+        guard let datasource = dataSource else  {
+            return 0
+        }
+        return datasource.getItemCount()
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

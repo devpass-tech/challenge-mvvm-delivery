@@ -9,7 +9,9 @@ import UIKit
 
 class RestaurantDetailsViewController: UIViewController {
     
-    var viewModel: RestaurantDetailsViewModel?
+    private let detailsView: RestaurantDetailsView = RestaurantDetailsView()
+    
+    var viewModel: RestaurantDetailsViewModel
     
     init(viewModel: RestaurantDetailsViewModel) {
         self.viewModel = viewModel
@@ -20,21 +22,23 @@ class RestaurantDetailsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
-        let detailsView = RestaurantDetailsView()
-        self.view = detailsView
-        
-        detailsView.menuListView.dataSource = viewModel
-        
-        viewModel?.getRestaurantDetails {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.getRestaurantDetails {
             DispatchQueue.main.async {
-                detailsView.menuListView.tableView.reloadData()
+                self.detailsView.menuListView.tableView.reloadData()
             }
         }
     }
     
+    override func loadView() {
+        self.view = detailsView
+        detailsView.menuListView.dataSource = viewModel
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        viewModel?.coordinator?.onFinish()
+        viewModel.coordinator?.onFinish()
     }
 }

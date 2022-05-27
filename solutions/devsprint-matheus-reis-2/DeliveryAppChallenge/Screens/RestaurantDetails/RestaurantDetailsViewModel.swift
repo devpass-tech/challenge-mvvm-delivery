@@ -33,10 +33,10 @@ final class RestaurantDetailsViewModel {
 
 extension RestaurantDetailsViewModel: MenuListViewDataSource {
     func getData(at: Int) -> Menu {
-        restaurantsDetailMenu[at]
+        return restaurantsDetailMenu[at]
     }
     
     func getItemCount() -> Int {
-        restaurantsDetailMenu.count
+        return restaurantsDetailMenu.count
     }
 }

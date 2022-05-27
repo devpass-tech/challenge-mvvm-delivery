@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
     
     override func loadView() {
         let homeView = HomeView()
+        homeView.restaurantListView.delegate = self
         self.view = homeView
         
         homeView.restaurantListView.dataSource = viewModel
@@ -42,4 +43,10 @@ class HomeViewController: UIViewController {
             }
         }   
     }
+}
+
+extension HomeViewController: RestaurantListDelegate {
+    func didSelectGoToRestaurantDetails() {
+        viewModel.coordinator?.goToDetails()
+    } 
 }

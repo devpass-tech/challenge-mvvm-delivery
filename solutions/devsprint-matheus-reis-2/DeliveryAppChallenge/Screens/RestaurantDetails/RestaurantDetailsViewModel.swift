@@ -7,9 +7,10 @@
 
 import Foundation
 
-final class RestaurantDetailsModel {
+final class RestaurantDetailsViewModel {
     
     private let service: DeliveryApiProtocol
+    var coordinator: RestaurantDetailsCoordinator?
     
     public var restaurantsDetail: [RestaurantDetail] = []
     
@@ -30,7 +31,7 @@ final class RestaurantDetailsModel {
     }
 }
 
-extension RestaurantDetailsModel: MenuListViewDataSource {
+extension RestaurantDetailsViewModel: MenuListViewDataSource {
     func getData(at: Int) -> RestaurantDetail {
         restaurantsDetail[at]
     }

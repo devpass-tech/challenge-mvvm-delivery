@@ -33,6 +33,11 @@
 		98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB32732BFC8002412EA /* MenuListView.swift */; };
 		98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB52732BFDA002412EA /* MenuCellView.swift */; };
 		98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB72732C1EF002412EA /* MenuItemView.swift */; };
+		C58CC3032899D6990024AA97 /* DeliveryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0565272A0A0F007B0228 /* DeliveryApi.swift */; };
+		C5B60C522899CC9A0096C902 /* DeliveryApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B60C512899CC9A0096C902 /* DeliveryApiRequest.swift */; };
+		C5BD426C28987D54007681D0 /* DeliveryApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD426B28987D54007681D0 /* DeliveryApiProtocol.swift */; };
+		C5BD426E28987F9D007681D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD426D28987F9D007681D0 /* NetworkManager.swift */; };
+		C5BD427028988193007681D0 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD426F28988193007681D0 /* ServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,10 @@
 		98FC5AB32732BFC8002412EA /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
 		98FC5AB52732BFDA002412EA /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		98FC5AB72732C1EF002412EA /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		C5B60C512899CC9A0096C902 /* DeliveryApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApiRequest.swift; sourceTree = "<group>"; };
+		C5BD426B28987D54007681D0 /* DeliveryApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApiProtocol.swift; sourceTree = "<group>"; };
+		C5BD426D28987F9D007681D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C5BD426F28988193007681D0 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +132,6 @@
 				983271EE272752EE0010C63A /* Screens */,
 				983271EF272752F60010C63A /* Service */,
 				983271F0272753000010C63A /* Models */,
-				983271F1272753060010C63A /* Extensions */,
 			);
 			path = DeliveryAppChallenge;
 			sourceTree = "<group>";
@@ -172,7 +180,8 @@
 		983271EF272752F60010C63A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
+				C5BD42712898827B007681D0 /* Networking */,
+				C5BD426A28987D3A007681D0 /* Delivery */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -183,13 +192,6 @@
 				987D8746282C5A2D000ED4C5 /* Restaurant.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		983271F1272753060010C63A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		983271F2272753100010C63A /* Home */ = {
@@ -318,6 +320,25 @@
 			path = MenuListView;
 			sourceTree = "<group>";
 		};
+		C5BD426A28987D3A007681D0 /* Delivery */ = {
+			isa = PBXGroup;
+			children = (
+				98EA0565272A0A0F007B0228 /* DeliveryApi.swift */,
+				C5BD426B28987D54007681D0 /* DeliveryApiProtocol.swift */,
+				C5B60C512899CC9A0096C902 /* DeliveryApiRequest.swift */,
+			);
+			path = Delivery;
+			sourceTree = "<group>";
+		};
+		C5BD42712898827B007681D0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C5BD426D28987F9D007681D0 /* NetworkManager.swift */,
+				C5BD426F28988193007681D0 /* ServiceError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -422,16 +443,20 @@
 				987D874B282C5BAE000ED4C5 /* SceneDelegate.swift in Sources */,
 				987D874A282C5BA4000ED4C5 /* AppDelegate.swift in Sources */,
 				987D8749282C5B4B000ED4C5 /* AddressView.swift in Sources */,
+				C5BD426C28987D54007681D0 /* DeliveryApiProtocol.swift in Sources */,
 				987D8748282C5B41000ED4C5 /* SettingsView.swift in Sources */,
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
 				98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */,
+				C5BD427028988193007681D0 /* ServiceError.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
+				C58CC3032899D6990024AA97 /* DeliveryApi.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,
 				98FC5AB12732BB7D002412EA /* RatingView.swift in Sources */,
 				98F12975272F48E400B88A87 /* AddressCellView.swift in Sources */,
 				98F12970272F41AE00B88A87 /* RestaurantCellView.swift in Sources */,
 				98F12977272F48F000B88A87 /* AddressListView.swift in Sources */,
 				98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */,
+				C5B60C522899CC9A0096C902 /* DeliveryApiRequest.swift in Sources */,
 				98F1297B272F51AE00B88A87 /* SettingsViewController.swift in Sources */,
 				98F1296C272F328200B88A87 /* CategoryListView.swift in Sources */,
 				98F1296E272F363200B88A87 /* HomeView.swift in Sources */,
@@ -439,6 +464,7 @@
 				98F1296A272F327100B88A87 /* CategoryCellView.swift in Sources */,
 				98FC5AAB2732B938002412EA /* RestaurantDetailsView.swift in Sources */,
 				98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */,
+				C5BD426E28987F9D007681D0 /* NetworkManager.swift in Sources */,
 				98EA0561272A0963007B0228 /* RestaurantDetailsViewController.swift in Sources */,
 				98F12972272F41BE00B88A87 /* RestaurantListView.swift in Sources */,
 			);

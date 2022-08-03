@@ -8,12 +8,8 @@
 import UIKit
 
 class RestaurantListViewController: UIViewController {
-
-    let service: DeliveryApiProtocol
     
-    init(service: DeliveryApiProtocol = DeliveryApi()) {
-        self.service = service
-        
+    init() {
         super.init(nibName: nil, bundle: nil)
         navigationItem.title = "Restaurant List"
     }
@@ -24,18 +20,5 @@ class RestaurantListViewController: UIViewController {
 
     override func loadView() {
         self.view = RestaurantListView()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        service.fetchRestaurants { result in
-            switch result {
-            case .success(let restaurants):
-                print(restaurants)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
     }
 }

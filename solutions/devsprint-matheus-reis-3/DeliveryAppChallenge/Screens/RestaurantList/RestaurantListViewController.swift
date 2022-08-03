@@ -8,10 +8,9 @@
 import UIKit
 
 class RestaurantListViewController: UIViewController {
-
+    
     init() {
         super.init(nibName: nil, bundle: nil)
-
         navigationItem.title = "Restaurant List"
     }
 

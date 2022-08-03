@@ -16,13 +16,9 @@ struct DeliveryApi: DeliveryApiProtocol {
     }
 
     func fetchRestaurants(completion: @escaping (Result<[Restaurant],ServiceError>) -> Void) {
-        networkManager.get(DeliveryApiRequest.fetchRestaurants.urlRequest) { result in
+        networkManager.get(DeliveryApiRequest.fetchRestaurants.urlRequest) { (result: Result<[Restaurant], ServiceError>) in
             switch result {
-            case .success(let data):
-                guard let restaurants = try? JSONDecoder().decode([Restaurant].self, from: data) else {
-                    completion(.failure(.decodingError))
-                    return
-                }
+            case .success(let restaurants):
                 completion(.success(restaurants))
             case .failure(let error):
                 completion(.failure(error))

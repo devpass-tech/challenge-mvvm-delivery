@@ -10,7 +10,7 @@ import Foundation
 protocol NetworkManager {
     var session: URLSession { get }
     
-    func get(_ request: URLRequest, completion: @escaping ((Result<Data,ServiceError>) -> Void))
+    func get<T: Decodable>(_ request: URLRequest, completion: @escaping ((Result<T,ServiceError>) -> Void))
 }
 
 final class NetworkManagerService: NetworkManager {
@@ -27,7 +27,7 @@ final class NetworkManagerService: NetworkManager {
         dataTask?.cancel()
     }
     
-    func get(_ request: URLRequest, completion: @escaping ((Result<Data, ServiceError>) -> Void)) {
+    func get<T: Decodable>(_ request: URLRequest, completion: @escaping ((Result<T, ServiceError>) -> Void)) {
         
         dataTask = session.dataTask(with: request) { (data,response,error) in
             
@@ -41,7 +41,14 @@ final class NetworkManagerService: NetworkManager {
                 return
             }
             
-            completion(.success(data))
+            let decoder = JSONDecoder()
+            
+            guard let result = try? decoder.decode(T.self, from: data) else {
+                completion(.failure(.decodingError))
+                return
+            }
+            
+            completion(.success(result))
         }
         
         dataTask?.resume()

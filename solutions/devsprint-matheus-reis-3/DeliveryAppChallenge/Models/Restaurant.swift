@@ -7,6 +7,18 @@
 
 import Foundation
 
-struct Restaurant: Decodable {
+struct DeliveryTime: Decodable {
+    var min: Int
+    var max: Int
+}
 
+struct Restaurant: Decodable {
+    var name: String
+    var category: String
+    var deliveryTime: DeliveryTime
+    
+    enum CodingKeys: String, CodingKey {
+        case name,category
+        case deliveryTime = "delivery_time"
+    }
 }

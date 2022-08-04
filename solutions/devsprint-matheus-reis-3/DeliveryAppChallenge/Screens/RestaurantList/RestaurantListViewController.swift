@@ -9,9 +9,21 @@ import UIKit
 
 class RestaurantListViewController: UIViewController {
     
-    init() {
+    private lazy var customView: RestaurantListView = {
+        let view = RestaurantListView()
+        view.dataSource = viewModel
+        return view
+    }()
+    
+    private let viewModel: RestaurantListViewModel
+    
+    init(viewModel: RestaurantListViewModel) {
+        self.viewModel = viewModel
+        
         super.init(nibName: nil, bundle: nil)
+        
         navigationItem.title = "Restaurant List"
+        viewModel.presenter = self
     }
 
     required init?(coder: NSCoder) {
@@ -19,6 +31,20 @@ class RestaurantListViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = RestaurantListView()
+        self.view = customView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.fetchRestaurants()
+    }
+}
+
+extension RestaurantListViewController: RestaurantListViewPresentable {
+    func reloadList() {
+        DispatchQueue.main.async {
+            self.customView.tableView.reloadData()
+        }
     }
 }

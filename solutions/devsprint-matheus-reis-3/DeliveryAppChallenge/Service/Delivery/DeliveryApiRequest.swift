@@ -27,9 +27,9 @@ enum DeliveryApiRequest {
         case .fetchRestaurantDetail:
             return "/restaurant_details.json"
         case .fetchSearchAdresses:
-            return "/menu_item_details.json"
+            return "/address_search_results.json"
         case .fetchMenuItem:
-            return "/restaurant-menu-item.json"
+            return "/menu_item_details.json"
         }
     }
     

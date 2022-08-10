@@ -8,7 +8,7 @@
 import Foundation
 
 struct Menu: Codable {
-    let category: String
     let name: String
+    let description: String
     let price: Int
 }

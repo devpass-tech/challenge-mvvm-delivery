@@ -30,10 +30,16 @@ struct DeliveryApi: DeliveryApiProtocol {
 
         completion(["Address 1", "Address 2", "Address 3"])
     }
-
-    func fetchRestaurantDetails(_ completion: (String) -> Void) {
-
-        completion("Restaurant Details")
+    
+    func fetchRestaurantDetails(completion: @escaping ((Result<RestaurantDetails, ServiceError>) -> Void)) {
+        networkManager.get(DeliveryApiRequest.fetchRestaurantDetails.urlRequest) {(result:  Result<RestaurantDetails, ServiceError>) in
+            switch result {
+            case .success(let restauranteDetails):
+                completion(.success(restauranteDetails))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 
     func fetchMenuItem(_ completion: (String) -> Void) {

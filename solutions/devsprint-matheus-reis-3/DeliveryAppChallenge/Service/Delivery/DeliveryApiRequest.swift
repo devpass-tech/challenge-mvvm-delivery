@@ -9,7 +9,7 @@ import Foundation
 
 enum DeliveryApiRequest {
     case fetchRestaurants
-    case fetchRestaurantDetail
+    case fetchRestaurantDetails
     case fetchSearchAdresses
     case fetchMenuItem
     
@@ -24,7 +24,7 @@ enum DeliveryApiRequest {
         switch self {
         case .fetchRestaurants:
             return "/home_restaurant_list.json"
-        case .fetchRestaurantDetail:
+        case .fetchRestaurantDetails:
             return "/restaurant_details.json"
         case .fetchSearchAdresses:
             return "/address_search_results.json"

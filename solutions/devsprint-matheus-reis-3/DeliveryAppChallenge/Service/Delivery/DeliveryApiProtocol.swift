@@ -11,4 +11,6 @@ protocol DeliveryApiProtocol {
     var networkManager: NetworkManager { get }
     
     func fetchRestaurants(completion: @escaping ((Result<[Restaurant],ServiceError>) -> Void))
+    
+    func fetchRestaurantDetails(completion: @escaping ((Result<RestaurantDetails, ServiceError>) -> Void))
 }

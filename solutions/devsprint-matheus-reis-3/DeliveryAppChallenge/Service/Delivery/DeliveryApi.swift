@@ -36,8 +36,14 @@ struct DeliveryApi: DeliveryApiProtocol {
         completion("Restaurant Details")
     }
 
-    func fetchMenuItem(_ completion: (String) -> Void) {
-
-        completion("Menu Item")
+    func fetchMenuItem(completion: @escaping (Result<[Menu],ServiceError>) -> Void) {
+        networkManager.get(DeliveryApiRequest.fetchRestaurantDetail.urlRequest) { (result: Result<RestaurantDetails, ServiceError>) in
+            switch result {
+            case .success(let restaurants):
+                completion(.success(restaurants.menu))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }

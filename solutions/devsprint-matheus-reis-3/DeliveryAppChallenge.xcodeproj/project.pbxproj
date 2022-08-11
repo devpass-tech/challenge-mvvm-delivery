@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EBB677728A4708A00054F44 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB677628A4708A00054F44 /* Address.swift */; };
 		983271C1272752AF0010C63A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983271C0272752AF0010C63A /* HomeViewController.swift */; };
 		983271C6272752B50010C63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 983271C5272752B50010C63A /* Assets.xcassets */; };
 		983271C9272752B50010C63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 983271C7272752B50010C63A /* LaunchScreen.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EBB677628A4708A00054F44 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		983271B9272752AF0010C63A /* DeliveryAppChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliveryAppChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		983271BC272752AF0010C63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		983271BE272752AF0010C63A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				987D8746282C5A2D000ED4C5 /* Restaurant.swift */,
+				1EBB677628A4708A00054F44 /* Address.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
 				98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */,
 				C5BD427028988193007681D0 /* ServiceError.swift in Sources */,
+				1EBB677728A4708A00054F44 /* Address.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
 				C58CC3032899D6990024AA97 /* DeliveryApi.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,

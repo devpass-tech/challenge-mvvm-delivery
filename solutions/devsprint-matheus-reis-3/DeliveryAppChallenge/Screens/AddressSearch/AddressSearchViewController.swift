@@ -10,13 +10,22 @@ import UIKit
 class AddressSearchViewController: UIViewController {
 
     let searchController = UISearchController(searchResultsController: nil)
-
+    
+    private let viewModel = AddressSearchViewModel()
+    
+    private lazy var addressListView: AddressListView = {
+        let addressListView = AddressListView(dataSource: self)
+        return addressListView
+    }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
 
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Rua, número, bairro"
         searchController.searchBar.delegate = self
+        
+        viewModel.delegate = self
 
         definesPresentationContext = true
         navigationItem.searchController = searchController
@@ -26,6 +35,7 @@ class AddressSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        viewModel.fetchAddresses()
     }
 
     required init?(coder: NSCoder) {
@@ -33,7 +43,7 @@ class AddressSearchViewController: UIViewController {
     }
 
     override func loadView() {
-        self.view = AddressListView()
+        self.view = addressListView
     }
 }
 
@@ -48,5 +58,23 @@ extension AddressSearchViewController: UISearchBarDelegate, UISearchControllerDe
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
 
+    }
+}
+
+extension AddressSearchViewController: AddressSearchViewModelDelegate {
+    func didLoadAddresses() {
+        addressListView.updateAddressListView()
+    }
+    
+    func didFailLoadAddresses(error: String) { }
+}
+
+extension AddressSearchViewController: AddressListDataSource {
+    var count: Int {
+        viewModel.count
+    }
+    
+    func getAddressViewModel(at indexPath: IndexPath) -> AddressCellViewModel {
+        viewModel.getAddress(at: indexPath)
     }
 }

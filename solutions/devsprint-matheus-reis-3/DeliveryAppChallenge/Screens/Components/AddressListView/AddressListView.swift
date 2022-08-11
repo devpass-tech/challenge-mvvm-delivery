@@ -7,11 +7,18 @@
 
 import UIKit
 
-class AddressListView: UIView {
+protocol AddressListDataSource {
+    var count: Int { get }
+    func getAddressViewModel(at indexPath: IndexPath) -> AddressCellViewModel
+}
+
+final class AddressListView: UIView {
 
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "AddressCellIdentifier"
+    
+    private let dataSource: AddressListDataSource
 
     lazy var tableView: UITableView = {
 
@@ -23,18 +30,21 @@ class AddressListView: UIView {
         return tableView
     }()
 
-    init() {
+    init(dataSource: AddressListDataSource) {
+        self.dataSource = dataSource
         super.init(frame: .zero)
-
+        
         backgroundColor = .white
         addSubviews()
         configureConstraints()
-
-        tableView.reloadData()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateAddressListView() {
+        tableView.reloadData()
     }
 }
 
@@ -61,13 +71,13 @@ extension AddressListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return dataSource.count
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AddressCellView
-
+        cell.addressCellViewModel = dataSource.getAddressViewModel(at: indexPath)
         return cell
     }
 }

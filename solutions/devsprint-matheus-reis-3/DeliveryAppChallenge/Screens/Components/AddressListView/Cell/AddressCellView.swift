@@ -33,6 +33,13 @@ class AddressCellView: UITableViewCell {
         label.text = "Consolação"
         return label
     }()
+    
+    var addressCellViewModel: AddressCellViewModel? {
+        didSet {
+            titleLabel.text = addressCellViewModel?.title
+            subtitleLabel.text = addressCellViewModel?.subtitle
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

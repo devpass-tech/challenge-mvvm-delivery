@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E25B5D528A5B445001F940E /* AddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B5D428A5B445001F940E /* AddressCellViewModel.swift */; };
 		1E25B5D728A5CD1B001F940E /* AddressListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B5D628A5CD1B001F940E /* AddressListProtocols.swift */; };
+		1E482D1B28A3CCCC00B0A46D /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E482D1A28A3CCCC00B0A46D /* MenuItem.swift */; };
 		1EBB677728A4708A00054F44 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB677628A4708A00054F44 /* Address.swift */; };
 		1EBB677828A4729200054F44 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
 		1EBB677A28A472D300054F44 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB677928A472D300054F44 /* AddressSearchViewModel.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		1E25B5D428A5B445001F940E /* AddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellViewModel.swift; sourceTree = "<group>"; };
 		1E25B5D628A5CD1B001F940E /* AddressListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListProtocols.swift; sourceTree = "<group>"; };
+		1E482D1A28A3CCCC00B0A46D /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		1EBB677628A4708A00054F44 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1EBB677928A472D300054F44 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 		1EBB677B28A472EC00054F44 /* AddressSearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchProtocols.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				987D8746282C5A2D000ED4C5 /* Restaurant.swift */,
+				1E482D1A28A3CCCC00B0A46D /* MenuItem.swift */,
 				1EBB677628A4708A00054F44 /* Address.swift */,
 			);
 			path = Models;
@@ -484,6 +487,7 @@
 				98F12977272F48F000B88A87 /* AddressListView.swift in Sources */,
 				98EA055E272A0949007B0228 /* RestaurantListViewController.swift in Sources */,
 				C5B60C522899CC9A0096C902 /* DeliveryApiRequest.swift in Sources */,
+				1E482D1B28A3CCCC00B0A46D /* MenuItem.swift in Sources */,
 				98F1297B272F51AE00B88A87 /* SettingsViewController.swift in Sources */,
 				98F1296C272F328200B88A87 /* CategoryListView.swift in Sources */,
 				98F1296E272F363200B88A87 /* HomeView.swift in Sources */,

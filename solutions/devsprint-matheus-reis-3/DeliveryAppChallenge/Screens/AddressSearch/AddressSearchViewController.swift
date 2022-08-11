@@ -50,14 +50,16 @@ class AddressSearchViewController: UIViewController {
 extension AddressSearchViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
-
+        viewModel.searchAddress(text: searchController.searchBar.text ?? "")
+        addressListView.updateAddressListView()
     }
 }
 
 extension AddressSearchViewController: UISearchBarDelegate, UISearchControllerDelegate {
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-
+        viewModel.searchAddress(text: searchBar.text ?? "")
+        addressListView.updateAddressListView()
     }
 }
 

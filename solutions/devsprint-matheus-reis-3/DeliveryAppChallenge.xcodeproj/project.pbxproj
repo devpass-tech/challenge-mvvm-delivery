@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E25B5D528A5B445001F940E /* AddressCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B5D428A5B445001F940E /* AddressCellViewModel.swift */; };
+		1E25B5D728A5CD1B001F940E /* AddressListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B5D628A5CD1B001F940E /* AddressListProtocols.swift */; };
 		1EBB677728A4708A00054F44 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB677628A4708A00054F44 /* Address.swift */; };
 		1EBB677828A4729200054F44 /* AddressSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA055A272A092F007B0228 /* AddressSearchViewController.swift */; };
 		1EBB677A28A472D300054F44 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EBB677928A472D300054F44 /* AddressSearchViewModel.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		1E25B5D428A5B445001F940E /* AddressCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCellViewModel.swift; sourceTree = "<group>"; };
+		1E25B5D628A5CD1B001F940E /* AddressListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressListProtocols.swift; sourceTree = "<group>"; };
 		1EBB677628A4708A00054F44 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		1EBB677928A472D300054F44 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 		1EBB677B28A472EC00054F44 /* AddressSearchProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchProtocols.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				1E25B5D328A5B433001F940E /* Cell */,
 				98F12976272F48F000B88A87 /* AddressListView.swift */,
+				1E25B5D628A5CD1B001F940E /* AddressListProtocols.swift */,
 			);
 			path = AddressListView;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				1EBB677C28A472EC00054F44 /* AddressSearchProtocols.swift in Sources */,
 				1EBB677828A4729200054F44 /* AddressSearchViewController.swift in Sources */,
 				98F1296A272F327100B88A87 /* CategoryCellView.swift in Sources */,
+				1E25B5D728A5CD1B001F940E /* AddressListProtocols.swift in Sources */,
 				98FC5AAB2732B938002412EA /* RestaurantDetailsView.swift in Sources */,
 				98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */,
 				C5BD426E28987F9D007681D0 /* NetworkManager.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 protocol AddressSearchViewModelProtocol {
     func fetchAddresses()
     func getAddress(at indexPath: IndexPath) -> AddressCellViewModel
+    func searchAddress(text: String)
 }
 
 protocol AddressSearchViewModelDelegate: AnyObject {

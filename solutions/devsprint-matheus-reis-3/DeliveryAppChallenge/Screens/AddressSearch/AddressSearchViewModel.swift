@@ -27,14 +27,7 @@ final class AddressSearchViewModel: AddressSearchViewModelProtocol {
             switch result {
             case .success(let addresses):
                 self?.addresses = addresses
-                for address in addresses {
-                    guard let addressViewModel = self?.createAddressCellViewModel(address: address)
-                    else {
-                        return
-                    }
-                    
-                    self?.addressesViewModels.append(addressViewModel)
-                }
+                self?.addressesViewModels = self?.createAddressesCellViewModels(addresses: addresses) ?? []
                 DispatchQueue.main.async {
                     self?.delegate?.didLoadAddresses()
                 }
@@ -48,8 +41,25 @@ final class AddressSearchViewModel: AddressSearchViewModelProtocol {
         return addressesViewModels[indexPath.row]
     }
     
-    private func createAddressCellViewModel(address: Address) -> AddressCellViewModel {
-        return AddressCellViewModel(title: "\(address.street), \(address.number)",
-                                    subtitle: address.neighborhood)
+    func searchAddress(text: String = "") {
+        if text.isEmpty {
+            addressesViewModels = createAddressesCellViewModels(addresses: addresses)
+            return
+        }
+        
+        let filteredAddresses = addresses.filter { address in
+            address.street.lowercased().contains(text.lowercased()) || address.neighborhood.lowercased().contains(text.lowercased())
+        }
+        
+        addressesViewModels = createAddressesCellViewModels(addresses: filteredAddresses)
+    }
+    
+    private func createAddressesCellViewModels(addresses: [Address]) -> [AddressCellViewModel] {
+        var addressesViewModels: [AddressCellViewModel] = []
+        for address in addresses {
+            addressesViewModels.append(AddressCellViewModel(title: "\(address.street), \(address.number)",
+                                        subtitle: address.neighborhood))
+        }
+        return addressesViewModels
     }
 }

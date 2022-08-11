@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol AddressListDataSource {
-    var count: Int { get }
-    func getAddressViewModel(at indexPath: IndexPath) -> AddressCellViewModel
-}
-
 final class AddressListView: UIView {
 
     static let cellSize = CGFloat(82)

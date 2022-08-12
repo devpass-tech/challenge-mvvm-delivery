@@ -38,7 +38,6 @@ class MenuCellView: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 15)
-        label.text = "Copo Pão de Queijo + Suco de Laranja"
         label.textAlignment = .left
         return label
     }()
@@ -48,7 +47,6 @@ class MenuCellView: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 13)
-        label.text = "R$ 20,00"
         return label
     }()
 

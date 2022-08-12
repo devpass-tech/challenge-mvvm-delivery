@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol RestaurantDetailsViewDataSource: AnyObject {
+    func getRestaurantMenuList() -> [RestaurantMenuItem]
+}
+
 class MenuListView: UIView {
 
     static let cellSize = CGFloat(96)
 
     private let cellIdentifier = "MenuCellIdentifier"
 
+    weak var dataSource: RestaurantDetailsViewDataSource?
+    
     lazy var tableView: UITableView = {
 
         let tableView = UITableView(frame: .zero)
@@ -60,13 +66,17 @@ extension MenuListView {
 extension MenuListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 10
+        return dataSource?.getRestaurantMenuList().count ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MenuCellView
+        
+        guard let menuItens = dataSource?.getRestaurantMenuList() else { return cell }
+
+        cell.itemNameLabel.text = menuItens[0].name
+        cell.itemPriceLabel.text = String(format: "%.2f", menuItens[0].price)
 
         return cell
     }

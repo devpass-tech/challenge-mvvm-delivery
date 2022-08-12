@@ -12,7 +12,7 @@ struct RestaurantDetails: Decodable {
     var category: String;
     var deliveryTime: DeliveryTime
     var reviews: Reviews
-    var menuItens: [MenuItem]
+    var menuItens: [RestaurantMenuItem]
     
     enum CodingKeys: String, CodingKey{
         case name, category
@@ -32,7 +32,7 @@ struct Reviews: Decodable{
     var count: Int
 }
 
-struct MenuItem: Decodable{
+struct RestaurantMenuItem: Decodable{
     var category: String
     var name: String
     var price: Int

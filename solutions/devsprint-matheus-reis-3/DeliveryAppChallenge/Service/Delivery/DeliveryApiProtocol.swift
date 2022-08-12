@@ -13,4 +13,6 @@ protocol DeliveryApiProtocol {
     func fetchRestaurants(completion: @escaping ((Result<[Restaurant],ServiceError>) -> Void))
     
     func fetchRestaurantDetails(completion: @escaping ((Result<RestaurantDetails, ServiceError>) -> Void))
+
+    func fetchSearchAddresses(completion: @escaping (Result<[Address], ServiceError>) -> Void)
 }

@@ -8,13 +8,16 @@
 import UIKit
 
 class RestaurantInfoView: UIView {
-
-   private var mainStackView: UIStackView = {
-       let stack = UIStackView(frame: .zero)
-       stack.translatesAutoresizingMaskIntoConstraints = false
-       stack.spacing = 16
-       stack.alignment = .center
-       return stack
+    
+    private var mainStackView: UIStackView = {
+        let stack = UIStackView(frame: .zero)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = 16
+        stack.alignment = .center
+        stack.backgroundColor = .white
+        stack.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        stack.isLayoutMarginsRelativeArrangement = true
+        return stack
     }()
 
     private var labelsStackView: UIStackView = {
@@ -38,7 +41,6 @@ class RestaurantInfoView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 22)
-        label.text = "Benjamin a Padaria"
         return label
     }()
 
@@ -47,7 +49,6 @@ class RestaurantInfoView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 15)
-        label.text = "Padaria • 23-33 min"
         return label
     }()
 
@@ -64,6 +65,11 @@ class RestaurantInfoView: UIView {
 
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 100)
+    }
+
+    public func updateView(name: String, content: String){
+        restaurantInfoLabel.text = content
+        restaurantNameLabel.text = name
     }
 }
 
@@ -84,10 +90,10 @@ extension RestaurantInfoView {
         NSLayoutConstraint.activate([
             mainStackView.topAnchor.constraint(equalTo: topAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-
-            self.logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            self.logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             self.logoImageView.widthAnchor.constraint(equalToConstant: 50),
             self.logoImageView.heightAnchor.constraint(equalToConstant: 50),
 

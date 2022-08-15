@@ -10,7 +10,7 @@ import Foundation
 final class AddressSearchViewModel: AddressSearchViewModelProtocol {
     
     private let service: DeliveryApiProtocol
-    weak var delegate: AddressSearchViewModelDelegate?
+    weak var delegate: AddressSearchViewModelPresentable?
     
     private var addresses: [Address] = []
     private var addressesViewModels: [AddressCellViewModel] = []

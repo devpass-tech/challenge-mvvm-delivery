@@ -13,7 +13,7 @@ final class AddressListView: UIView {
 
     private let cellIdentifier = "AddressCellIdentifier"
     
-    private let dataSource: AddressListDataSource
+    private weak var dataSource: AddressListDataSource?
 
     lazy var tableView: UITableView = {
 
@@ -66,13 +66,13 @@ extension AddressListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return dataSource.count
+        return dataSource?.count ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AddressCellView
-        cell.addressCellViewModel = dataSource.getAddressViewModel(at: indexPath)
+        cell.addressCellViewModel = dataSource?.getAddressViewModel(at: indexPath) ?? AddressCellViewModel(title: String(), subtitle: String())
         return cell
     }
 }

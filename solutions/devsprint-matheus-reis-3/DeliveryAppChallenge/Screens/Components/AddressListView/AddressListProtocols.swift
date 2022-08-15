@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol AddressListDataSource {
+protocol AddressListDataSource: AnyObject {
     var count: Int { get }
     func getAddressViewModel(at indexPath: IndexPath) -> AddressCellViewModel
 }

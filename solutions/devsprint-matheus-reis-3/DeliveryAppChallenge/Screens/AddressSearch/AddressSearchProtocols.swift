@@ -13,7 +13,7 @@ protocol AddressSearchViewModelProtocol {
     func searchAddress(text: String)
 }
 
-protocol AddressSearchViewModelDelegate: AnyObject {
+protocol AddressSearchViewModelPresentable: AnyObject {
     func didLoadAddresses()
     func didFailLoadAddresses(error: String)
 }

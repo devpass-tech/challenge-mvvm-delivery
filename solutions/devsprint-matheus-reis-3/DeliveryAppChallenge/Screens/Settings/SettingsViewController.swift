@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    let api = DeliveryApi()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -21,11 +21,5 @@ class SettingsViewController: UIViewController {
     
     override func loadView() {
         self.view = SettingsView()
-    }
-    
-    override func viewDidLoad() {
-        api.fetchSearchAddresses { result in
-            print(result)
-        }
     }
 }

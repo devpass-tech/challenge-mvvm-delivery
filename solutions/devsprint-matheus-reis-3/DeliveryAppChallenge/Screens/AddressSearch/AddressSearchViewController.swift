@@ -63,7 +63,7 @@ extension AddressSearchViewController: UISearchBarDelegate, UISearchControllerDe
     }
 }
 
-extension AddressSearchViewController: AddressSearchViewModelDelegate {
+extension AddressSearchViewController: AddressSearchViewModelPresentable {
     func didLoadAddresses() {
         addressListView.updateAddressListView()
     }

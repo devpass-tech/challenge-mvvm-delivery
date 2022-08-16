@@ -14,7 +14,8 @@ class AddressSearchViewController: UIViewController {
     private let viewModel = AddressSearchViewModel()
     
     private lazy var addressListView: AddressListView = {
-        let addressListView = AddressListView(dataSource: self)
+        let addressListView = AddressListView()
+        addressListView.dataSource = self
         return addressListView
     }()
     

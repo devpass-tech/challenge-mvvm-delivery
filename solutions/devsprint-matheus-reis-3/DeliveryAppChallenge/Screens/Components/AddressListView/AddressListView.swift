@@ -13,7 +13,7 @@ final class AddressListView: UIView {
 
     private let cellIdentifier = "AddressCellIdentifier"
     
-    private weak var dataSource: AddressListDataSource?
+    weak var dataSource: AddressListDataSource?
 
     lazy var tableView: UITableView = {
 
@@ -25,8 +25,7 @@ final class AddressListView: UIView {
         return tableView
     }()
 
-    init(dataSource: AddressListDataSource) {
-        self.dataSource = dataSource
+    init() {
         super.init(frame: .zero)
         
         backgroundColor = .white
@@ -72,7 +71,9 @@ extension AddressListView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! AddressCellView
-        cell.addressCellViewModel = dataSource?.getAddressViewModel(at: indexPath) ?? AddressCellViewModel(title: String(), subtitle: String())
+        if let addressCellViewModel = dataSource?.getAddressViewModel(at: indexPath) {
+            cell.addressCellViewModel = addressCellViewModel
+        }
         return cell
     }
 }

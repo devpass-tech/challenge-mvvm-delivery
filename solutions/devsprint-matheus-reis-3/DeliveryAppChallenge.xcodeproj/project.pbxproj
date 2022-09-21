@@ -35,6 +35,7 @@
 		98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB32732BFC8002412EA /* MenuListView.swift */; };
 		98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB52732BFDA002412EA /* MenuCellView.swift */; };
 		98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB72732C1EF002412EA /* MenuItemView.swift */; };
+		C5585DB5289C748C00058215 /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5585DB4289C748C00058215 /* RestaurantListViewModel.swift */; };
 		C58CC3032899D6990024AA97 /* DeliveryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0565272A0A0F007B0228 /* DeliveryApi.swift */; };
 		C5B60C522899CC9A0096C902 /* DeliveryApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B60C512899CC9A0096C902 /* DeliveryApiRequest.swift */; };
 		C5BD426C28987D54007681D0 /* DeliveryApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BD426B28987D54007681D0 /* DeliveryApiProtocol.swift */; };
@@ -86,6 +87,7 @@
 		98FC5AB32732BFC8002412EA /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
 		98FC5AB52732BFDA002412EA /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		98FC5AB72732C1EF002412EA /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		C5585DB4289C748C00058215 /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
 		C5B60C512899CC9A0096C902 /* DeliveryApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApiRequest.swift; sourceTree = "<group>"; };
 		C5BD426B28987D54007681D0 /* DeliveryApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryApiProtocol.swift; sourceTree = "<group>"; };
 		C5BD426D28987F9D007681D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				98EA055D272A0949007B0228 /* RestaurantListViewController.swift */,
+				C5585DB4289C748C00058215 /* RestaurantListViewModel.swift */,
 			);
 			path = RestaurantList;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				987D874C282C5E93000ED4C5 /* MenuItemViewController.swift in Sources */,
 				987D874B282C5BAE000ED4C5 /* SceneDelegate.swift in Sources */,
 				987D874A282C5BA4000ED4C5 /* AppDelegate.swift in Sources */,
+				C5585DB5289C748C00058215 /* RestaurantListViewModel.swift in Sources */,
 				987D8749282C5B4B000ED4C5 /* AddressView.swift in Sources */,
 				C5BD426C28987D54007681D0 /* DeliveryApiProtocol.swift in Sources */,
 				987D8748282C5B41000ED4C5 /* SettingsView.swift in Sources */,

@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol RestaurantListViewDataSource: AnyObject {
+    func getItem(at: Int) -> Restaurant
+    func getItemCount() -> Int
+}
+
 class RestaurantListView: UIView {
 
     static let cellSize = CGFloat(82)
 
     private let cellIdentifier = "RestaurantCellIdentifier"
+    weak var dataSource: RestaurantListViewDataSource?
 
     lazy var tableView: UITableView = {
 
@@ -60,14 +66,20 @@ extension RestaurantListView {
 extension RestaurantListView: UITableViewDataSource {
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return 10
+        return dataSource?.getItemCount() ?? 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantCellView
-
+        
+        guard let restaurant = dataSource?.getItem(at: indexPath.row) else {
+            return cell
+        }
+        
+        cell.restaurantNameLabel.text = restaurant.name
+        cell.restaurantInfoLabel.text = "\(restaurant.category) • \(restaurant.deliveryTime.min)-\(restaurant.deliveryTime.max) min"
+        
         return cell
     }
 }

@@ -16,6 +16,7 @@ class RestaurantListViewController: UIViewController {
     }
 
     required init?(coder: NSCoder) {
+        print("") 
         fatalError("init(coder:) has not been implemented")
     }
 

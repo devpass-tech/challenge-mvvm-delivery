@@ -17,7 +17,6 @@ class HomeView: UIView {
     }()
 
     let stackView: UIStackView = {
-
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -28,21 +27,18 @@ class HomeView: UIView {
     }()
 
     let addressView: AddressView = {
-
         let addressView = AddressView()
         addressView.translatesAutoresizingMaskIntoConstraints = false
         return addressView
     }()
 
     let categoryListView: CategoryListView = {
-
         let categoryListView = CategoryListView()
         categoryListView.translatesAutoresizingMaskIntoConstraints = false
         return categoryListView
     }()
 
     let restaurantListView: RestaurantListView = {
-
         let restaurantListView = RestaurantListView()
         restaurantListView.translatesAutoresizingMaskIntoConstraints = false
         return restaurantListView

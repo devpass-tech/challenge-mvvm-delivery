@@ -8,6 +8,8 @@
 import UIKit
 
 class RestaurantCellView: UITableViewCell {
+    
+    static let identifier = "RestaurantCellView"
 
    private var mainStackView: UIStackView = {
        let stack = UIStackView(frame: .zero)
@@ -61,6 +63,11 @@ class RestaurantCellView: UITableViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(with restaurant: Restaurant) {
+        restaurantNameLabel.text = restaurant.name
+        restaurantInfoLabel.text = "\(restaurant.category) • \(restaurant.deliveryTime.format())"
     }
 }
 

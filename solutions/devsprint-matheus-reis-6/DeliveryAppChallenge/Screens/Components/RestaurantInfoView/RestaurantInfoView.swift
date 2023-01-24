@@ -65,6 +65,11 @@ class RestaurantInfoView: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: 100)
     }
+    
+    func setup(with restaurant: RestaurantDetails) {
+        restaurantNameLabel.text = restaurant.name
+        restaurantInfoLabel.text = "\(restaurant.category) • \(restaurant.deliveryTime.format())"
+    }
 }
 
 extension RestaurantInfoView {

@@ -42,7 +42,6 @@ class RestaurantDetailsView: UIView {
     }()
 
     let menuListView: MenuListView = {
-
         let menuListView = MenuListView()
         menuListView.translatesAutoresizingMaskIntoConstraints = false
         return menuListView
@@ -61,6 +60,12 @@ class RestaurantDetailsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func setup(with restaurant: RestaurantDetails) {
+        restaurantInfoView.setup(with: restaurant)
+        
+        menuListView.tableView.reloadData()
+    }
 }
 
 extension RestaurantDetailsView {
@@ -76,7 +81,6 @@ extension RestaurantDetailsView {
     }
 
     func configureConstraints() {
-
         // TODO: CHANGE IT to dynamically update the height based on the API data
         let estimatedHeight = CGFloat(menuListView.tableView.numberOfRows(inSection: 0))*MenuListView.cellSize
 
@@ -94,8 +98,7 @@ extension RestaurantDetailsView {
 
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
 
-            menuListView.heightAnchor.constraint(equalToConstant: estimatedHeight)
-
+            menuListView.heightAnchor.constraint(equalToConstant: MenuListView.cellSize*11)
         ])
     }
 }

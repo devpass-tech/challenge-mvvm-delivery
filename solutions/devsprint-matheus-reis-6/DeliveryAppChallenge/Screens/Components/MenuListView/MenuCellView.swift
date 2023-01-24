@@ -8,7 +8,7 @@
 import UIKit
 
 class MenuCellView: UITableViewCell {
-
+    
    private var mainStackView: UIStackView = {
        let stack = UIStackView(frame: .zero)
        stack.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +52,8 @@ class MenuCellView: UITableViewCell {
         return label
     }()
 
+    static var identifier = "MenuCellView"
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.accessoryType = .disclosureIndicator
@@ -62,6 +64,11 @@ class MenuCellView: UITableViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setup(with item: MenuItem) {
+        itemNameLabel.text = item.name
+        itemPriceLabel.text = String(format: "R$ %d,00", item.price)
     }
 }
 

@@ -8,5 +8,7 @@
 import Foundation
 
 struct Address: Decodable {
-
+    let street: String
+    let number: String
+    let neighborhood: String
 }

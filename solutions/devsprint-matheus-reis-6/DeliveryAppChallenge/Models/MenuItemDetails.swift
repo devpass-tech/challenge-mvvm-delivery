@@ -7,9 +7,5 @@
 
 import Foundation
 
-struct MenuItem: Decodable {
-    let name: String
-    let price: Int
-    let category: String?
-    let description: String?
+struct MenuItemDetails: Decodable {
 }

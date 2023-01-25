@@ -22,7 +22,7 @@ enum DeliveryRequest: RequestProtocol {
         case .restaurants:
             return "/home_restaurant_list.json"
         case .addresses:
-            return "/addresses_search_results.json"
+            return "/address_search_results.json"
         case .menuItem:
             return "/menu_item_details.json"
         case .restaurantDetail:

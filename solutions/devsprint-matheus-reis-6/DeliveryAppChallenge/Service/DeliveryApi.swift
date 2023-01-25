@@ -15,21 +15,14 @@ class DeliveryApi {
     }
 
     func fetchRestaurants(_ completion: ([Restaurant]) -> Void) {
-        self.networkManager.get(urlRequest: DeliveryRequest.restaurants) { (result: Result<[Restaurant], NetworkError>) in
-            switch result {
-            case .success(let restaurant):
-                completion(restaurant)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        completion([])
     }
 
-    func searchAddresses(_ completion: ([Address]) -> Void) {
+    func searchAddresses(_ completion: @escaping ([Address]) -> Void) {
         self.networkManager.get(urlRequest: DeliveryRequest.addresses) { (result: Result<[Address], NetworkError>) in
             switch result {
-            case .success(let addresses):
-                completion(addresses)
+            case .success(let address):
+                completion(address)
             case .failure(let error):
                 print(error)
             }

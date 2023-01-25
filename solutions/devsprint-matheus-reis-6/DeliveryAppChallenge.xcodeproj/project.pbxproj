@@ -41,6 +41,7 @@
 		B63833A12980D9A600F0BCC2 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63833A02980D9A600F0BCC2 /* RequestProtocol.swift */; };
 		B63833A32980DA2500F0BCC2 /* DeliveryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63833A22980DA2500F0BCC2 /* DeliveryRequest.swift */; };
 		B63833A52980E2AB00F0BCC2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63833A42980E2AB00F0BCC2 /* HomeViewModel.swift */; };
+		B6B46B9029819F68008B210C /* DeliveryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0565272A0A0F007B0228 /* DeliveryApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -452,6 +453,7 @@
 				983271C1272752AF0010C63A /* HomeViewController.swift in Sources */,
 				982EE17A28DB796600B6E13A /* RestaurantDetails.swift in Sources */,
 				982EE17828DB794400B6E13A /* Address.swift in Sources */,
+				B6B46B9029819F68008B210C /* DeliveryApi.swift in Sources */,
 				98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */,
 				98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */,
 				98FC5AAE2732BA2E002412EA /* RestaurantInfoView.swift in Sources */,

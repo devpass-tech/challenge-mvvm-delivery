@@ -11,11 +11,13 @@ protocol HomeViewModelProtocol {
     var restaurants: [Restaurant] { get }
     
     func fetch(completion: @escaping () -> ())
+    func didTapRestaurant(restaurant: Restaurant)
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
     
     private let service: DeliveryApiProtocol
+    var coordinator: HomeCoordinator?
         
     var restaurants: [Restaurant] = []
     
@@ -29,5 +31,9 @@ final class HomeViewModel: HomeViewModelProtocol {
             
             completion()
         }
+    }
+    
+    func didTapRestaurant(restaurant: Restaurant) {
+        coordinator?.goToRestaurantDetails()
     }
 }

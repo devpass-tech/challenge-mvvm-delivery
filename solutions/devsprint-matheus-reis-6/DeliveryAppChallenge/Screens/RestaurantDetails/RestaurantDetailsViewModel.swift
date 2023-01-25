@@ -10,24 +10,33 @@ import Foundation
 protocol RestaurantDetailsViewModelProtocol {
     var restaurant: RestaurantDetails { get }
     
-    func fetch(completion: @escaping () -> ())
+    func fetch(completion: @escaping (NetworkError?) -> ())
 }
 
 final class RestaurantDetailsViewModel: RestaurantDetailsViewModelProtocol {
     
     private let service: DeliveryApiProtocol
     var restaurant: RestaurantDetails = .makeEmpty()
+    weak var coordinator: RestaurantDetailsCoordinator?
     
     init(service: DeliveryApiProtocol, restaurant: RestaurantDetails = .makeEmpty()) {
         self.service = service
         self.restaurant = restaurant
     }
     
-    func fetch(completion: @escaping () -> ()) {
-        service.fetchRestaurantDetails { restaurant in
-            self.restaurant = restaurant
-            completion()
-        }
+    deinit {
+        coordinator?.finish()
     }
     
+    func fetch(completion: @escaping (NetworkError?) -> ()) {
+        service.fetchRestaurantDetails { result in
+            switch result {
+            case .success(let restaurant):
+                self.restaurant = restaurant
+                completion(nil)
+            case .failure(let error):
+                completion(error)
+            }
+        }
+    }
 }

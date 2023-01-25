@@ -12,7 +12,7 @@ import Foundation
 
 protocol DeliveryApiProtocol {
     func fetchRestaurants(_ completion: @escaping ([Restaurant]) -> Void)
-    func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetails) -> Void)
+    func fetchRestaurantDetails(_ completion: @escaping (Result<RestaurantDetails,NetworkError>) -> Void)
     func fetchMenuItem(_ completion: @escaping (MenuItem) -> Void)
     func searchAddresses(_ completion: @escaping ([Address]) -> Void)
 }
@@ -70,38 +70,8 @@ struct DeliveryApi: DeliveryApiProtocol {
         }
     }
 
-    func fetchRestaurantDetails(_ completion: @escaping (RestaurantDetails) -> Void) {
-        guard let url = URL(string: "https://raw.githubusercontent.com/devpass-tech/challenge-mvvm-delivery/main/api/restaurant_details.json") else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print(error)
-                
-                return
-            }
-            
-            if response == nil {
-                print("No response")
-                return
-            }
-            
-            guard let data = data else {
-                print("No data present on response")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            
-            guard let result = try? decoder.decode(RestaurantDetails.self, from: data) else {
-                print("Decoding error")
-                return
-            }
-            
-            completion(result)
-        }.resume()
+    func fetchRestaurantDetails(_ completion: @escaping (Result<RestaurantDetails, NetworkError>) -> Void) {
+        network.get(.restaurantDetail, completion: completion)
     }
 
     func fetchMenuItem(_ completion: @escaping (MenuItem) -> Void) {

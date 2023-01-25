@@ -35,11 +35,13 @@ class RestaurantDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.fetch(completion: {
-            DispatchQueue.main.sync {
-                self.restaurantDetailsView.setup(with: self.viewModel.restaurant)
+        viewModel.fetch { error in
+            if error == nil {
+                DispatchQueue.main.sync {
+                    self.restaurantDetailsView.setup(with: self.viewModel.restaurant)
+                }
             }
-        })
+        }
     }
 }
 

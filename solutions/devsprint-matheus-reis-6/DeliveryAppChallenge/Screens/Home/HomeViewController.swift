@@ -73,11 +73,8 @@ extension HomeViewController: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let service = DeliveryApi()
-        let viewModel = RestaurantDetailsViewModel(service: service)
-        let controller = RestaurantDetailsViewController(viewModel: viewModel)
-        
-        navigationController?.pushViewController(controller, animated: true)
+        let restaurant = viewModel.restaurants[indexPath.row]
+
+        viewModel.didTapRestaurant(restaurant: restaurant)
     }
 }

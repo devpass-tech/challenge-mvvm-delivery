@@ -11,5 +11,5 @@ enum NetworkError: Error {
     case requestFailure(Error)
     case emptyData
     case emptyResponse
-    case decodedFailure
+    case decodeFailure
 }

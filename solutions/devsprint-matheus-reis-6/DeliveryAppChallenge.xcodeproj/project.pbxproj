@@ -40,7 +40,6 @@
 		B638339F2980D92200F0BCC2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B638339E2980D92200F0BCC2 /* NetworkError.swift */; };
 		B63833A12980D9A600F0BCC2 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63833A02980D9A600F0BCC2 /* RequestProtocol.swift */; };
 		B63833A32980DA2500F0BCC2 /* DeliveryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63833A22980DA2500F0BCC2 /* DeliveryRequest.swift */; };
-		B63833A52980E2AB00F0BCC2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63833A42980E2AB00F0BCC2 /* HomeViewModel.swift */; };
 		B6B46B9029819F68008B210C /* DeliveryApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EA0565272A0A0F007B0228 /* DeliveryApi.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +92,6 @@
 		B638339E2980D92200F0BCC2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B63833A02980D9A600F0BCC2 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		B63833A22980DA2500F0BCC2 /* DeliveryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRequest.swift; sourceTree = "<group>"; };
-		B63833A42980E2AB00F0BCC2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +219,6 @@
 			children = (
 				983271C0272752AF0010C63A /* HomeViewController.swift */,
 				98F1296D272F363200B88A87 /* HomeView.swift */,
-				B63833A42980E2AB00F0BCC2 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -473,7 +470,6 @@
 				98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */,
 				98EA0561272A0963007B0228 /* RestaurantDetailsViewController.swift in Sources */,
 				98F12972272F41BE00B88A87 /* RestaurantListView.swift in Sources */,
-				B63833A52980E2AB00F0BCC2 /* HomeViewModel.swift in Sources */,
 				B63833A32980DA2500F0BCC2 /* DeliveryRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

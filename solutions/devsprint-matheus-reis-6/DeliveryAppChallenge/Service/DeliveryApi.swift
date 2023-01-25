@@ -15,11 +15,12 @@ class DeliveryApi {
     }
 
     func fetchRestaurants(_ completion: ([Restaurant]) -> Void) {
+        
         completion([])
     }
 
     func searchAddresses(_ completion: @escaping ([Address]) -> Void) {
-        self.networkManager.get(urlRequest: DeliveryRequest.addresses) { (result: Result<[Address], NetworkError>) in
+        networkManager.get(DeliveryRequest.addresses) { (result: Result<[Address], NetworkError>) in
             switch result {
             case .success(let address):
                 completion(address)

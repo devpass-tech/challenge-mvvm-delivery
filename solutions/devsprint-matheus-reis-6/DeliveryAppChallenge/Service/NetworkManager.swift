@@ -8,7 +8,7 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    func get<T: Decodable>(urlRequest: RequestProtocol, completion: @escaping (Result<T, NetworkError>) -> ())
+    func get<T: Decodable>(_ request: RequestProtocol, completion: @escaping (Result<T, NetworkError>) -> ())
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -19,9 +19,9 @@ class NetworkManager: NetworkManagerProtocol {
         self.session = session
     }
     
-    func get<T: Decodable>(urlRequest: RequestProtocol, completion: @escaping (Result<T, NetworkError>) -> ()) {
+    func get<T: Decodable>(_ request: RequestProtocol, completion: @escaping (Result<T, NetworkError>) -> ()) {
         
-        session.dataTask(with: urlRequest.urlRequest) { (data, response, error) in
+        session.dataTask(with: request.urlRequest) { (data, response, error) in
             if let error = error {
                 completion(.failure(.requestFailure(error)))
                 return
@@ -44,11 +44,9 @@ class NetworkManager: NetworkManagerProtocol {
                 let decodedData = try decoder.decode(T.self, from: safeData)
                 completion(.success(decodedData))
             } catch {
-                completion(.failure(.decodedFailure))
+                completion(.failure(.decodeFailure))
             }
             
         }.resume()
     }
-    
-    
 }

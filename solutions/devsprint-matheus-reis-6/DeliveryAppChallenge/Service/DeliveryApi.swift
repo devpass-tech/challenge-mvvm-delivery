@@ -15,7 +15,7 @@ class DeliveryApi {
     }
 
     func fetchRestaurants(_ completion: ([Restaurant]) -> Void) {
-        
+
         completion([])
     }
 

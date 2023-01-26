@@ -20,7 +20,7 @@ class NetworkManager: NetworkManagerProtocol {
     }
     
     func get<T: Decodable>(_ request: RequestProtocol, completion: @escaping (Result<T, NetworkError>) -> ()) {
-        
+    
         session.dataTask(with: request.urlRequest) { (data, response, error) in
             if let error = error {
                 completion(.failure(.requestFailure(error)))

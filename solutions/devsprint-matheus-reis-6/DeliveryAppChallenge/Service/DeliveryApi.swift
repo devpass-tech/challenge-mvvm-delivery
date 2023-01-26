@@ -7,16 +7,27 @@
 
 import Foundation
 
-struct DeliveryApi {
+class DeliveryApi {
+    private let networkManager: NetworkManagerProtocol
+    
+    init(networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
 
     func fetchRestaurants(_ completion: ([Restaurant]) -> Void) {
 
         completion([])
     }
 
-    func searchAddresses(_ completion: ([Address]) -> Void) {
-
-        completion([])
+    func searchAddresses(_ completion: @escaping ([Address]) -> Void) {
+        networkManager.get(DeliveryRequest.addresses) { (result: Result<[Address], NetworkError>) in
+            switch result {
+            case .success(let address):
+                completion(address)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 
     func fetchRestaurantDetails(_ completion: (RestaurantDetails) -> Void) {

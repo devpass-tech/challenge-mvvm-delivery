@@ -8,7 +8,5 @@
 import Foundation
 
 struct RestaurantDetails: Decodable {
-}
-
-struct Reviews: Decodable {
+    
 }

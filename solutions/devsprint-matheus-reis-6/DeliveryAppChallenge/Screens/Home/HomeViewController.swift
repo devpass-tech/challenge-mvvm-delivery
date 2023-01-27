@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     }
 
     override func viewDidLoad() {
-        navigationController?.navigationBar.prefersLargeTitles = true 
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func loadView() {

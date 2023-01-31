@@ -36,6 +36,7 @@
 		98FC5AB42732BFC8002412EA /* MenuListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB32732BFC8002412EA /* MenuListView.swift */; };
 		98FC5AB62732BFDA002412EA /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB52732BFDA002412EA /* MenuCellView.swift */; };
 		98FC5AB82732C1EF002412EA /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FC5AB72732C1EF002412EA /* MenuItemView.swift */; };
+		B61AAD9129835FD400E0A641 /* AddressSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61AAD9029835FD400E0A641 /* AddressSearchViewModel.swift */; };
 		B638339D2980D82000F0BCC2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B638339C2980D82000F0BCC2 /* NetworkManager.swift */; };
 		B638339F2980D92200F0BCC2 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B638339E2980D92200F0BCC2 /* NetworkError.swift */; };
 		B63833A12980D9A600F0BCC2 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63833A02980D9A600F0BCC2 /* RequestProtocol.swift */; };
@@ -88,6 +89,7 @@
 		98FC5AB32732BFC8002412EA /* MenuListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListView.swift; sourceTree = "<group>"; };
 		98FC5AB52732BFDA002412EA /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		98FC5AB72732C1EF002412EA /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		B61AAD9029835FD400E0A641 /* AddressSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchViewModel.swift; sourceTree = "<group>"; };
 		B638339C2980D82000F0BCC2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B638339E2980D92200F0BCC2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B63833A02980D9A600F0BCC2 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				98EA055A272A092F007B0228 /* AddressSearchViewController.swift */,
+				B61AAD9029835FD400E0A641 /* AddressSearchViewModel.swift */,
 			);
 			path = AddressSearch;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				98EA0561272A0963007B0228 /* RestaurantDetailsViewController.swift in Sources */,
 				98F12972272F41BE00B88A87 /* RestaurantListView.swift in Sources */,
 				B63833A32980DA2500F0BCC2 /* DeliveryRequest.swift in Sources */,
+				B61AAD9129835FD400E0A641 /* AddressSearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
